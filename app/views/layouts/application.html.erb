@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= render 'shared/sidebar' %>
+    <% else %>
+      <%= render 'shared/before_login_sidebar' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
