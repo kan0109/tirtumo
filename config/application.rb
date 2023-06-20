@@ -30,7 +30,7 @@ module Tiritumo
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.action_mailer.default_url_options = Settings.default_url_options.to_h
+    config.action_mailer.default_url_options = config.settings[:default_url_options].to_h
     # Don't generate system test files.
     config.generators.system_tests = nil
   end

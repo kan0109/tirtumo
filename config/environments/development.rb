@@ -65,7 +65,11 @@ Rails.application.configure do
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
+  config.before_configuration do
+    config.settings = config_for(:settings)
+  end
+
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.action_mailer.default_url_options = Settings.default_url_options.to_h
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
