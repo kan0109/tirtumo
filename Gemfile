@@ -73,3 +73,6 @@ end
 
 
 gem "dockerfile-rails", ">= 1.4", :group => :development
+
+gem 'kaminari'
+gem 'turbo-rails'
