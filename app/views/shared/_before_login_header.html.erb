@@ -1,5 +1,6 @@
 <header>
   <div id="navArea">
+    <!-- ナビゲーションメニューのコンテンツ -->
     <nav>
       <div class="inner">
         <ul>
@@ -9,13 +10,27 @@
         </ul>
       </div>
     </nav>
-    <div class="toggle-btn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div id="mask"></div>
   </div>
-  <script src="script.js"></script>
+  <div class="toggle-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div id="mask"></div>
 </header>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let nav = document.querySelector("#navArea");
+    let btn = document.querySelector(".toggle-btn");
+    let mask = document.querySelector("#mask");
+
+    btn.onclick = () => {
+      nav.classList.toggle("open");
+    };
+
+    mask.onclick = () => {
+      nav.classList.toggle("open");
+    };
+  });
+</script>

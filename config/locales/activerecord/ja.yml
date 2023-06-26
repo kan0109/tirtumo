@@ -3,6 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       post: '掲示板'
+      comment: 'コメント'
     attributes:
       user:
         email: 'メールアドレス'
@@ -13,3 +14,5 @@ ja:
         title: '節約タイトル'
         content: '節約内容'
         post_image: '写真'
+      comment:
+        content: 'コメント'
