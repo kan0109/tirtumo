@@ -1,41 +1,20 @@
 <header>
-  <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
-
-    <%= link_to root_path, class: 'navbar-brand' do %>
-    <% end %>
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto main-nav align-items-center">
-        <li class="nav-item dropdown dropdown-slide">
-          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            掲示板
-          </a>
-
-          <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to '掲示板一覧', '#', class: 'dropdown-item' %>
-            <%= link_to '掲示板作成', '#', class: 'dropdown-item' %>
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to 'ブックマーク一覧', '#', class: 'nav-link' %>
-        </li>
-
-        <li class="nav-item dropdown dropdown-slide">
-          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
-          </a>
-          <div class="dropdown-menu dropdown-menu-right">
-            <div class="dropdown-item">らんてっく たろう</div>
-            <div class="dropdown-divider"></div>
-            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
-
-            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
-          </div>
-        </li>
-      </ul>
+  <div id="navArea">
+    <nav>
+      <div class="inner">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Detail</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="toggle-btn">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-  </nav>
+    <div id="mask"></div>
+  </div>
+  <script src="script.js"></script>
 </header>
