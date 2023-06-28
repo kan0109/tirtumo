@@ -38,13 +38,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = current_user.posts.find(params[:id])
     @post.destroy!
-    redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
+    redirect_to posts_path, success: t('defaults.message.deleted')
   end
 
   def likes
-    @like_posts = current_user.like_posts.includes(:user).order(created_at: :desc)
+    @like_posts = current_user.like_posts
   end
 
   private

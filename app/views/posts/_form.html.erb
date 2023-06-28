@@ -1,14 +1,16 @@
 <%= form_with model: post, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="form-group">
+  <div class="form-group text-center mb-3">
     <%= f.label :title %>
+    <span class="badge text-bg-danger">必須</span>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="form-group">
+  <div class="form-group text-center mb-3">
     <%= f.label :content %>
+    <span class="badge text-bg-danger">必須</span>
     <%= f.text_area :content, class: 'form-control', rows: 10 %>
   </div>
-  <div class="form-group">
+  <div class="form-group text-center mb-3">
     <%= f.label :post_image %>
     <%= f.file_field :post_image, class: 'form-control mb-3', accept: 'image/*' %>
     <%= f.hidden_field :post_image_cache %>
