@@ -11,11 +11,9 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
   resources :posts do
     resources :comments, only: %i[create], shallow: true
-    collection do
-      get 'likes'
-    end
   end
   
   resources :likes, only: %i[create destroy]
   
+  get '/likes', to: 'posts#likes', as: 'post_likes'
 end
