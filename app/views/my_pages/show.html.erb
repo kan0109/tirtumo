@@ -13,6 +13,7 @@
                 <h5 class="card-title"><%= post.title %></h5>
                 <p class="card-text"><%= post.content %></p>
                 <%= link_to t('defaults.detail'), post_path(post), class: 'btn btn-primary' %>
+                <%= link_to t('defaults.delete'),post_path(post), method: :delete, data: { confirm: t('defaults.confirm') },class: 'btn btn-danger' %>
               </div>
             </div>
           <% end %>
