@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy' 
   
   resources :users, only: %i[new create]
-  resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :posts, only: %i[index new create show]
+  resources :password_resets, only: %i[new create edit update]
+  resources :posts do
+    resources :comments, only: %i[create], shallow: true
+  end
+  
+  resources :likes, only: %i[create destroy]
+  
+  get '/likes', to: 'posts#likes', as: 'post_likes'
 end

@@ -1,4 +1,3 @@
-<% content_for(:title, @post.title) %>
 <div class="container pt-5">
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2">
@@ -7,19 +6,16 @@
       <article class="card">
         <div class="card-body">
           <div class='row'>
-            <div class='col-md-3'>
-              <%= image_tag @post.post_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
-            </div>
             <div class='col-md-9'>
               <h3 class="d-inline"><%= @post.title %></h3>
               <%= render 'crud_menus', post: @post if current_user.own?(@post) %>
               <ul class="list-inline">
-                <li class="list-inline-item">by <%= @post.user.decorate.full_name %></li>
+                <li class="list-inline-item">by <%= @post.user.decorate.name %></li>
                 <li class="list-inline-item"><%= l @post.created_at, format: :long  %></li>
               </ul>
             </div>
           </div>
-          <p><%= simple_format(@post.body) %></p>
+          <p><%= simple_format(@post.content) %></p>
         </div>
       </article>
     </div>
@@ -30,42 +26,4 @@
 
   <!-- コメントエリア -->
   <%= render 'comments/comments', { comments: @comments } %>
-</div>
-
-  <!-- コメントエリア -->
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <table id="js-table-comment" class="table">
-        <tr id="comment-25">
-          <td style="width: 60px">
-            <img class="rounded-circle" src="sample.jpg" width="50" height="50" />
-          </td>
-          <td>
-            <h3 class="small">らんてっく たろう</h3>
-            <div id="js-comment-25">
-              <p>コメントです</p>
-            </div>
-            <div style="display: none;">
-              <textarea class="form-control mb-1">コメントです</textarea>
-              <button class="btn btn-light">キャンセル</button>
-              <button class="btn btn-success">更新</button>
-            </div>
-          </td>
-
-          <td class="action">
-            <ul class="list-inline justify-content-center" style="float: right;">
-              <li class="list-inline-item">
-                <a href="#"><i class='fa fa-pencil'></i></a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-trash"></i>
-                </a>
-              </li>
-            </ul>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
 </div>

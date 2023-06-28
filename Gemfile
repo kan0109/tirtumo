@@ -77,3 +77,4 @@ gem "dockerfile-rails", ">= 1.4", :group => :development
 gem 'kaminari'
 gem 'turbo-rails'
 gem 'carrierwave', '~> 2.2.4'
+gem 'draper', '4.0.2'
