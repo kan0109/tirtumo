@@ -1,36 +1,19 @@
 <header>
-  <div id="navArea">
-    <!-- ナビゲーションメニューのコンテンツ -->
-    <nav>
-      <div class="inner">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Detail</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-  <div class="toggle-btn">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div id="mask"></div>
+  <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
+
+    <%= link_to root_path, class: 'navbar-brand' do %>
+    <% end %>
+
+    <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto main-nav align-items-center">
+        <li class="nav-item">
+          <%= link_to 'ログイン', login_path ,class: 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </header>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    let nav = document.querySelector("#navArea");
-    let btn = document.querySelector(".toggle-btn");
-    let mask = document.querySelector("#mask");
-
-    btn.onclick = () => {
-      nav.classList.toggle("open");
-    };
-
-    mask.onclick = () => {
-      nav.classList.toggle("open");
-    };
-  });
-</script>

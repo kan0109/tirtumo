@@ -10,6 +10,7 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         name: '名前'
+        avatar: 'アバター'
       post:
         title: '節約タイトル'
         content: '節約内容'

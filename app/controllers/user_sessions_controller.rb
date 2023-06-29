@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
   def create
     @user = login(user_params[:email], user_params[:password])
     if @user
-      redirect_back_or_to posts_path, success: t('.success')
+      redirect_to my_page_path, success: t('.success')
     else
       flash.now[:danger] = t('.fail')
       render :new
