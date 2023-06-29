@@ -6,6 +6,7 @@ ja:
     post: '投稿'
     detail: '詳細'
     delete: '削除'
+    edit: '編集'
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
@@ -45,3 +46,5 @@ ja:
   profiles:
     show:
       title: 'プロフィール'
+    edit:
+      title: 'プロフィール編集'

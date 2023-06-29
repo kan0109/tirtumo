@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   resources :likes, only: %i[create destroy]
   
   get '/likes', to: 'posts#likes', as: 'post_likes'
+
+  resource :profile, only: %i[show edit update]
 end

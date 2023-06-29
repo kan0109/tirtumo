@@ -5,7 +5,7 @@
         <div class="card-body">
           <h1 class="card-title">Welcome to your MyPage, <%= @user.decorate.name %></h1>
           <p class="card-text">Email: <%= @user.email %></p>
-
+          <%= link_to (t 'profiles.show.title'), profile_path, class: 'dropdown-item' %>
           <h3>My Posts</h3>
           <% @user.posts.each do |post| %>
             <div class="card mb-3">
