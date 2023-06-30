@@ -48,3 +48,5 @@ module Tiritumo
     end
   end
 end
+
+ENV['THOR_SILENCE_DEPRECATION'] = '1'
