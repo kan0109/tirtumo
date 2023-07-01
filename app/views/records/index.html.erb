@@ -1,40 +1,39 @@
 
 <h1>節約リスト</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>項目</th>
-      <th>金額</th>
-      <th>チェック</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>１、でかける時にマイボトル持参した</td>
-      <td>100円/1日</td>
-      <td><%= check_box_tag 'record[bottle_bring]' %></td>
-    </tr>
-    <tr>
-      <td>２、お昼ご飯弁当を持参した、または自炊した</td>
-      <td>300円/1日</td>
-      <td><%= check_box_tag 'record[packed_lunch]' %></td>
-    </tr>
-    <tr>
-      <td>３、交通手段を徒歩または自転車でを利用した</td>
-      <td>200円/1日</td>
-      <td><%= check_box_tag 'record[alternative_transportation]' %></td>
-    </tr>
-    <tr>
-      <td>４、外食しなかった</td>
-      <td>600円/1日</td>
-      <td><%= check_box_tag 'record[no_eating_out]' %></td>
-    </tr>
-  </tbody>
-</table>
-
 <p>節約合計金額: <%= @savings %>円</p>
 
-<%= form_with(model: @record, url: record_path(@record), method: :patch) do |form| %>
+<%= form_with(model: @records, url: record_path(@records), method: :patch) do |form| %>
+  <table>
+    <thead>
+      <tr>
+        <th>項目</th>
+        <th>金額</th>
+        <th>チェック</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>１、でかける時にマイボトル持参した</td>
+        <td>100円/1日</td>
+        <td><%= check_box_tag 'record[bottle_bring]' %></td>
+      </tr>
+      <tr>
+        <td>２、お昼ご飯弁当を持参した、または自炊した</td>
+        <td>300円/1日</td>
+        <td><%= check_box_tag 'record[packed_lunch]' %></td>
+      </tr>
+      <tr>
+        <td>３、交通手段を徒歩または自転車でを利用した</td>
+        <td>200円/1日</td>
+        <td><%= check_box_tag 'record[alternative_transportation]' %></td>
+      </tr>
+      <tr>
+        <td>４、外食しなかった</td>
+        <td>600円/1日</td>
+        <td><%= check_box_tag 'record[no_eating_out]' %></td>
+      </tr>
+    </tbody>
+  </table>
   <%= form.submit '更新' %>
 <% end %>
