@@ -9,13 +9,12 @@ class RecordsController < ApplicationController
   }.freeze
 
   def index
-    @records = current_user.record || Record.new
-    @savings = calculate_savings(@records)
+    @record = current_user.record || Record.new
+    @savings = calculate_savings(@record)
   end
 
   def update
-    @record = current_user.record || Record.new
-
+    @record = current_user.record || Record.new 
     if @record.update(record_params)
       @savings = calculate_savings(@record)
       redirect_to records_path, notice: '記録が更新されました。'
@@ -27,8 +26,8 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:bottle_bring, :packed_lunch, :alternative_transportation, :no_eating_out)
-  end
+    params.fetch(:record, {}).permit(:bottle_bring, :packed_lunch, :alternative_transportation, :no_eating_out)
+  end  
 
   def calculate_savings(records)
     total_savings = 0

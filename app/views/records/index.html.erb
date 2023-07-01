@@ -35,6 +35,6 @@
 
 <p>節約合計金額: <%= @savings %>円</p>
 
-<%= form_with(model: @records, url: records_path, method: :put) do |form| %>
+<%= form_with(model: @record, url: record_path(@record), method: :patch) do |form| %>
   <%= form.submit '更新' %>
 <% end %>
