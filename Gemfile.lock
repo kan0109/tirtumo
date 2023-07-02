@@ -84,6 +84,7 @@ GEM
       popper_js (>= 2.11.6, < 3)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
+    byebug (11.1.3)
     carrierwave (2.2.4)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -322,6 +323,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap (~> 5.2.3)
+  byebug
   carrierwave (~> 2.2.4)
   debug
   dockerfile-rails (>= 1.4)

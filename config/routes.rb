@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get '/likes', to: 'posts#likes', as: 'post_likes'
 
   resource :profile, only: %i[show edit update]
+
+  resources :records, only: %i[index update]
 end

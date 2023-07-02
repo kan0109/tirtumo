@@ -1,4 +1,4 @@
-class MyPagesController < ApplicationController
+class RecordsController < ApplicationController
   before_action :require_login
 
   ITEM_PRICES = {
@@ -8,13 +8,28 @@ class MyPagesController < ApplicationController
     no_eating_out: 600
   }.freeze
 
-  def show
-    @user = current_user
+  def index
     @records = current_user.records
+    pp @records
     @savings = calculate_savings(@records)
   end
 
+  def update
+    @record = current_user.records.build(record_params)
+    if @record.save
+      @user_records = current_user.records;
+      @savings = calculate_savings(@user_records)
+      redirect_to records_path, notice: '記録が更新されました。'
+    else
+      redirect_to records_path, alert: '記録の更新に失敗しました。'
+    end
+  end
+
   private
+
+  def record_params
+    params.fetch(:record, {}).permit(:bottle_bring, :packed_lunch, :alternative_transportation, :no_eating_out)
+  end  
 
   def calculate_savings(records)
     total_savings = 0 

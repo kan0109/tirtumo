@@ -1072,6 +1072,11 @@
     "mkdirp" "^1.0.4"
     "rimraf" "^3.0.2"
 
+"@rails/ujs@^7.0.6":
+  "integrity" "sha512-s5v3AC6AywOIFMz0RIMW83Xc8FPIvKMkP3ZHFlM4ISNkhdUwP9HdhVtxxo6z3dIhe9vI0Our2A8kN/QpUV02Qg=="
+  "resolved" "https://registry.npmjs.org/@rails/ujs/-/ujs-7.0.6.tgz"
+  "version" "7.0.6"
+
 "@rails/webpacker@5.4.4":
   "integrity" "sha512-hp9myb2MChYFPfE5Fd/3gF4q2m4wpxC+WWCkxcg6My3HYCptWuqMVXRwrBZ5EJHYiL/WRyMLvVNWwlFV47xhUw=="
   "resolved" "https://registry.npmjs.org/@rails/webpacker/-/webpacker-5.4.4.tgz"
@@ -5913,6 +5918,11 @@
   "integrity" "sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ=="
   "resolved" "https://registry.npmjs.org/querystringify/-/querystringify-2.2.0.tgz"
   "version" "2.2.0"
+
+"rails-ujs@^5.2.8-1":
+  "integrity" "sha512-1Xfgv21r3Ira7sgepnvLD546q8hm/uIokK7Ocoi4uLsXkT0HHg8vJaxKfBqbjdb24YeOGBily+jxfcAle7dMWA=="
+  "resolved" "https://registry.npmjs.org/rails-ujs/-/rails-ujs-5.2.8-1.tgz"
+  "version" "5.2.8-1"
 
 "randombytes@^2.0.0", "randombytes@^2.0.1", "randombytes@^2.0.5", "randombytes@^2.1.0":
   "integrity" "sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ=="
