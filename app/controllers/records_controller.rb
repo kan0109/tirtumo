@@ -15,7 +15,7 @@ class RecordsController < ApplicationController
   end
 
   def update
-    @record = current_user.records.build(record_params)
+    @record = current_user.records.new(record_params)
     if @record.save
       @user_records = current_user.records;
       @savings = calculate_savings(@user_records)
