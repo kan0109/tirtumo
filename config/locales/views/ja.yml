@@ -48,3 +48,6 @@ ja:
       title: 'プロフィール'
     edit:
       title: 'プロフィール編集'
+  targets:
+    new:
+      title: '目標設定'

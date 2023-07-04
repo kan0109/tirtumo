@@ -17,3 +17,6 @@ ja:
         post_image: '写真'
       comment:
         content: 'コメント'
+      target:
+        target: 'あなたの節約目標'
+        target_amount: '目標金額'
