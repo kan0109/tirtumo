@@ -33,12 +33,16 @@
   <div class="row justify-content-start">
     <div class="col-md-2">
       <div class="card mt-5 mx-auto">
-        <h5 class="card-title"><%= @user.target.target %></h5>
-        <p class="card-number"><%= @user.target.target_amount %>円</p>
+        <% if @user.target %>
+          <h5 class="card-title"><%= @user.target.target %></h5>
+          <p class="card-number"><%= @user.target.target_amount %>円</p>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 <div class="container">

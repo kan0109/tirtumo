@@ -4,6 +4,6 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
 
-  validates :title, presence: true, length: { maximum: 255 }
+  validates :title, presence: true, length: { maximum: 50 }
   validates :content, presence: true, length: { maximum: 65_535 }
 end
