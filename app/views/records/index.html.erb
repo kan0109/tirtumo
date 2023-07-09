@@ -1,39 +1,78 @@
-
-<h1>節約リスト</h1>
-
-<p>節約合計金額: <%= @savings %>円</p>
-
-<%= form_with(model: @records, url: record_path(@records), method: :patch) do |form| %>
-  <table>
-    <thead>
-      <tr>
-        <th>項目</th>
-        <th>金額</th>
-        <th>チェック</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>１、でかける時にマイボトル持参した</td>
-        <td>100円/1日</td>
-        <td><%= check_box_tag 'record[bottle_bring]' %></td>
-      </tr>
-      <tr>
-        <td>２、お昼ご飯弁当を持参した、または自炊した</td>
-        <td>300円/1日</td>
-        <td><%= check_box_tag 'record[packed_lunch]' %></td>
-      </tr>
-      <tr>
-        <td>３、交通手段を徒歩または自転車でを利用した</td>
-        <td>200円/1日</td>
-        <td><%= check_box_tag 'record[alternative_transportation]' %></td>
-      </tr>
-      <tr>
-        <td>４、外食しなかった</td>
-        <td>600円/1日</td>
-        <td><%= check_box_tag 'record[no_eating_out]' %></td>
-      </tr>
-    </tbody>
-  </table>
-  <%= form.submit '更新' %>
-<% end %>
+<div class="test_box font_test">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <h1>節約リスト</h1>
+        <%= form_with(model: @records, url: record_path(@records), method: :patch) do |form| %>
+          <table>
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>金額</th>
+                <th>チェック</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="item">
+                    １、でかける時にマイボトル持参した
+                  </div>
+                </td>
+                <td>100円/1日</td>
+                <td>
+                  <div class="checkbox-wrapper">
+                    <%= check_box_tag 'record[bottle_bring]' %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="item">
+                    ２、お昼ご飯弁当を持参、または自炊した
+                  </div>
+                </td>
+                <td>300円/1日</td>
+                <td>
+                  <div class="checkbox-wrapper">
+                    <%= check_box_tag 'record[packed_lunch]' %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="item">
+                    ３、交通手段を徒歩、自転車でを利用した
+                  </div>
+                </td>
+                <td>200円/1日</td>
+                <td>
+                  <div class="checkbox-wrapper">
+                    <%= check_box_tag 'record[alternative_transportation]' %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="item">
+                    ４、外食しなかった
+                  </div>
+                </td>
+                <td>600円/1日</td>
+                <td>
+                  <div class="checkbox-wrapper">
+                    <%= check_box_tag 'record[no_eating_out]' %>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <%= form.submit '更新' %>
+          <div class="item">
+            <p>節約合計金額: <%= @savings %>円</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

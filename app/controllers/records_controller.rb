@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :require_login
+  
 
   ITEM_PRICES = {
     bottle_bring: 100,
@@ -15,15 +16,21 @@ class RecordsController < ApplicationController
   end
 
   def update
-    @record = current_user.records.new(record_params)
-    if @record.save
-      @user_records = current_user.records;
-      @savings = calculate_savings(@user_records)
-      redirect_to records_path, notice: '記録が更新されました。'
+    today_records = current_user.records.where("created_at >= ?", Time.zone.now.beginning_of_day)
+    if today_records.empty?
+      @record = current_user.records.new(record_params)
+      if @record.save
+        @user_records = current_user.records
+        @savings = calculate_savings(@user_records)
+        redirect_to records_path, notice: '記録が更新されました。'
+      else
+        redirect_to records_path, alert: '記録の更新に失敗しました。'
+      end
     else
-      redirect_to records_path, alert: '記録の更新に失敗しました。'
+      redirect_to records_path, alert: '1日に一回しか記録を作成できません。'
     end
   end
+  
 
   private
 

@@ -11,6 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto main-nav align-items-center">
         <li class="nav-item">
+          <%= link_to (t 'defaults.service'), explanation_path,class: 'dropdown-item' %>
           <%= link_to (t 'defaults.my_page'), my_page_path,class: 'dropdown-item' %>
           <%= link_to (t 'defaults.post'), new_post_path,class: 'dropdown-item' %>
           <%= link_to (t 'defaults.record'), records_path,class: 'dropdown-item' %>

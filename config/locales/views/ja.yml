@@ -10,6 +10,7 @@ ja:
     record: '記録'
     target: '目標設定'
     my_page: 'マイページ'
+    service: 'サービスについて'
 
     message:
       require_login: 'ログインしてください'

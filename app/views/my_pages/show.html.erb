@@ -34,7 +34,7 @@
     <div class="col-md-2">
       <div class="card mt-5 mx-auto">
         <% if @user.target %>
-          <h5 class="card-title"><%= @user.target.target %></h5>
+          <p class="card-title"><%= @user.target.target %></p>
           <p class="card-number"><%= @user.target.target_amount %>円</p>
         <% end %>
       </div>
