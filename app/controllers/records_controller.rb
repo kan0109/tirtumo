@@ -51,9 +51,14 @@ class RecordsController < ApplicationController
       total_savings += ITEM_PRICES[:packed_lunch] if @packed_lunch
       total_savings += ITEM_PRICES[:alternative_transportation] if @alternative_transportation
       total_savings += ITEM_PRICES[:no_eating_out] if @no_eating_out
-
     end
 
+    level_up_threshold = 1000  # レベルアップする節約金額のしきい値
+    current_user_level = current_user.level || 1  # ユーザーの現在のレベル（初期値は1）
+
+    if total_savings >= level_up_threshold && current_user_level < (total_savings / level_up_threshold).floor
+      current_user.update(level: (total_savings / level_up_threshold).floor)
+    end
 
     total_savings
   end

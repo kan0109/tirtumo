@@ -42,7 +42,7 @@
               <tr>
                 <td>
                   <div class="item">
-                    ３、交通手段を徒歩、自転車でを利用した
+                    ３、交通手段を徒歩、自転車を利用した
                   </div>
                 </td>
                 <td>200円/1日</td>
@@ -70,6 +70,7 @@
           <%= form.submit '更新' %>
           <div class="item">
             <p>節約合計金額: <%= @savings %>円</p>
+            <p>レベル: <%= current_user.level || 1 %></p>
           </div>
         <% end %>
       </div>
