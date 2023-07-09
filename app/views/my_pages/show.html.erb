@@ -33,9 +33,21 @@
   <div class="row justify-content-start">
     <div class="col-md-2">
       <div class="card mt-5 mx-auto">
+        <div class="card-body">
+        <p>レベル: <%= current_user.level || 1 %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-start">
+    <div class="col-md-2">
+      <div class="card mt-5 mx-auto">
         <% if @user.target %>
-          <p class="card-title"><%= @user.target.target %></p>
-          <p class="card-number"><%= @user.target.target_amount %>円</p>
+          <p>節約目標: <%= @user.target.target %></p>
+          <p>目標金額: <%= @user.target.target_amount %>円</p>
         <% end %>
       </div>
     </div>
