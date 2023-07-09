@@ -1,0 +1,29 @@
+.top-page {
+  position: relative;
+  }
+
+.top-page img {
+  width: 100%;
+  height: auto;
+}
+.service-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:  60px; 
+  font-family:  'arial unicode ms';  
+}
+
+.top-container {
+  position: absolute;
+  bottom: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+}
