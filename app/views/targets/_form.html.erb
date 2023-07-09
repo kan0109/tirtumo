@@ -1,0 +1,17 @@
+<%= form_with model: target, local: true do |f| %>
+  <div class="form-group text-center mb-3">
+    <%= f.label :target %>
+    <span class="badge text-bg-danger">必須</span>
+    <%= f.text_field :target, class: 'form-control', placeholder: '目標を入力してください' %>
+  </div>
+  <div class="form-group text-center mb-3">
+    <%= f.label :target_amount %>
+    <span class="badge text-bg-danger">必須</span>
+    <div class="input-group">
+      <%= f.number_field :target_amount, class: 'form-control', placeholder: '金額を入力してください' %>
+      <span class="input-group-text">円</span>
+    </div>
+  </div>
+  
+  <%= f.submit '設定する', class: 'btn btn-primary' %>
+<% end %>

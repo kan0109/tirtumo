@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   resource :profile, only: %i[show edit update]
 
   resources :records, only: %i[index update]
+  resources :targets, only: %i[new create]
 end

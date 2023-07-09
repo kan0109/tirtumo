@@ -1,0 +1,17 @@
+/*チェックボックステキスト*/
+
+.item {
+  margin: 20px 0;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  transform: scale(2.3);
+  margin-right: 5px;
+}

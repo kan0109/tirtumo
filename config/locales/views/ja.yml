@@ -7,6 +7,11 @@ ja:
     detail: '詳細'
     delete: '削除'
     edit: '編集'
+    record: '記録'
+    target: '目標設定'
+    my_page: 'マイページ'
+    service: 'サービスについて'
+
     message:
       require_login: 'ログインしてください'
       created: "%{item}を作成しました"
@@ -48,3 +53,6 @@ ja:
       title: 'プロフィール'
     edit:
       title: 'プロフィール編集'
+  targets:
+    new:
+      title: '目標設定'
