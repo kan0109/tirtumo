@@ -62,4 +62,33 @@ class RecordsController < ApplicationController
 
     total_savings
   end
+
+  private
+
+  private
+
+  def determine_level(level)
+    case level
+    when 1..5
+      "初級"
+    when 6..15
+      "中級"
+    when 16..25
+      "上級"
+    else
+      "マスター"
+    end
+  end
+
+  def level_up?(current_level, total_savings)
+    level_up_thresholds = {
+      "初級" => 5,
+      "中級" => 15,
+      "上級" => 25,
+      "マスター" => Float::INFINITY
+    }
+
+    next_level = determine_level(current_level + 1)
+    total_savings >= level_up_thresholds[next_level]
+  end
 end

@@ -23,18 +23,7 @@
       <div class="card mt-5 mx-auto">
         <div class="card-body">
         <p>節約合計金額: <%= @savings %>円</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row justify-content-start">
-    <div class="col-md-2">
-      <div class="card mt-5 mx-auto">
-        <div class="card-body">
-        <p>レベル: <%= current_user.level || 1 %></p>
+        <p>レベル: <%= current_user.level || 1 %> (<%= determine_level(current_user.level || 1) %>)</p>
         </div>
       </div>
     </div>
@@ -78,10 +67,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  .avatar {
-    float: right;
-    margin-left: px;
-  }
-</style>
