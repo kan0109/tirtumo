@@ -3,7 +3,8 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
-    post: '投稿'
+    post: '新規投稿'
+    posts: '投稿一覧'
     detail: '詳細'
     delete: '削除'
     edit: '編集'
@@ -19,7 +20,6 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
-      delete_confirm: '削除しますか？'
   users:
     new:
       title: 'ユーザー登録'
