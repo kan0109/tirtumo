@@ -22,12 +22,15 @@ class RecordsController < ApplicationController
       if @record.save
         @user_records = current_user.records
         @savings = calculate_savings(@user_records)
-        redirect_to records_path, notice: '記録が更新されました。'
+        flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
+        redirect_to records_path
       else
-        redirect_to records_path, alert: '記録の更新に失敗しました。'
+        flash[:danger] = t('defaults.message.not_updated', item: Record.model_name.human)
+        redirect_to records_path
       end
     else
-      redirect_to records_path, alert: '1日に一回しか記録を作成できません。'
+      flash[:danger] = t('defaults.message.only_record_once_a_day', item: Record.model_name.human)
+      redirect_to records_path
     end
   end
   
