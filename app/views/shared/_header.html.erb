@@ -1,24 +1,53 @@
 <header>
-  <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
-
-    <%= link_to root_path, class: 'navbar-brand' do %>
-    <% end %>
-
-    <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto main-nav align-items-center">
-        <li class="nav-item">
-          <%= link_to (t 'defaults.service'), explanation_path,class: 'dropdown-item' %>
-          <%= link_to (t 'defaults.my_page'), my_page_path,class: 'dropdown-item' %>
-          <%= link_to (t 'defaults.post'), new_post_path,class: 'dropdown-item' %>
-          <%= link_to (t 'defaults.record'), records_path,class: 'dropdown-item' %>
-          <%= link_to (t 'defaults.target'), new_target_path,class: 'dropdown-item' %>
-          <%= link_to (t 'defaults.logout'), logout_path, class: 'dropdown-item',  data: { turbo_method: :delete } %>
+  <div class="main-menu">
+    <div class="logo">
+      <%= link_to root_path,class: "Editlink" do %>
+        <p>ちりつも節約</p>
+      <% end %>
+    </div>
+    <div class="pc-menu">
+      <ul>
+        <li>
+          <%= link_to (t 'defaults.my_page'), my_page_path %>
+        </li>
+        <li>
+          <%= link_to (t 'defaults.posts'), posts_path %>
+        </li>
+        <li>
+          <%= link_to (t 'defaults.record'), records_path %>
+        </li>
+        <li>
+          <%= link_to (t 'defaults.target'), new_target_path %>
+        </li>
+        <li>
+          <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete } %>
         </li>
       </ul>
     </div>
-  </nav>
+    <div class="sp-menu">
+      <input type="checkbox" id="sp-menu__check">
+      <label for="sp-menu__check" class="sp-menu__box">
+        <span></span>
+      </label>
+      <div class="sp-menu__content">
+        <ul class="sp-menu__list">
+          <li class="sp-menu__item">
+            <%= link_to (t 'defaults.my_page'), my_page_path, class: "sp-menu__link" %>
+          </li>
+          <li class="sp-menu__item">
+            <%= link_to (t 'defaults.posts'), posts_path, class: "sp-menu__link" %>
+          </li>
+          <li class="sp-menu__item">
+            <%= link_to (t 'defaults.record'), records_path, class: "sp-menu__link" %>
+          </li>
+          <li class="sp-menu__item">
+            <%= link_to (t 'defaults.target'), new_target_path, class: "sp-menu__link" %>
+          </li>
+          <li class="sp-menu__item">
+            <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, class: "sp-menu__link" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </header>
