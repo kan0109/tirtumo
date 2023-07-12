@@ -1,0 +1,21 @@
+.balloon {
+  position: relative;
+  background-color: #ffc4c4;
+  padding: 10px;
+  color: #333;
+  margin-top: 20px;
+  }
+  
+  .balloon::before {
+  content: "";
+  position: absolute;
+  border: 12px solid transparent;
+  border-bottom: 12px solid #ffc4c4;
+  top: -24px;
+  left: 50%;
+  }
+  
+  .balloon p {
+  margin: 0;
+  padding: 0;
+  }

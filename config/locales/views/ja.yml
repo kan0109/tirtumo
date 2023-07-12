@@ -3,7 +3,8 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
-    post: '投稿'
+    post: '新規投稿'
+    posts: '投稿一覧'
     detail: '詳細'
     delete: '削除'
     edit: '編集'
@@ -11,6 +12,8 @@ ja:
     target: '目標設定'
     my_page: 'マイページ'
     service: 'サービスについて'
+    user_new: '新規登録'
+    app_name: 'ちりつも節約'
 
     message:
       require_login: 'ログインしてください'
@@ -19,7 +22,8 @@ ja:
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
-      delete_confirm: '削除しますか？'
+      only_record_once_a_day: "%{item}は1日に一回しか更新できません"
+
   users:
     new:
       title: 'ユーザー登録'

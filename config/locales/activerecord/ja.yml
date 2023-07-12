@@ -2,8 +2,10 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
-      post: '掲示板'
+      post: '投稿'
       comment: 'コメント'
+      record: '記録'
+      target: '節約目標'
     attributes:
       user:
         email: 'メールアドレス'

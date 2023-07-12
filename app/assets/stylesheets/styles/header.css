@@ -1,0 +1,123 @@
+/* 画面サイズが1279px以下の時はPC用メニューは非表示 */
+@media screen and (max-width: 1279px) {
+  .pc-menu {
+    display: none;
+  }
+}
+/* 画面サイズが1280px以上の時はスマホ用メニューは非表示 */
+@media screen and (min-width: 1280px) {
+  .sp-menu {
+    display: none;
+  }
+}
+
+header {
+  display: flex;
+  background: #eeeeee;
+  height: 60px;
+}
+.main-menu {
+  margin: 0 auto;
+  display: flex;
+  width: 1280px;
+}
+.logo {
+  text-align: center;
+  padding: 18px;
+  font-size: 21px;
+  width: 200px;
+  background: #eeeeee;
+}
+.pc-menu {
+  width: 100%;
+}
+.pc-menu > ul {
+  display: flex;
+  list-style: none;
+}
+.pc-menu > ul > li {
+  text-align: center;
+  font-size: 16px;
+  width: 25%;
+}
+.pc-menu > ul > li > a {
+  display: block;
+  text-decoration: none;
+  color: #000000;
+  line-height: 60px;
+}
+.pc-menu > ul > li > a:hover {
+  background: #ffd967;
+}
+.sp-menu__box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background: #3584bb;
+}
+.sp-menu__box span,
+.sp-menu__box span:before,
+.sp-menu__box span:after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background: #ffffff;
+  position: absolute;
+}
+.sp-menu__box span:before {
+  bottom: 8px;
+}
+.sp-menu__box span:after {
+  top: 8px;
+}
+#sp-menu__check {
+  display: none;
+}
+#sp-menu__check:checked ~ .sp-menu__box span {
+  background: rgba(255, 255, 255, 0);
+}
+#sp-menu__check:checked ~ .sp-menu__box span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+#sp-menu__check:checked ~ .sp-menu__box span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+#sp-menu__check:checked ~ .sp-menu__content {
+  left: 0;
+}
+.sp-menu__content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  z-index: 80;
+  background-color: #3584bb;
+  transition: all 0.5s;
+}
+.sp-menu__list {
+  padding: 70px 10px 0;
+}
+.sp-menu__item {
+  border-bottom: solid 1px #ffffff;
+  list-style: none;
+}
+.sp-menu__link {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 9px 15px 10px 0;
+}

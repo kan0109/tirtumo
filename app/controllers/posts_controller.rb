@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to my_page_path, status: :see_other, success: t('.success')
+    redirect_to my_page_path, status: :see_other, success: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
   def likes

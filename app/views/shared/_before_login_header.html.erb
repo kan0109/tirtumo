@@ -1,20 +1,39 @@
 <header>
-  <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
-
-    <%= link_to root_path, class: 'navbar-brand' do %>
-    <% end %>
-
-    <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto main-nav align-items-center">
-        <li class="nav-item">
-          <%= link_to 'ログイン', login_path ,class: 'nav-link' %>
-          <%= link_to 'ちりつも節約とは', explanation_path ,class: 'nav-link' %>
+  <div class="main-menu">
+    <div class="logo">
+      <%= link_to root_path,class: "Editlink" do %>
+        <p>ちりつも節約</p>
+      <% end %>
+    </div>
+    <div class="pc-menu">
+      <ul>
+        <li>
+          <%= link_to (t 'defaults.user_new'), new_user_path %>
+        </li>
+        <li>
+          <%= link_to (t 'defaults.login'), login_path %>
+        </li>
+        <li>
+          <%= link_to (t 'defaults.service'), explanation_path %>
         </li>
       </ul>
     </div>
-  </nav>
+    <div class="sp-menu">
+      <input type="checkbox" id="sp-menu__check">
+      <label for="sp-menu__check" class="sp-menu__box">
+        <span></span>
+      </label>
+      <div class="sp-menu__content">
+        <ul class="sp-menu__list">
+          <li class="sp-menu__item">
+            <%= link_to (t 'defaults.login'), login_path, class: "sp-menu__link" %>
+          </li>
+          <li class="sp-menu__item">
+            <%= link_to (t 'defaults.service'), explanation_path, class: "sp-menu__link" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </header>
+
