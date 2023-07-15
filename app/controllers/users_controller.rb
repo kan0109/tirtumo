@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
+  def index
+    @users = User.all
+    # もしくは、適切なクエリを使用してユーザーを取得する
+    # 例: @users = User.where(role: 'user')
+    @savings = 1000  # 仮の節約金額
+
+    # @userに値を代入する
+    @user = current_user
+  end
+  
   def new 
     @user = User.new
   end

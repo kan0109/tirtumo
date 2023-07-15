@@ -3,7 +3,6 @@
     <%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
   </td>
   <td>
-  <td>
     <h3 class="small"><%= comment.user.decorate.name %></h3>
     <div id="js-comment-<%= comment.id %>">
       <%= simple_format(comment.content) %>
@@ -14,19 +13,13 @@
       <button class="btn btn-success js-button-comment-update" data-comment-id="<%= comment.id %>">更新</button>
     </div>
   </td>
-
   <% if current_user.own?(comment) %>
     <td class="action">
       <ul class="list-inline justify-content-center" style="float: right;">
         <li class="list-inline-item">
-          <a href="#" class='js-edit-comment-button' data-comment-id="<%= comment.id %>">
-            <%= icon 'fa', 'pen' %>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#" class='js-delete-comment-button' data-comment-id="<%= comment.id %>">
-            <%= icon 'fas', 'trash' %>
-          </a>
+          <%= link_to comment_path(comment), class: 'js-delete-comment-button', id: "button-delete-#{comment.id}", data: { turbo_method: :delete }, onclick: "return confirm('投稿を削除しますか？');" do %>
+            <%= icon 'fa', 'trash' %>
+          <% end %>
         </li>
       </ul>
     </td>

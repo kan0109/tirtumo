@@ -68,8 +68,6 @@ class RecordsController < ApplicationController
 
   private
 
-  private
-
   def determine_level(level)
     case level
     when 1..5

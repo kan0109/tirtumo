@@ -10,7 +10,7 @@
 
       <h3 class="heading-lv3 heading-margin text-center">節約帳</h3>
       <p class="text text-center">節約合計金額: <%= @savings %>円</p>
-      <p class="text text-center">　　　レベル:<%= current_user.level || 1 %> (<%= determine_level(current_user.level || 1) %>)</p>
+      <p class="text text-center">　　　レベル:<%= current_user.level || 1 %> (<%= current_user.determine_level(current_user.level || 1) %>)</p>
       <% if @user.target %>
         <p class="text text-center">　　節約目標: <%= @user.target.target %></p>
         <p class="text text-center">　　目標金額: <%= @user.target.target_amount %>円</p>
@@ -23,7 +23,7 @@
             <h5 class="card-title"><%= post.title %></h5>
             <p class="card-text"><%= post.content %></p>
             <%= link_to t('defaults.detail'), post_path(post), class: 'btn btn-primary' %>
-            <%= link_to t('defaults.delete'),post_path(post), id: "button-delete-#{post.id}", data: { turbo_method: :delete }, class: 'btn btn-danger' %>
+            <%= link_to t('defaults.delete'),post_path(post), id: "button-delete-#{post.id}", data: { turbo_method: :delete }, class: 'btn btn-danger', onclick: "return confirm('投稿を削除しますか？');" %>
           </div>
         </div>
       <% end %>

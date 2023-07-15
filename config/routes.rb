@@ -8,11 +8,12 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy' 
   get 'my_page', to: 'my_pages#show', as: 'my_page'
+  get 'users/index' => 'users#index'
   
   resources :users, only: %i[new create]
   resources :password_resets, only: %i[new create edit update]
   resources :posts do
-    resources :comments, only: %i[create], shallow: true
+    resources :comments, only: %i[create destroy], shallow: true
   end
   
   resources :likes, only: %i[create destroy]
