@@ -1,0 +1,30 @@
+<body class="wrap">
+  <div class="content">
+    <h1 class="heading-lv1 text-center">ユーザー一覧</h1>
+    <% @users.each do |user| %>
+      <div class="profile-image">
+        <%= image_tag user.avatar.url, class: 'rounded-circle', id: 'preview', size: '130x130' %>
+      </div>
+      <h2 class="heading-lv2 heading-margin text-center"><%= user.decorate.name %></h2>
+      <h3 class="heading-lv3 heading-margin text-center" onclick="toggleContent('savingsContent<%= user.id %>')">節約帳</h3>
+      <div id="savingsContent<%= user.id %>" style="display: none;">
+        <p class="text text-center">節約合計金額: <%= @savings %>円</p>
+        <p class="text text-center">レベル: <%= user.level || 1 %> (<%= user.determine_level(user.level || 1) %>)</p>
+        <% if user.target %>
+          <p class="text text-center">節約目標: <%= user.target.target %></p>
+          <p class="text text-center">目標金額: <%= user.target.target_amount %>円</p>
+        <% end %>
+      </div>
+      <hr>
+    <% end %>
+  </div>
+</body>
+</html>
+
+
+<script>
+    function toggleContent(elementId) {
+      var content = document.getElementById(elementId);
+      content.style.display = (content.style.display === "none") ? "block" : "none";
+    }
+  </script>
