@@ -23,7 +23,7 @@
             <h5 class="card-title"><%= post.title %></h5>
             <p class="card-text"><%= post.content %></p>
             <%= link_to t('defaults.detail'), post_path(post), class: 'btn btn-primary' %>
-            <%= link_to t('defaults.delete'),post_path(post), id: "button-delete-#{post.id}", data: { turbo_method: :delete }, class: 'btn btn-danger' %>
+            <%= link_to t('defaults.delete'),post_path(post), id: "button-delete-#{post.id}", data: { turbo_method: :delete }, class: 'btn btn-danger', onclick: "return confirm('投稿を削除しますか？');" %>
           </div>
         </div>
       <% end %>
