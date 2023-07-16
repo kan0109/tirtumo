@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :like_posts, through: :likes, source: :post
   has_many :records
   has_one :target
 
@@ -24,20 +23,10 @@ class User < ApplicationRecord
     id == object.user_id
   end
 
-  def like(post)
-    like_posts << post
+  def liked_by?(post_id)
+    likes.where(post_id: post_id).exists?
   end
-  
-  # ブックマークを外す
-  def unlike(post)
-    like_posts.destroy(post)
-  end
-  
-  # ブックマークをしているか判定する
-  def like?(post)
-    like_posts.include?(post)
-  end
-  
+
   def determine_level(level)
     case level
     when 1..5
