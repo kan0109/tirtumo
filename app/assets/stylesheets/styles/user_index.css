@@ -1,0 +1,19 @@
+/* 初級 */
+.level-初級 {
+  color: green;
+}
+
+/* 中級 */
+.level-中級 {
+  color: orange;
+}
+
+/* 上級 */
+.level-上級 {
+  color: blue;
+}
+
+/* マスター */
+.level-マスター {
+  color: purple;
+}

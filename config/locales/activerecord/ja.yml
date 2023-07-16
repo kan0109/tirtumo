@@ -6,6 +6,7 @@ ja:
       comment: 'コメント'
       record: '記録'
       target: '節約目標'
+      like: 'いいね'
     attributes:
       user:
         email: 'メールアドレス'

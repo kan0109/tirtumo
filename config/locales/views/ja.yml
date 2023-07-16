@@ -24,6 +24,7 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       only_record_once_a_day: "%{item}は1日に一回しか更新できません"
+      liked: "%{item}をしました"
 
   users:
     new:

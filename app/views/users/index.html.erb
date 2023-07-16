@@ -9,7 +9,9 @@
       <h3 class="heading-lv3 heading-margin text-center" onclick="toggleContent('savingsContent<%= user.id %>')">節約帳</h3>
       <div id="savingsContent<%= user.id %>" style="display: none;">
         <p class="text text-center">節約合計金額: <%= @savings %>円</p>
-        <p class="text text-center">レベル: <%= user.level || 1 %> (<%= user.determine_level(user.level || 1) %>)</p>
+        <p class="text text-center <%= "level-" + determine_level(user.level || 1) %>">
+          レベル: <%= user.level || 1 %> (<%= user.determine_level(user.level || 1) %>)
+        </p>
         <% if user.target %>
           <p class="text text-center">節約目標: <%= user.target.target %></p>
           <p class="text text-center">目標金額: <%= user.target.target_amount %>円</p>
@@ -19,7 +21,6 @@
     <% end %>
   </div>
 </body>
-</html>
 
 
 <script>
