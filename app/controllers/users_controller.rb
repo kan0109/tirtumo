@@ -3,11 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    # もしくは、適切なクエリを使用してユーザーを取得する
-    # 例: @users = User.where(role: 'user')
-    @savings = 1000  # 仮の節約金額
-
-    # @userに値を代入する
+    @savings = 1000
     @user = current_user
   end
   
