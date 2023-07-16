@@ -70,7 +70,9 @@
           <%= form.submit '更新' %>
           <div class="item">
             <p>節約合計金額: <%= @savings %>円</p>
-            <p>レベル: <%= current_user.level || 1 %> (<%= current_user.determine_level(current_user.level || 1) %>)</p>
+            <p class="<%= determine_level(current_user.level || 1) %>">
+              レベル: <%= current_user.level || 1 %> (<%= determine_level(current_user.level || 1) %>)
+            </p>
           </div>
         <% end %>
       </div>

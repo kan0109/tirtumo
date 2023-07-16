@@ -10,7 +10,9 @@
 
       <h3 class="heading-lv3 heading-margin text-center">節約帳</h3>
       <p class="text text-center">節約合計金額: <%= @savings %>円</p>
-      <p class="text text-center">　　　レベル:<%= current_user.level || 1 %> (<%= current_user.determine_level(current_user.level || 1) %>)</p>
+      <p class="text text-center <%= determine_level(current_user.level || 1) %>">
+        レベル: <%= current_user.level || 1 %> (<%= determine_level(current_user.level || 1) %>)
+      </p>
       <% if @user.target %>
         <p class="text text-center">　　節約目標: <%= @user.target.target %></p>
         <p class="text text-center">　　目標金額: <%= @user.target.target_amount %>円</p>
