@@ -75,7 +75,8 @@ end
 
 gem "dockerfile-rails", ">= 1.4", :group => :development
 
-gem 'kaminari'
 gem 'turbo-rails'
 gem 'carrierwave', '~> 2.2.4'
 gem 'draper', '4.0.2'
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
