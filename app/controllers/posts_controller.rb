@@ -1,6 +1,17 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+    if params[:latest]
+      @posts = Post.latest.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+      flash.now['info '] = t('defaults.message.latest')
+    elsif params[:old]
+      @posts = Post.old.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+      flash.now['info '] = t('defaults.message.old')
+    elsif params[:most_liked]
+      @posts = Kaminari.paginate_array(Post.most_liked.to_a.sort_by { |x| -x.liked_users.size }.map { |post| post.decorate }).page(params[:page]).per(10)
+      flash.now['info '] = t('defaults.message.most_liked')
+    else
+      @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+    end
   end
 
   def new

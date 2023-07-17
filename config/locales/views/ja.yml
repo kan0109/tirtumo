@@ -15,6 +15,9 @@ ja:
     user_new: '新規登録'
     app_name: 'ちりつも節約'
     user_list: 'ユーザー一覧'
+    new_order: '新着順'
+    old_order: '古い順'
+    like_order: 'いいね順'
 
     message:
       require_login: 'ログインしてください'
@@ -26,6 +29,9 @@ ja:
       only_record_once_a_day: "%{item}は1日に一回しか更新できません"
       liked: "%{item}しました"
       not_liked: "%{item}を解除しました"
+      latest: "新着順に並び替えました"
+      old: "古い順に並び替えました"
+      most_liked: "いいね順に並び替えました"
 
   users:
     new:

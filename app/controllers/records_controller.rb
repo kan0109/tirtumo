@@ -11,7 +11,6 @@ class RecordsController < ApplicationController
 
   def index
     @records = current_user.records
-    pp @records
     @savings = calculate_savings(@records)
   end
 
