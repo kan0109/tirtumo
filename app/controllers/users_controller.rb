@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(10)
     @savings = 1000
     @user = current_user
   end

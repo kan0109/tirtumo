@@ -3,13 +3,7 @@ class LikesController < ApplicationController
 
   def create
     like = Like.find_or_initialize_by(user_id: current_user.id, post_id: params[:id])
-    if like.persisted?
-      # すでにいいねが存在する場合の処理
-      flash[:notice] = "You have already liked this post."
-    else
-      # 新しいいいねを作成する場合の処理
-      like.save
-    end
+    like.save
     redirect_to posts_path, success: t('defaults.message.liked', item: Like.model_name.human)
   end
   
@@ -19,7 +13,7 @@ class LikesController < ApplicationController
     if like
       like.destroy
     end
-    redirect_to posts_path
+    redirect_to posts_path, danger: t('defaults.message.not_liked', item: Like.model_name.human)
   end
 
   private
