@@ -26,6 +26,9 @@ ja:
       only_record_once_a_day: "%{item}は1日に一回しか更新できません"
       liked: "%{item}しました"
       not_liked: "%{item}を解除しました"
+      latest: "新着順に並び替えました"
+      old: "古い順に並び替えました"
+      most_liked: "いいね順に並び替えました"
 
   users:
     new:

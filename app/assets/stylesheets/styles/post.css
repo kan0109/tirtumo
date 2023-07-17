@@ -1,4 +1,23 @@
-.Editlink {
-  text-decoration: none;
-  color: #000000 ;
+
+.post-menu {
+  width: 100%;
 }
+.post-menu > ul {
+  display: flex;
+  list-style: none;
+}
+.post-menu > ul > li {
+  text-align: center;
+  font-size: 16px;
+  width: 20%;
+}
+.post-menu > ul > li > a {
+  display: block;
+  text-decoration: none;
+  color: #000000;
+  line-height: 60px;
+}
+.post-menu > ul > li > a:hover {
+  background: #009f2d;
+}
+
