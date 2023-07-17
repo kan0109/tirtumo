@@ -49,6 +49,37 @@ header {
 .pc-menu > ul > li > a:hover {
   background: #ffd967;
 }
+
+.pc-menu > ul > li > ul {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  width: 120px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.pc-menu > ul > li:hover > ul {
+  display: block;
+}
+
+.pc-menu > ul > li > ul > li {
+  display: block;
+}
+
+.pc-menu > ul > li > ul > li > a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  padding: 10px;
+}
+
+.pc-menu > ul > li > ul > li > a:hover {
+  background-color: #ffd967;
+}
+
+
 .sp-menu__box {
   position: fixed;
   top: 0;
@@ -120,4 +151,15 @@ header {
   color: #ffffff;
   text-decoration: none;
   padding: 9px 15px 10px 0;
+}
+
+.sp-menu__link:hover {
+  background: #ffffff;
+}
+
+
+
+.Editlink {
+  text-decoration: none;
+  color: #000000 ;
 }

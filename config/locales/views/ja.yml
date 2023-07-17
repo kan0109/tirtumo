@@ -15,6 +15,9 @@ ja:
     user_new: '新規登録'
     app_name: 'ちりつも節約'
     user_list: 'ユーザー一覧'
+    new_order: '新着順'
+    old_order: '古い順'
+    like_order: 'いいね順'
 
     message:
       require_login: 'ログインしてください'
