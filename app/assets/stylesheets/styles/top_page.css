@@ -1,29 +1,73 @@
-.top-page {
-  position: relative;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
-.top-page img {
-  width: 100%;
-  height: auto;
-}
-.service-name {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size:  60px; 
-  font-family:  'arial unicode ms';  
-}
-
-.top-container {
-  position: absolute;
-  bottom: 3%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.button-group {
+.title {
   display: flex;
-  justify-content: center;
-  gap: 36px;
+  overflow: hidden;
+  color: #aa8f7b;
+  font-family: 'arial unicode ms';
+  justify-content: center; /* 中央に寄せる */
+  align-items: center; /* 中央に寄せる */
+  font-size: 50px;
+}
+.title span {
+  display: block;
+  transform: translate(0, 105%);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 1s; /* アニメーションの時間を変更 */
+}
+
+.title.-visible span {
+  transform: translate(0, 0);
+}
+
+.title span:nth-child(2) {
+  transition-delay: 0.12s; /* 遅延時間を調整 */
+}
+.title span:nth-child(3) {
+  transition-delay: 0.4s; /* 遅延時間を調整 */
+}
+.title span:nth-child(4) {
+  transition-delay: 0.52s; /* 遅延時間を調整 */
+}
+.title span:nth-child(5) {
+  transition-delay: 0.64s; /* 遅延時間を調整 */
+}
+.title span:nth-child(6) {
+  transition-delay: 0.78s; /* 遅延時間を調整 */
+}
+
+
+.title-container {
+  display: none;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.money-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* 適宜調整してください */
+  overflow: hidden;
+}
+
+.money {
+  position: absolute;
+  top: -50px; /* 落下位置の初期値 */
+  width: 30px; /* お金の幅 */
+  height: 30px; /* お金の高さ */
+  background-image: url('money.png'); /* お金の画像パス */
+  background-size: cover;
+  animation: fallAnimation linear infinite;
+}
+
+@keyframes fallAnimation {
+  0% {
+    top: -50px;
+  }
+  100% {
+    top: 500px; /* 落下後の位置 */
+  }
 }
