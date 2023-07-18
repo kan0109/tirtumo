@@ -1,10 +1,4 @@
 <header>
-  <div class="main-menu">
-    <div class="logo">
-      <%= link_to root_path,class: "Editlink" do %>
-        <p>ちりつも節約</p>
-      <% end %>
-    </div>
     <div class="pc-menu">
       <ul>
         <li>
@@ -25,6 +19,9 @@
       </label>
       <div class="sp-menu__content">
         <ul class="sp-menu__list">
+          <li class="sp-menu__item">
+            <%= link_to (t 'defaults.user_new'), new_user_path, class: "sp-menu__link" %>
+          </li>
           <li class="sp-menu__item">
             <%= link_to (t 'defaults.login'), login_path, class: "sp-menu__link" %>
           </li>
