@@ -1,4 +1,4 @@
-/* .footer {
+.footer {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -8,6 +8,8 @@
   padding: 20px 0;
   font-size: 14px;
   z-index: 1000; 
+  padding: 10px 0;
+  height: 88px;
 }
 
 a {
@@ -18,4 +20,4 @@ a {
 ul {
   list-style: none;
   padding: 0;
-} */
+}

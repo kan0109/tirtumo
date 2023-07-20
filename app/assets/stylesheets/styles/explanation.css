@@ -1,7 +1,8 @@
-/* .box {
+.box {
   margin: 2em 0;
   background: #dcefff;
-  text-align: center; 
+  text-align: center; /* テキストを中央に寄せる */
+}
 
 .box .box-title {
   font-size: 1.2em;
@@ -17,4 +18,4 @@
   padding: 15px;
   margin: 10px 0;
   font-size: 20px;
-}  */
+}

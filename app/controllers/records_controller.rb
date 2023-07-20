@@ -1,7 +1,6 @@
 class RecordsController < ApplicationController
   before_action :require_login
   
-
   ITEM_PRICES = {
     bottle_bring: 100,
     packed_lunch: 300,
@@ -33,7 +32,6 @@ class RecordsController < ApplicationController
       redirect_to records_path
     end
   end
-  
 
   private
 
@@ -65,8 +63,6 @@ class RecordsController < ApplicationController
 
     total_savings
   end
-
-  private
 
   def determine_level(level)
     case level
