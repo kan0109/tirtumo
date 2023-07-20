@@ -21,6 +21,7 @@ class RecordsController < ApplicationController
       if @record.save
         @user_records = current_user.records
         @savings = calculate_savings(@user_records)
+        current_user.update(total_savings: @savings)
         flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
         redirect_to records_path
       else
