@@ -30,7 +30,7 @@
           <%= link_to (t 'defaults.target'), new_target_path %>
         </li>
         <li>
-          <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete } %>
+          <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, onclick: "return confirm('ログアウトしますか？');" %>
         </li>
       </ul>
     </div>
