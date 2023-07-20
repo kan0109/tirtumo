@@ -1,3 +1,7 @@
+/*css共有フォルダー*/
+
+/*ログイン前後のheader*/
+
 /* 画面サイズが1279px以下の時はPC用メニューは非表示 */
 @media screen and (max-width: 1279px) {
   .pc-menu {
@@ -15,6 +19,10 @@ header {
   display: flex;
   background: #eeeeee;
   height: 60px;
+  position: sticky;
+  top: 0; 
+  left: 0; 
+  z-index: 999;
 }
 .main-menu {
   margin: 0 auto;
@@ -158,8 +166,116 @@ header {
 }
 
 
-
-.Editlink {
+/*各リンク*/
+.edit-link {
   text-decoration: none;
   color: #000000 ;
+}
+
+
+
+/*マイページとユーザー一覧*/
+
+/*マイページの色付け*/
+.my-wrap {
+  padding: 0 0 64px;
+  background-color: #99CCFF;
+}
+
+
+.my-heading-lv1 {
+  font-size: 40px;
+  font-family:  'arial unicode ms';
+  color: #364e96;
+  padding: 0.5em 0;
+  border-top: solid 3px #364e96;
+  border-bottom: solid 3px #364e96;
+}
+
+/*ユーザー一覧の色付け*/
+.user-wrap {
+  padding: 0 0 64px;
+  background-color: #95f777;
+}
+
+.user-heading-lv1 {
+  font-size: 40px;
+  font-family:  'arial unicode ms';
+  color: #22a800;
+  padding: 0.5em 0;
+  border-top: solid 3px #22a800;
+  border-bottom: solid 3px #22a800;
+}
+
+/*ここから共有*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.content {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: #fff;
+}
+
+
+.heading-lv2 {
+  font-size: 34px;
+  font-family:  'arial unicode ms';
+}
+
+.heading-lv3 {
+  font-size: 30px;
+  margin: 40px;
+  font-family:  'arial unicode ms';
+}
+
+
+
+.text {
+  margin: 16px 0 0;
+  font-size: 22px;
+  line-height: 1.5;
+  font-family:  'arial unicode ms';
+}
+
+.text-center {
+  text-align: center;
+}
+
+.profile-image {
+  margin: 16px 0 0;
+  text-align: center;
+}
+
+.profile-image img {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.heading-margin {
+  margin-top: 32px;
+}
+
+/*レベルに応じた色付け*/
+p.初級 {
+  color: green;
+}
+
+p.中級 {
+  color: orange;
+}
+
+p.上級 {
+  color: blue;
+}
+
+p.マスター {
+  color: purple;
 }
