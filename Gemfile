@@ -54,6 +54,11 @@ gem 'sorcery', '<= 0.16.2'
 gem 'rails-i18n'
 gem "rubocop", require: false
 gem "rubocop-rails", require: false
+gem "dockerfile-rails", ">= 1.4", :group => :development
+gem 'carrierwave', '~> 2.2.4'
+gem 'draper', '4.0.2'
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -71,12 +76,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
-
-gem "dockerfile-rails", ">= 1.4", :group => :development
-
-gem 'turbo-rails'
-gem 'carrierwave', '~> 2.2.4'
-gem 'draper', '4.0.2'
-gem 'kaminari', '~> 1.2', '>= 1.2.1'
-gem 'bootstrap5-kaminari-views', '~> 0.0.1'
