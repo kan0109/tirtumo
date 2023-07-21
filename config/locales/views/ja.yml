@@ -44,7 +44,7 @@ ja:
     new:
       title: 'ログイン'
       new_registration: '新規登録がお済みでない方はこちらへ'
-      password_forget: 'パスワードをお忘れの方はこちら'
+      password_forget: 'パスワードをお忘れの方はこちらへ'
     create:
       success: 'ログインしました'
       fail: 'ログインに失敗しました'

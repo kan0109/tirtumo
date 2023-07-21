@@ -16,30 +16,3 @@
   margin-right: 5px;
 }
 
-/* 初級 */
-p.初級 {
-  color: green;
-  font-size: 20px;
-  /* 他のスタイルを追加 */
-}
-
-/* 中級 */
-p.中級 {
-  color: orange;
-  font-size: 24px;
-  /* 他のスタイルを追加 */
-}
-
-/* 上級 */
-p.上級 {
-  color: blue;
-  font-size: 28px;
-  /* 他のスタイルを追加 */
-}
-
-/* マスター */
-p.マスター {
-  color: purple;
-  font-size: 32px;
-  /* 他のスタイルを追加 */
-}

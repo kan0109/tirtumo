@@ -1,14 +1,14 @@
 <% if current_user %>
   <% if current_user.liked_by?(post.id) %>
     <td>
-      <%= link_to destroy_like_path(post), data: { turbo_method: :delete }, class: "Likelink" do %>
+      <%= link_to destroy_like_path(post), data: { turbo_method: :delete }, class: "like-link" do %>
         <i class="fa fa-heart unlike-btn"></i>
       <% end %>
         <%= post.likes.count %> いいね
     </td>
 <% else %>
     <td>
-      <%= link_to create_like_path(post), method: :GET, remote: true, class: "Likelink" do %>
+      <%= link_to create_like_path(post), method: :GET, remote: true, class: "like-link" do %>
         <i class="fa fa-heart like-btn"></i>
       <% end %>
         <%= post.likes.count %> いいね

@@ -1,7 +1,8 @@
+
 <header>
   <div class="main-menu">
     <div class="logo">
-      <%= link_to root_path,class: "Editlink" do %>
+      <%= link_to root_path,class: "edit-link" do %>
         <p>ちりつも節約</p>
       <% end %>
     </div>
@@ -29,7 +30,7 @@
           <%= link_to (t 'defaults.target'), new_target_path %>
         </li>
         <li>
-          <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete } %>
+          <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, onclick: "return confirm('ログアウトしますか？');" %>
         </li>
       </ul>
     </div>

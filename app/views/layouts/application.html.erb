@@ -6,12 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= turbo_include_tags %>
+    <%= javascript_importmap_tags %>
     <%= javascript_pack_tag 'application' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_importmap_tags %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="<%= asset_path('custom.scss') %>">
   </head>
 
   <body>
