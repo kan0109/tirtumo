@@ -18,7 +18,7 @@
 header {
   display: flex;
   background: #eeeeee;
-  height: 60px;
+  height: 50px;
   position: sticky;
   top: 0; 
   left: 0; 
@@ -52,7 +52,7 @@ header {
   display: block;
   text-decoration: none;
   color: #000000;
-  line-height: 60px;
+  line-height: 50px;
 }
 .pc-menu > ul > li > a:hover {
   background: #ffd967;
@@ -93,7 +93,7 @@ header {
   top: 0;
   right: 0;
   display: flex;
-  height: 60px;
+  height: 50px;
   width: 60px;
   justify-content: center;
   align-items: center;

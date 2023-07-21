@@ -1,10 +1,19 @@
-<footer class="footer">
-  <div class="container">
-    <p>&copy; 2023 ちりつも節約. All rights reserved.</p>
-    <ul class="md-flex">
-      <li><a href="#">利用規約</a></li>
-      <li><a href="#">プライバシーポリシー</a></li>
-    </ul>
+<footer class="footer fixed-bottom">
+  <div class="container-fluid">
+    <div class="border-top border-dark">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <%= link_to "利用規約", terms_path, class: 'nav-link text-dark fw-bold' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "プライバシーポリシー", privacy_path, class: 'nav-link text-dark fw-bold' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "お問い合わせ", contact_path, class: 'nav-link text-dark fw-bold' %>
+        </li>
+      </ul>
+      <div class="pt-3">
+      <p class="text-center text-muted">Copyright © 2023. ちりつも節約</p>
+    </div>
   </div>
-
 </footer>

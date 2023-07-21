@@ -1,23 +1,9 @@
 .footer {
-  position: fixed;
+
   left: 0;
-  bottom: 0;
+  height: 90px;
   width: 100%;
   background-color: #f8f8f8;
   text-align: center;
-  padding: 20px 0;
   font-size: 14px;
-  z-index: 1000; 
-  padding: 10px 0;
-  height: 88px;
-}
-
-a {
-  color: #999;
-  text-decoration: none;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
 }
