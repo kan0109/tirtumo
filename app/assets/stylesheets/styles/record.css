@@ -1,5 +1,34 @@
-/*チェックボックステキスト*/
+.content-record {
+  background-color:rgba(255,255,255,.8);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  left:50%;
+  padding:10vmin;
+  position:fixed;
+  text-align:center;
+  top:48%;
+  transform:translate(-50%, -50%);
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
+h1 {
+  font-family:monospace;
+  font-size: 16px;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+/*チェックボックス*/
 .item {
   margin: 20px 0;
 }
@@ -16,3 +45,90 @@
   margin-right: 5px;
 }
 
+.font_test {
+  font-size: 25px;
+} */
+
+html {
+  height:100%;
+}
+
+body {
+  margin:0;
+}
+
+/*背景*/
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+/*花火のアニメーション*/
+
+@keyframes fireworks-animation {
+  0% {
+    transform: translate(-50%, 90vh);
+    width: 4px;
+    opacity: 1;
+  }
+  50% {
+    width: 8px;
+    opacity: 1;
+  }
+  100% {
+    width: 800px;
+    opacity: 0;
+  }
+}
+
+.c-firework.launch {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, yellow 10px, #000 0) 50% 00%,
+    radial-gradient(circle, khaki 10px, #000 0) 00% 50%,
+    radial-gradient(circle, rgb(55, 0, 255) 10px, #000 0) 50% 99%,
+    radial-gradient(circle, lime 10px, #000 0) 99% 50%,
+    radial-gradient(circle, crimson 10px, #000 0) 80% 90%,
+    radial-gradient(circle, red 10px, #000 0) 95% 90%,
+    radial-gradient(circle, yellow 10px, #000 0) 10% 60%,
+    radial-gradient(circle, khaki 10px, #000 0) 31% 80%,
+    radial-gradient(circle, rgb(0, 55, 255) 10px, #000 0) 80% 10%,
+    radial-gradient(circle, lime 10px, #000 0) 90% 23%,
+    radial-gradient(circle, crimson 10px, #000 0) 45% 20%,
+    radial-gradient(circle, red 10px, #000 0) 13% 24%;
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  transform: translate(-50%, -50%);
+  animation: fireworks-animation 4s infinite;
+}
+
+/*追加の花火*/
+.c-firework2.launch {
+  top: 25%;
+  left: 30%;
+  animation: fireworks-animation 4.2s infinite;
+}
+.c-firework3.launch {
+  top: 30%;
+  left: 80%;
+  animation: fireworks-animation 4.4s infinite;
+}

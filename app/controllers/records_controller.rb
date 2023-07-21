@@ -22,6 +22,12 @@ class RecordsController < ApplicationController
         @savings = calculate_savings(@user_records)
         current_user.update(total_savings: @savings)
         flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
+  
+        # レベルが6、16、26になった場合にもう一度レベルアップ条件をチェックし、花火を上げるか決定
+        if current_user.level >= 6 && current_user.level % 10 == 6
+          flash.now[:firework] = true
+        end
+  
         redirect_to records_path
       else
         flash[:danger] = t('defaults.message.not_updated', item: Record.model_name.human)
@@ -59,6 +65,10 @@ class RecordsController < ApplicationController
 
     if total_savings >= level_up_threshold && current_user_level < (total_savings / level_up_threshold).floor
       current_user.update(level: (total_savings / level_up_threshold).floor)
+    end
+
+    if current_user.level >= 6 && current_user.level % 10 == 6 # レベルが6, 16, 26の場合
+      flash.now[:success] = "おめでとうございます！！#{determine_level(current_user.level)}になりました！"
     end
 
     total_savings
