@@ -1,81 +1,130 @@
-<div class="test_box font_test">  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-        <h1>節約リスト</h1>
-        <%= form_with(model: @records, url: record_path(@records), method: :patch) do |form| %>
-          <table>
-            <thead>
-              <tr>
-                <th>項目</th>
-                <th>金額</th>
-                <th>チェック</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="item">
-                    １、でかける時にマイボトル持参した
-                  </div>
-                </td>
-                <td>100円</td>
-                <td>
-                  <div class="checkbox-wrapper">
-                    <%= check_box_tag 'record[bottle_bring]' %>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="item">
-                    ２、お昼ご飯弁当を持参、または自炊した
-                  </div>
-                </td>
-                <td>300円</td>
-                <td>
-                  <div class="checkbox-wrapper">
-                    <%= check_box_tag 'record[packed_lunch]' %>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="item">
-                    ３、交通手段を徒歩、自転車を利用した
-                  </div>
-                </td>
-                <td>200円</td>
-                <td>
-                  <div class="checkbox-wrapper">
-                    <%= check_box_tag 'record[alternative_transportation]' %>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="item">
-                    ４、外食しなかった
-                  </div>
-                </td>
-                <td>600円</td>
-                <td>
-                  <div class="checkbox-wrapper">
-                    <%= check_box_tag 'record[no_eating_out]' %>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <%= form.submit '更新' %>
-          <div class="item">
-            <p>節約合計金額: <%= @savings %>円</p>
-            <p class="<%= determine_level(current_user.level || 1) %>">
-              レベル: <%= current_user.level || 1 %> (<%= determine_level(current_user.level || 1) %>)
-            </p>
-          </div>
-        <% end %>
-      </div>
+<div class="c-firework"></div>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="content-record">
+  <h1>節約リスト</h1>
+  <%= form_with(model: @records, url: record_path(@records), method: :patch) do |form| %>
+    <table>
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th>金額</th>
+          <th>チェック</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="item">
+              １、でかける時にマイボトル持参した
+            </div>
+          </td>
+          <td>100円</td>
+          <td>
+            <div class="checkbox-wrapper">
+              <%= check_box_tag 'record[bottle_bring]' %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="item">
+              ２、お昼ご飯弁当を持参、または自炊した
+            </div>
+          </td>
+          <td>300円</td>
+          <td>
+            <div class="checkbox-wrapper">
+              <%= check_box_tag 'record[packed_lunch]' %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="item">
+              ３、交通手段を徒歩、自転車を利用した
+            </div>
+          </td>
+          <td>200円</td>
+          <td>
+            <div class="checkbox-wrapper">
+              <%= check_box_tag 'record[alternative_transportation]' %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="item">
+              ４、外食しなかった
+            </div>
+          </td>
+          <td>600円</td>
+          <td>
+            <div class="checkbox-wrapper">
+              <%= check_box_tag 'record[no_eating_out]' %>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <%= form.submit '更新' %>
+    <div class="item">
+      <p>節約合計金額: <%= @savings %>円</p>
+      <p class="<%= determine_level(current_user.level || 1) %>">
+        レベル: <%= current_user.level || 1 %> (<%= determine_level(current_user.level || 1) %>)
+      </p>
     </div>
-  </div>
+  <% end %>
 </div>
+
+<!-- 既存のコードは省略 -->
+<!-- 以下、既存のコードの後に追加 -->
+<script>
+  // 花火を打ち上げる関数
+  function launchFireworks() {
+    // 花火要素を作成
+    const fireworkElement = document.createElement("div");
+    fireworkElement.className = "c-firework launch"; // "launch"クラスを追加
+    // body要素に花火を追加
+    document.body.appendChild(fireworkElement);
+
+    // 2つ目の花火要素を作成
+    const fireworkElement2 = document.createElement("div");
+    fireworkElement2.className = "c-firework launch c-firework2"; // "launch"クラスと"firework2"クラスを追加
+    document.body.appendChild(fireworkElement2);
+
+    // 3つ目の花火要素を作成
+    const fireworkElement3 = document.createElement("div");
+    fireworkElement3.className = "c-firework launch c-firework3"; // "launch"クラスと"firework3"クラスを追加
+    document.body.appendChild(fireworkElement3);
+
+    // 一定時間後に花火要素を削除
+    setTimeout(() => {
+      fireworkElement.remove();
+      fireworkElement2.remove();
+      fireworkElement3.remove();
+    }, 5000); // 花火のアニメーションが終わるまでの時間（ミリ秒）
+  }
+
+  // ページが読み込まれた際に花火を打ち上げる処理
+  document.addEventListener("DOMContentLoaded", () => {
+    // レベルが6, 16, 26の場合に花火を上げるかチェック
+    const level = parseInt("<%= current_user.level || 1 %>");
+    const intermediate = level >= 6 && level % 10 === 6; // 6, 16, 26, ...
+    if (intermediate) {
+      launchFireworks();
+    }
+
+    // チェックボックスのクリックイベントを設定
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("click", () => {
+        const checked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
+        if (checked && intermediate) {
+          launchFireworks();
+        }
+      });
+    });
+  });
+</script>
