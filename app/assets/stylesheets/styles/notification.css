@@ -1,0 +1,35 @@
+.content-notification {
+  background-color: rgba(255, 255, 255, .8);
+  border-radius: .25em;
+  box-shadow: 0 0 .25em rgba(0, 0, 0, .25);
+  box-sizing: border-box;
+  padding: 10vmin;
+  text-align: center;
+  width: 100%;
+  max-width: 600px; 
+  position: relative; /* 追加: 重なりを制御するためにpositionをrelativeに設定 */
+  z-index: 1; /* 追加: 背景よりも手前に表示させる */
+  left: 50%; /* 要素の左端を画面中央に合わせる */
+  transform: translateX(-50%); /* 要素の中央を画面中央に合わせる */
+}
+
+.bg-notification {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, rgb(236, 109, 12) 50%, rgb(236, 239, 31) 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: .5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: 0;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
