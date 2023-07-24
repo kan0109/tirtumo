@@ -1,9 +1,5 @@
 .footer {
-
-  left: 0;
-  height: 90px;
-  width: 100%;
   background-color: #f8f8f8;
-  text-align: center;
-  font-size: 14px;
+  bottom:0;
+  height: 120px;
 }
