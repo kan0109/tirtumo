@@ -29,4 +29,6 @@ Rails.application.routes.draw do
 
   resources :records, only: %i[index update]
   resources :targets, only: %i[new create]
+
+  resources :notifications, only: :index
 end

@@ -30,6 +30,17 @@
           <%= link_to (t 'defaults.target'), new_target_path %>
         </li>
         <li>
+          <%= link_to notifications_path do %>
+            <% if unchecked_notifications.any? %>
+              <span class="fa-stack">
+                <i class="far fa-bell fa-lg text-primary" style="font-size: 1.5em;"></i>
+              </span>
+            <% else %>
+              <i class="far fa-bell fa-lg text-secondary" style="font-size: 1.5em;"></i>
+            <% end %>
+          <% end %>
+        </li>
+        <li>
           <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, onclick: "return confirm('ログアウトしますか？');" %>
         </li>
       </ul>
@@ -61,6 +72,19 @@
           </li>
           <li class="sp-menu__item">
             <%= link_to (t 'defaults.target'), new_target_path, class: "sp-menu__link" %>
+          </li>
+          <li class="sp-menu__item">
+            <%= link_to notifications_path, class: "sp-menu__link" do %>
+            通知一覧
+              <% if unchecked_notifications.any? %>
+                <span class="fa-stack">
+                  <i class="far fa-bell fa-lg text-primary" style="font-size: 1.5em;"></i>
+                  <i class="fas fa-circle n-circle fa-stack-1x text-primary"></i>
+                </span>
+              <% else %>
+                <i class="far fa-bell fa-lg text-primary" style="font-size: 1.5em;"></i>
+              <% end %>
+            <% end %>
           </li>
           <li class="sp-menu__item">
             <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, class: "sp-menu__link" %>
