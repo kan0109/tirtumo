@@ -178,7 +178,6 @@ header {
 
 /*マイページの色付け*/
 .my-wrap {
-  padding: 0 0 64px;
   background-color: #99CCFF;
 }
 
@@ -194,7 +193,6 @@ header {
 
 /*ユーザー一覧の色付け*/
 .user-wrap {
-  padding: 0 0 64px;
   background-color: #95f777;
 }
 
