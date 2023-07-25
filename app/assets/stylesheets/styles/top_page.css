@@ -3,10 +3,10 @@
 .title {
   display: flex;
   overflow: hidden;
-  color: #aa8f7b;
+  color: #ec7b25;
   font-family: 'arial unicode ms';
-  justify-content: center; /* 中央に寄せる */
-  align-items: center; /* 中央に寄せる */
+  justify-content: center;
+  align-items: center;
   font-size: 50px;
 }
 .title span {
@@ -40,7 +40,7 @@
   display: none;
   text-align: center;
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 0;
   right: 0;
   transform: translateY(-50%);
@@ -49,7 +49,7 @@
 .money-container {
   position: relative;
   width: 100%;
-  height: 500px; /* 適宜調整してください */
+  height: 650px; /* 適宜調整してください */
   overflow: hidden;
 }
 
@@ -58,7 +58,7 @@
   top: -50px; /* 落下位置の初期値 */
   width: 30px; /* お金の幅 */
   height: 30px; /* お金の高さ */
-  background-image: url('money.png'); /* お金の画像パス */
+  background-image: url('money.png');
   background-size: cover;
   animation: fallAnimation linear infinite;
 }
