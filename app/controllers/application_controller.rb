@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
-  before_action :require_login, except: [:new_password_reset, :login]
+  before_action :require_login, except: %i[new_password_reset login]
 
   private
 
@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    unless current_user
-      redirect_to login_path
-    end
+    return if current_user
+
+    redirect_to login_path
   end
 end

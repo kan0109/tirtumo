@@ -2,16 +2,15 @@
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2">
       <h1><%= t('.title') %></h1>
-      <!-- 掲示板内容 -->
       <article class="card">
         <div class="card-body">
           <div class='row'>
             <div class='col-md-9'>
               <h3 class="d-inline"><%= @post.title %></h3>
               <%= render 'crud_menus', post: @post if current_user.own?(@post) %>
-              <p><strong>いいね数:</strong> <%= @post.likes.count %></p>
+              <p><strong><%= t('.like_count') %></strong> <%= @post.likes.count %></p>
               <ul class="list-inline">
-                <li class="list-inline-item">作成者：<%= @post.user.decorate.name %></li>
+                <li class="list-inline-item"><%= t('.author') %><%= @post.user.decorate.name %></li>
                 <li class="list-inline-item"><%= l @post.created_at, format: :long  %></li>
               </ul>
             </div>
@@ -22,9 +21,7 @@
     </div>
   </div>
 
-  <!-- コメントフォーム -->
   <%= render 'comments/form', { post: @post, comment: @comment } %>
 
-  <!-- コメントエリア -->
   <%= render 'comments/comments', { comments: @comments } %>
 </div>

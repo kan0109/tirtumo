@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   has_many :records
+  has_many :targets, dependent: :destroy
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
@@ -15,9 +16,9 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
 
-  validates :email, uniqueness: true
-  validates :email, presence: true
+  validates :email, uniqueness: true, presence: true
 
   validates :name, presence: true, length: { maximum: 20 }
 
@@ -28,19 +29,19 @@ class User < ApplicationRecord
   end
 
   def liked_by?(post_id)
-    likes.where(post_id: post_id).exists?
+    likes.where(post_id:).exists?
   end
 
   def determine_level(level)
     case level
     when 1..5
-      "初級"
+      '見習い'
     when 6..15
-      "中級"
+      '一人前'
     when 16..25
-      "上級"
+      '名人'
     else
-      "マスター"
+      '達人'
     end
   end
 end

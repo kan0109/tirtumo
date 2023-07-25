@@ -2,12 +2,12 @@
 <div class="bg-notification bg2"></div>
 <div class="bg-notification bg3"></div>
 <div class="content-notification">
-  <h1>通知一覧</h1>
+  <h1><%= t('.title') %></h1>
   <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
   <% if notifications.exists? %>
     <%= render partial: 'notification', collection: notifications %>
-    <%= paginate notifications %>
+    <%= paginate notifications, theme: 'bootstrap-5' %>
   <% else %>
-    <p>通知はありません</p>
+    <p><%= t('.no_result') %></p>
   <% end %>
 </div>

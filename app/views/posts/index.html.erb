@@ -4,11 +4,11 @@
       <div class="row">
         <% if @posts.present? %>
           <% if params[:latest] %>
-            <h2>新着順</h2>
+            <h2><%= t('.new_order') %></h2>
           <% elsif params[:old] %>
-            <h2>古い順</h2>
+            <h2><%= t('.old_order') %></h2>
           <% elsif params[:most_liked] %>
-            <h2>いいね順</h2>
+            <h2><%= t('.like_order') %></h2>
           <% end %>
           <%= render @posts %>
         <% else %>
