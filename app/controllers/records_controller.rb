@@ -23,7 +23,6 @@ class RecordsController < ApplicationController
         current_user.update(total_savings: @savings)
         flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
   
-        # レベルが6、16、26になった場合にもう一度レベルアップ条件をチェックし、花火を上げるか決定
         if current_user.level >= 6 && current_user.level % 10 == 6
           flash.now[:firework] = true
         end
@@ -60,14 +59,14 @@ class RecordsController < ApplicationController
       total_savings += ITEM_PRICES[:no_eating_out] if @no_eating_out
     end
 
-    level_up_threshold = 1000  # レベルアップする節約金額のしきい値
-    current_user_level = current_user.level || 1  # ユーザーの現在のレベル（初期値は1）
+    level_up_threshold = 1000
+    current_user_level = current_user.level || 1
 
     if total_savings >= level_up_threshold && current_user_level < (total_savings / level_up_threshold).floor
       current_user.update(level: (total_savings / level_up_threshold).floor)
     end
 
-    if current_user.level >= 6 && current_user.level % 10 == 6 # レベルが6, 16, 26の場合
+    if current_user.level >= 6 && current_user.level % 10 == 6 
       flash.now[:success] = "おめでとうございます！！#{determine_level(current_user.level)}になりました！"
     end
 
@@ -77,22 +76,22 @@ class RecordsController < ApplicationController
   def determine_level(level)
     case level
     when 1..5
-      "初級"
+      "見習い"
     when 6..15
-      "中級"
+      "一人前"
     when 16..25
-      "上級"
+      "名人"
     else
-      "マスター"
+      "達人"
     end
   end
 
   def level_up?(current_level, total_savings)
     level_up_thresholds = {
-      "初級" => 5,
-      "中級" => 15,
-      "上級" => 25,
-      "マスター" => Float::INFINITY
+      "見習い" => 5,
+      "一人前" => 15,
+      "名人" => 25,
+      "達人" => Float::INFINITY
     }
 
     next_level = determine_level(current_level + 1)

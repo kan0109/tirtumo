@@ -193,7 +193,7 @@ header {
 
 /*ユーザー一覧の色付け*/
 .user-wrap {
-  background-color: #95f777;
+  background-color: #44cc1b;
 }
 
 .user-heading-lv1 {
@@ -262,18 +262,18 @@ header {
 }
 
 /*レベルに応じた色付け*/
-p.初級 {
+p.見習い {
   color: green;
 }
 
-p.中級 {
+p.一人前 {
   color: orange;
 }
 
-p.上級 {
+p.名人 {
   color: blue;
 }
 
-p.マスター {
+p.達人 {
   color: purple;
 }

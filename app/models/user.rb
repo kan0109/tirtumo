@@ -34,13 +34,13 @@ class User < ApplicationRecord
   def determine_level(level)
     case level
     when 1..5
-      "初級"
+      "見習い"
     when 6..15
-      "中級"
+      "一人前"
     when 16..25
-      "上級"
+      "名人"
     else
-      "マスター"
+      "達人"
     end
   end
 end
