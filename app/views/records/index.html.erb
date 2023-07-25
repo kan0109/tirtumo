@@ -3,7 +3,7 @@
 <div class="bg bg2"></div>
 <div class="bg bg3"></div>
 <div class="content-record">
-  <h1>節約リスト</h1>
+  <h1><%= t('.title') %></h1>
   <%= form_with(model: @records, url: record_path(@records), method: :patch) do |form| %>
     <table>
       <thead>
@@ -70,7 +70,7 @@
     </table>
     <%= form.submit '更新' %>
     <div class="item">
-      <p>節約合計金額: <%= @savings %>円</p>
+      <p><%= t('.total_savings') %><%= @savings %>円</p>
       <p class="<%= determine_level(current_user.level || 1) %>">
         レベル: <%= current_user.level || 1 %> (<%= determine_level(current_user.level || 1) %>)
       </p>

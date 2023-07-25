@@ -52,15 +52,17 @@ ja:
       success: 'ログアウトしました'
   posts:
     index:
-      title: '投稿一覧'
+      new_order: '新着順'
+      old_order: '古い順'
+      like_order: 'いいね順'
     new:
       title: '投稿'
     show:
       title: '投稿詳細'
+      like_count: 'いいね数'
+      author: '作成者　'
     edit:
       title: '投稿編集'
-    bookmarks:
-      title: 'ブックマーク一覧'
   profiles:
     show:
       title: 'プロフィール'
@@ -69,3 +71,22 @@ ja:
   targets:
     new:
       title: '目標設定'
+  my_pages:
+    show:
+      title: 'マイページ'
+      save_note: '節約帳'
+      total_savings: '節約合計金額：'
+      save_target: '　　節約目標：'
+      target_money: '　　目標金額：'
+      your_post: 'あなたの投稿'
+      like_post: 'いいねした投稿'
+  records:
+    index:
+      title: '節約リスト'
+      total_savings: '節約合計金額：'
+  notifications:
+    index:
+      title: '通知一覧'
+      no_result: '通知はありません'
+      your_post: 'あなたの投稿'
+
