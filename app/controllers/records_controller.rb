@@ -25,7 +25,9 @@ class RecordsController < ApplicationController
 
         flash[:success] = t('defaults.message.target_money_achievement') if reached_target_amount?
 
-        flash.now[:firework] = true if current_user.level >= 6 && current_user.level % 10 == 6
+        if logged_in? && current_user && current_user.level && current_user.level >= 6 && current_user.level % 10 == 6
+          flash.now[:firework] = true
+        end
 
         redirect_to records_path
       else
@@ -66,7 +68,7 @@ class RecordsController < ApplicationController
       current_user.update(level: (total_savings / level_up_threshold).floor)
     end
 
-    if current_user.level >= 6 && current_user.level % 10 == 6
+    if logged_in? && current_user.level && current_user.level >= 6 && current_user.level % 10 == 6
       flash.now[:success] = "おめでとうございます！！あなたは#{determine_level(current_user.level)}になりました！"
     end
 
@@ -100,6 +102,6 @@ class RecordsController < ApplicationController
 
   def reached_target_amount?
     target_amount = current_user.target_amount
-    target_amount.nil? || @savings >= target_amount
+    target_amount && @savings >= target_amount
   end
 end
