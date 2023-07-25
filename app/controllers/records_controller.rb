@@ -22,6 +22,10 @@ class RecordsController < ApplicationController
         @savings = calculate_savings(@user_records)
         current_user.update(total_savings: @savings)
         flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
+
+        if reached_target_amount?
+          flash[:success] = t('defaults.message.target_money_achievement')
+        end
   
         if current_user.level >= 6 && current_user.level % 10 == 6
           flash.now[:firework] = true
@@ -97,4 +101,9 @@ class RecordsController < ApplicationController
     next_level = determine_level(current_level + 1)
     total_savings >= level_up_thresholds[next_level]
   end
+
+  def reached_target_amount?
+    target_amount = current_user.target_amount
+    target_amount.nil? || @savings >= target_amount
+  end  
 end
