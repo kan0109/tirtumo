@@ -10,19 +10,19 @@ Rails.application.routes.draw do
   get 'explanation', to: 'explanations#index'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
-  delete 'logout', to: 'user_sessions#destroy' 
+  delete 'logout', to: 'user_sessions#destroy'
   get 'my_page', to: 'my_pages#show', as: 'my_page'
   get 'users/index' => 'users#index'
-  
+
   resources :users, only: %i[new create]
   resources :password_resets, only: %i[new create edit update]
   resources :posts do
     resources :comments, only: %i[create destroy], shallow: true
   end
-  
-  get "like/:id" => "likes#create", as: "create_like"
-  delete "like/:id" => "likes#destroy", as: "destroy_like"
-  
+
+  get 'like/:id' => 'likes#create', as: 'create_like'
+  delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
+
   get '/likes', to: 'posts#likes', as: 'post_likes'
 
   resource :profile, only: %i[show edit update]

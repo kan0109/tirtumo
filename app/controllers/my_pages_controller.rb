@@ -17,7 +17,7 @@ class MyPagesController < ApplicationController
   private
 
   def calculate_savings(records)
-    total_savings = 0 
+    total_savings = 0
 
     records.each do |record|
       @bottle_bring = record.bottle_bring
@@ -29,9 +29,7 @@ class MyPagesController < ApplicationController
       total_savings += ITEM_PRICES[:packed_lunch] if @packed_lunch
       total_savings += ITEM_PRICES[:alternative_transportation] if @alternative_transportation
       total_savings += ITEM_PRICES[:no_eating_out] if @no_eating_out
-
     end
-
 
     total_savings
   end

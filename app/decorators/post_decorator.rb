@@ -5,6 +5,3 @@ class PostDecorator < Draper::Decorator
     object.likes_count
   end
 end
-
-
-

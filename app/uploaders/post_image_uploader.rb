@@ -17,7 +17,7 @@ class PostImageUploader < CarrierWave::Uploader::Base
   def default_url
     'post_placeholder.png'
   end
-  
+
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
@@ -35,7 +35,6 @@ class PostImageUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w[jpg jpeg gif png]
   end
-
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
   before_action :require_login
-  
+
   ITEM_PRICES = {
     bottle_bring: 100,
     packed_lunch: 300,
@@ -14,7 +14,7 @@ class RecordsController < ApplicationController
   end
 
   def update
-    today_records = current_user.records.where("created_at >= ?", Time.zone.now.beginning_of_day)
+    today_records = current_user.records.where('created_at >= ?', Time.zone.now.beginning_of_day)
     if today_records.empty?
       @record = current_user.records.new(record_params)
       if @record.save
@@ -23,14 +23,10 @@ class RecordsController < ApplicationController
         current_user.update(total_savings: @savings)
         flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
 
-        if reached_target_amount?
-          flash[:success] = t('defaults.message.target_money_achievement')
-        end
-  
-        if current_user.level >= 6 && current_user.level % 10 == 6
-          flash.now[:firework] = true
-        end
-  
+        flash[:success] = t('defaults.message.target_money_achievement') if reached_target_amount?
+
+        flash.now[:firework] = true if current_user.level >= 6 && current_user.level % 10 == 6
+
         redirect_to records_path
       else
         flash[:danger] = t('defaults.message.not_updated', item: Record.model_name.human)
@@ -46,10 +42,10 @@ class RecordsController < ApplicationController
 
   def record_params
     params.fetch(:record, {}).permit(:bottle_bring, :packed_lunch, :alternative_transportation, :no_eating_out)
-  end  
+  end
 
   def calculate_savings(records)
-    total_savings = 0 
+    total_savings = 0
 
     records.each do |record|
       @bottle_bring = record.bottle_bring
@@ -70,7 +66,7 @@ class RecordsController < ApplicationController
       current_user.update(level: (total_savings / level_up_threshold).floor)
     end
 
-    if current_user.level >= 6 && current_user.level % 10 == 6 
+    if current_user.level >= 6 && current_user.level % 10 == 6
       flash.now[:success] = "おめでとうございます！！あなたは#{determine_level(current_user.level)}になりました！"
     end
 
@@ -80,22 +76,22 @@ class RecordsController < ApplicationController
   def determine_level(level)
     case level
     when 1..5
-      "見習い"
+      '見習い'
     when 6..15
-      "一人前"
+      '一人前'
     when 16..25
-      "名人"
+      '名人'
     else
-      "達人"
+      '達人'
     end
   end
 
   def level_up?(current_level, total_savings)
     level_up_thresholds = {
-      "見習い" => 5,
-      "一人前" => 15,
-      "名人" => 25,
-      "達人" => Float::INFINITY
+      '見習い' => 5,
+      '一人前' => 15,
+      '名人' => 25,
+      '達人' => Float::INFINITY
     }
 
     next_level = determine_level(current_level + 1)
@@ -105,5 +101,5 @@ class RecordsController < ApplicationController
   def reached_target_amount?
     target_amount = current_user.target_amount
     target_amount.nil? || @savings >= target_amount
-  end  
+  end
 end
