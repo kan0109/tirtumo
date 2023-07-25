@@ -6,7 +6,7 @@ class TargetsController < ApplicationController
   end
 
   def create
-    @target = current_user.build_target(target_params)
+    @target = current_user.targets.build(target_params)
     if @target.save
       flash[:success] = t('defaults.message.created', item: Target.model_name.human)
       redirect_to my_page_path

@@ -67,7 +67,7 @@ class RecordsController < ApplicationController
     end
 
     if current_user.level >= 6 && current_user.level % 10 == 6 
-      flash.now[:success] = "おめでとうございます！！#{determine_level(current_user.level)}になりました！"
+      flash.now[:success] = "おめでとうございます！！あなたは#{determine_level(current_user.level)}になりました！"
     end
 
     total_savings
