@@ -77,45 +77,34 @@
   <% end %>
 </div>
 
-<!-- 既存のコードは省略 -->
-<!-- 以下、既存のコードの後に追加 -->
 <script>
-  // 花火を打ち上げる関数
   function launchFireworks() {
-    // 花火要素を作成
     const fireworkElement = document.createElement("div");
-    fireworkElement.className = "c-firework launch"; // "launch"クラスを追加
-    // body要素に花火を追加
+    fireworkElement.className = "c-firework launch";
     document.body.appendChild(fireworkElement);
 
-    // 2つ目の花火要素を作成
     const fireworkElement2 = document.createElement("div");
-    fireworkElement2.className = "c-firework launch c-firework2"; // "launch"クラスと"firework2"クラスを追加
+    fireworkElement2.className = "c-firework launch c-firework2";
     document.body.appendChild(fireworkElement2);
 
-    // 3つ目の花火要素を作成
     const fireworkElement3 = document.createElement("div");
-    fireworkElement3.className = "c-firework launch c-firework3"; // "launch"クラスと"firework3"クラスを追加
+    fireworkElement3.className = "c-firework launch c-firework3";
     document.body.appendChild(fireworkElement3);
 
-    // 一定時間後に花火要素を削除
     setTimeout(() => {
       fireworkElement.remove();
       fireworkElement2.remove();
       fireworkElement3.remove();
-    }, 5000); // 花火のアニメーションが終わるまでの時間（ミリ秒）
+    }, 5000); 
   }
 
-  // ページが読み込まれた際に花火を打ち上げる処理
   document.addEventListener("DOMContentLoaded", () => {
-    // レベルが6, 16, 26の場合に花火を上げるかチェック
     const level = parseInt("<%= current_user.level || 1 %>");
-    const intermediate = level >= 6 && level % 10 === 6; // 6, 16, 26, ...
+    const intermediate = level >= 6 && level % 10 === 6; 
     if (intermediate) {
       launchFireworks();
     }
 
-    // チェックボックスのクリックイベントを設定
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach((checkbox) => {
       checkbox.addEventListener("click", () => {
