@@ -178,7 +178,7 @@ header {
 
 /*マイページの色付け*/
 .my-wrap {
-  background-color: #99CCFF;
+  background-image: url('texture-background.jpg');
 }
 
 
@@ -193,7 +193,7 @@ header {
 
 /*ユーザー一覧の色付け*/
 .user-wrap {
-  background-color: #44cc1b;
+  background-image: url('texture-background.jpg');
 }
 
 .user-heading-lv1 {
@@ -218,7 +218,7 @@ header {
   max-width: 600px;
   margin: 0 auto;
   padding: 16px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.606);
 }
 
 
@@ -276,4 +276,39 @@ p.名人 {
 
 p.達人 {
   color: purple;
+}
+
+
+.post-container {
+  background-image: url('texture-background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/*記録、目標設定*/
+
+.content-page {
+  background-image: url('texture-background.jpg');
+  box-sizing:border-box;
+  padding:10vmin;
+  text-align:center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family:monospace;
+  font-size: 16px;
+}
+
+.bg {
+  background-image: url('texture-background.jpg');
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
 }
