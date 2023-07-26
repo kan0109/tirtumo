@@ -1,14 +1,13 @@
 .box {
   margin: 2em 0;
-  background: #dcefff;
-  text-align: center; /* テキストを中央に寄せる */
+  background-image: url('texture-background.jpg');
+  text-align: center;
 }
 
 .box .box-title {
   font-size: 1.2em;
-  background: #5fb3f5;
   padding: 4px;
-  color: #FFF;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   letter-spacing: 0.05em;
   font-size: 30px;
