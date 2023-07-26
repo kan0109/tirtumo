@@ -16,7 +16,7 @@
 .title span {
   display: block;
   transform: translate(0, 105%);
-  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 1s; /* アニメーションの時間を変更 */
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 1s;
 }
 
 .title.-visible span {
@@ -24,19 +24,19 @@
 }
 
 .title span:nth-child(2) {
-  transition-delay: 0.12s; /* 遅延時間を調整 */
+  transition-delay: 0.12s; 
 }
 .title span:nth-child(3) {
-  transition-delay: 0.4s; /* 遅延時間を調整 */
+  transition-delay: 0.4s; 
 }
 .title span:nth-child(4) {
-  transition-delay: 0.52s; /* 遅延時間を調整 */
+  transition-delay: 0.52s; 
 }
 .title span:nth-child(5) {
-  transition-delay: 0.64s; /* 遅延時間を調整 */
+  transition-delay: 0.64s; 
 }
 .title span:nth-child(6) {
-  transition-delay: 0.78s; /* 遅延時間を調整 */
+  transition-delay: 0.78s; 
 }
 
 
@@ -53,15 +53,15 @@
 .money-container {
   position: relative;
   width: 100%;
-  height: 650px; /* 適宜調整してください */
+  height: 650px;
   overflow: hidden;
 }
 
 .money {
   position: absolute;
-  top: -50px; /* 落下位置の初期値 */
-  width: 30px; /* お金の幅 */
-  height: 30px; /* お金の高さ */
+  top: -50px; 
+  width: 30px;
+  height: 30px;
   background-image: url('money.png');
   background-size: cover;
   animation: fallAnimation linear infinite;
@@ -72,6 +72,6 @@
     top: -50px;
   }
   100% {
-    top: 500px; /* 落下後の位置 */
+    top: 500px;
   }
 }

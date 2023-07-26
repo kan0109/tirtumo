@@ -1,6 +1,5 @@
 <div class="top-container">
   <div class="money-container"></div>
-
   <div class="title-container">
     <h1 class="title">
       <span>　ち</span>
@@ -10,7 +9,6 @@
       <span>　節</span>
       <span>　約</span>
     </h1>
-
   </div>
 </div>
 
@@ -19,36 +17,30 @@
   $(document).ready(function() {
     var container = $('.money-container');
     var titleContainer = $('.title-container');
-    var moneyAnimationTimer; // お金のアニメーションタイマー
+    var moneyAnimationTimer;
 
-    // お金を生成する関数
     function createMoney() {
       var money = $('<div class="money"></div>');
-      money.css('left', Math.random() * 100 + '%'); // ランダムな横位置
-      money.css('animationDuration', Math.random() * 4 + 3 + 's'); // ランダムなアニメーション速度（3〜7秒）
+      money.css('left', Math.random() * 100 + '%');
+      money.css('animationDuration', Math.random() * 4 + 3 + 's');
       container.append(money);
     }
 
-    // お金を生成し続ける関数
     function keepCreatingMoney() {
       createMoney();
     }
 
-    // タイトルを表示する関数
     function showTitle() {
       titleContainer.css('display', 'block');
       moneyAnimationTimer = setTimeout(function() {
         clearInterval(keepCreatingMoneyInterval);
-      }, 10000); // 10秒後にお金のアニメーションを停止
+      }, 10000);
     }
 
-    // 最初のお金の生成を開始
-    var keepCreatingMoneyInterval = setInterval(keepCreatingMoney, 1000); // 1.6秒ごとにお金を生成
+    var keepCreatingMoneyInterval = setInterval(keepCreatingMoney, 1000); 
 
-    // 6秒後にタイトルを表示
     setTimeout(showTitle, 6000);
 
-    // タイトルのアニメーション
     const CLASSNAME = '-visible';
     const TIMEOUT = 1500;
     const title = $('.title');
