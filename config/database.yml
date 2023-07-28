@@ -84,9 +84,9 @@ test:
 #
 production:
   <<: *default
-  database: tiritumo_production
-  username: tiritumo
-  password: <%= ENV["TIRITUMO_DATABASE_PASSWORD"] %>
+  database: tiritumo-setuysku_production
+  username: tiritumo-setuyaku
+  password: tiritumo
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
