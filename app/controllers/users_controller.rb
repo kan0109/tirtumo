@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all.page(params[:page]).per(10)
-    @savings = 1000
     @user = current_user
   end
 
