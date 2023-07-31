@@ -12,7 +12,7 @@
 
 .checkbox-wrapper input[type="checkbox"] {
   transform: scale(2.3);
-  margin-right: 5px;
+  margin-right: -50px;
 }
 
 .font_test {

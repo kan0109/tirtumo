@@ -172,14 +172,18 @@ header {
   color: #000000 ;
 }
 
+/*背景*/
 
+.background-image{
+  background-image: url('background-image.jpeg');
+  background-size: cover;
+  background-position: center;
+}
 
 /*マイページとユーザー一覧*/
 
 /*マイページの色付け*/
-.my-wrap {
-  background-image: url('texture-background.jpg');
-}
+
 
 
 .my-heading-lv1 {
@@ -189,11 +193,6 @@ header {
   padding: 0.5em 0;
   border-top: solid 3px #364e96;
   border-bottom: solid 3px #364e96;
-}
-
-/*ユーザー一覧の色付け*/
-.user-wrap {
-  background-image: url('texture-background.jpg');
 }
 
 .user-heading-lv1 {
@@ -218,7 +217,7 @@ header {
   max-width: 600px;
   margin: 0 auto;
   padding: 16px;
-  background-color: rgba(255, 255, 255, 0.606);
+  background-image: url('paper.jpeg');
 }
 
 
@@ -278,37 +277,19 @@ p.達人 {
   color: purple;
 }
 
-
-.post-container {
-  background-image: url('texture-background.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-/*記録、目標設定*/
+/*記録、目標設定、*/
 
 .content-page {
-  background-image: url('texture-background.jpg');
+  background-image: url('paper.jpeg');
   box-sizing:border-box;
   padding:10vmin;
   text-align:center;
   width: 100%;
-  max-width: 600px;
+  max-width: 550px;
   margin: 0 auto;
 }
 
 h1 {
   font-family:monospace;
   font-size: 16px;
-}
-
-.bg {
-  background-image: url('texture-background.jpg');
-  bottom:0;
-  left:-50%;
-  opacity:.5;
-  position:fixed;
-  right:-50%;
-  top:0;
-  z-index:-1;
 }

@@ -1,13 +1,13 @@
 .box {
-  margin: 2em 0;
-  background-image: url('texture-background.jpg');
+  background-image: url('background-image.jpg');
+  background-size: cover;
+  background-position: center;
   text-align: center;
 }
 
 .box .box-title {
   font-size: 1.2em;
   padding: 4px;
-  color: rgb(0, 0, 0);
   font-weight: bold;
   letter-spacing: 0.05em;
   font-size: 30px;
