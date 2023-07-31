@@ -84,9 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: tiritumo-setuysku_production
-  username: tiritumo-setuyaku
+  database: tiritumo_production
+  username: tiritumo
   password: tiritumo
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>

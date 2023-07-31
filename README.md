@@ -72,3 +72,6 @@ https://www.figma.com/file/U6lkf1LEtS81iuJ2HhO4vz/%E7%94%BB%E9%9D%A2%E9%81%B7%E7
 
 ER図
 https://gyazo.com/0963cc11940e2eed5d617a7755d99083
+
+
+<a href="https://jp.freepik.com/free-photo/paperboard-texture_4896372.htm#query=%E8%83%8C%E6%99%AF%E7%B4%A0%E6%9D%90%E3%80%80%E3%80%80%E7%B4%99&position=2&from_view=search&track=sph">著作者：efe_madrid</a>／出典：Freepik
