@@ -60,8 +60,8 @@
 .money {
   position: absolute;
   top: -50px; 
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-image: url('money.png');
   background-size: cover;
   animation: fallAnimation linear infinite;
