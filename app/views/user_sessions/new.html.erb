@@ -1,9 +1,11 @@
-<body class="background-image">    
-  <div class="test_box font_test">
+<body class="background-user-image">    
+  <div class="session_test_box font_test">
     <div class="container">
       <div class="row">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-          <h1><%= t '.title' %></h1>
+          <div class="mt-8"> 
+            <h1 class="mt-8"><%= t '.title' %></h1>
+          </div>
           <%= form_with scope: :user, url: login_path, local: true do |f| %>
             <div class="form-group mb-4">
               <%= f.label :email, User.human_attribute_name(:email) %>

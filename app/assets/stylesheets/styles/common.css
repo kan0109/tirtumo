@@ -175,7 +175,19 @@ header {
 /*背景*/
 
 .background-image{
-  background-image: url('background-image.jpeg');
+  background-image: url('botanical.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.background-post-image{
+  background-image: url('paper.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.background-user-image{
+  background-image: url('sunflower.jpg');
   background-size: cover;
   background-position: center;
 }
