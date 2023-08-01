@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
   resource :profile, only: %i[show edit update]
   resources :records, only: %i[index update]
+  get 'reset_records', to: 'records#reset_records', as: :reset_records
   resources :targets, only: %i[new create]
   resources :notifications, only: %i[index]
 end

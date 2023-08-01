@@ -11,6 +11,7 @@ class RecordsController < ApplicationController
   def index
     @records = current_user.records
     @savings = calculate_savings(@records)
+    @monthly_records = get_all_monthly_records(current_user)
   end
 
   def update
@@ -44,6 +45,15 @@ class RecordsController < ApplicationController
 
   def record_params
     params.fetch(:record, {}).permit(:bottle_bring, :packed_lunch, :alternative_transportation, :no_eating_out)
+  end
+
+  def get_all_monthly_records(user)
+    user.records.group_by { |record| record.created_at.beginning_of_month }.map do |month, records_in_month|
+      {
+        month: month.strftime('%Y-%m'),
+        total_savings: calculate_savings(records_in_month),
+      }
+    end
   end
 
   def calculate_savings(records)

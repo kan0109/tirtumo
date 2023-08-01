@@ -67,6 +67,25 @@
         </p>
       </div>
     <% end %>
+    <div class="past-records">
+      <h2><%= t('.past_record') %></h2>
+      <table>
+        <thead>
+          <tr>
+            <th><%= t('.year_month') %></th>
+            <th><%= t('.save_money') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @monthly_records.each do |record| %>
+            <tr>
+              <td><%= record[:month] %></td>
+              <td><%= record[:total_savings] %>円</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
@@ -109,3 +128,4 @@
     });
   });
 </script>
+

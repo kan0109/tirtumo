@@ -85,6 +85,9 @@ ja:
     index:
       title: '節約リスト'
       total_savings: '節約合計金額：'
+      past_record: '過去の記録'
+      year_month: '年月'
+      save_money: '節約金額'
   notifications:
     index:
       title: '通知一覧'
