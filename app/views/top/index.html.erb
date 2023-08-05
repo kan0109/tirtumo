@@ -1,55 +1,59 @@
-<div class="top-container">
-  <div class="money-container"></div>
-  <div class="title-container">
-    <h1 class="title">
-      <span>　ち</span>
-      <span>　り</span>
-      <span>　つ</span>
-      <span>　も</span>
-      <span>　節</span>
-      <span>　約</span>
-    </h1>
+<section class="mx-10 mt-3 mb-3 text-gray-600 body-font">
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-md-6 col-12 order-2 order-md-1 mt-4">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <h1 class="display-4 mb-4 font-weight-bold" style="color: green; margin-top: 40px; margin-bottom: 40px; font-size: 36px;">ちりつも節約</h1>
+          <h2 class="mb-8" style="margin-top: 28px; margin-bottom: 28px; font-size: 16px;">ちりつも節約は、節約を楽しみながらできるサービス</h2>
+          <h2 class="mb-8" style="margin-top: 28px; margin-bottom: 28px; font-size: 16px;">ことわざの「塵も積もれば山となる」にちなんで、ちりつも節約</h2>
+          <h2 class="mb-8" style="margin-top: 28px; margin-bottom: 28px; font-size: 16px;">毎日節約の記録をつけて、コツコツ節約に取り組もう！</h2>
+        </div>
+      </div>
+      <div class="col-md-6 col-12 order-1 order-md-2 d-flex align-items-center mt-4">
+        <%= image_tag 'man.jpg', class: 'img-fluid mx-auto d-block', style: 'max-width: 100%;' %>
+      </div>
+    </div>
   </div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $(document).ready(function() {
-    var container = $('.money-container');
-    var titleContainer = $('.title-container');
-    var moneyAnimationTimer;
-
-    function createMoney() {
-      var money = $('<div class="money"></div>');
-      money.css('left', Math.random() * 100 + '%');
-      money.css('animationDuration', Math.random() * 4 + 3 + 's');
-      container.append(money);
-    }
-
-    function keepCreatingMoney() {
-      createMoney();
-    }
-
-    function showTitle() {
-      titleContainer.css('display', 'block');
-      moneyAnimationTimer = setTimeout(function() {
-        clearInterval(keepCreatingMoneyInterval);
-      }, 10000);
-    }
-
-    var keepCreatingMoneyInterval = setInterval(keepCreatingMoney, 1000); 
-
-    setTimeout(showTitle, 6000);
-
-    const CLASSNAME = '-visible';
-    const TIMEOUT = 1500;
-    const title = $('.title');
-
-    setInterval(function() {
-      title.addClass(CLASSNAME);
-      setTimeout(function() {
-        title.removeClass(CLASSNAME);
-      }, TIMEOUT);
-    }, TIMEOUT * 2);
-  });
-</script>
+</section>
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24">
+    <h1 class="display-4 font-weight-bold text-center text-gray-900 mb-5">利用方法</h1>
+    <div class="row">
+      <div class="col-md-4 col-12 mb-4 d-flex">
+        <div class="w-12 h-12 d-inline-flex align-items-center justify-content-center rounded-circle bg-warning text-warning mb-4 flex-shrink-0">
+          <i class="bi bi-share h-6 w-6"></i>
+        </div>
+        <div class="flex-grow-1 pl-3">
+          <h2 class="h4 font-weight-bold mb-2">目標を立てよう</h2>
+            <div class="box2">
+              <p class="lead">どのくらい節約したいか具体的な目標を持つことでモチベーション維持につながるよ！</p>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-12 mb-4 d-flex">
+        <div class="w-12 h-12 d-inline-flex align-items-center justify-content-center rounded-circle bg-warning text-warning mb-4 flex-shrink-0">
+          <i class="bi bi-tv h-6 w-6"></i>
+        </div>
+        <div class="flex-grow-1 pl-3">
+          <h2 class="h4 font-weight-bold mb-2">毎日記録しよう</h2>
+            <div class="box2">
+              <p class="lead">毎日記録することで、どのくらい節約できたかわかるよ</p>
+              <p class="lead">記録は、1日に一回チェックするだけ！</p>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-12 mb-4 d-flex">
+        <div class="w-12 h-12 d-inline-flex align-items-center justify-content-center rounded-circle bg-warning text-warning mb-4 flex-shrink-0">
+          <i class="bi bi-geo-alt h-6 w-6"></i>
+        </div>
+        <div class="flex-grow-1 pl-3">
+          <h2 class="h4 font-weight-bold mb-2">あなたの節約術を共有しよう</h2>
+            <div class="box2">
+              <p class="lead">節約術を発見しよう</p>
+              <p class="lead">他のユーザーの節約術を実践してみよう！</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
