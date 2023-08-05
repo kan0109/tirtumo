@@ -38,10 +38,12 @@ header {
 }
 .pc-menu {
   width: 100%;
+  text-align: right;
 }
 .pc-menu > ul {
   display: flex;
   list-style: none;
+  justify-content: flex-end;
 }
 .pc-menu > ul > li {
   text-align: center;
@@ -301,4 +303,25 @@ p.達人 {
 h1 {
   font-family:monospace;
   font-size: 16px;
+}
+
+/*トップページ*/
+
+section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.box2 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: green;
+  background: #FFF;
+  border: solid 3px green;/*線*/
+  border-radius: 10px;/*角の丸み*/
+}
+.box2 p {
+  margin: 0; 
+  padding: 0;
 }
