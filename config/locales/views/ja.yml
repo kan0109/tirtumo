@@ -33,12 +33,22 @@ ja:
       most_liked: "いいね順に並び替えました"
       target_money_achievement: 'おめでとうございます！目標金額達成しました。'
 
+  top:
+    index:
+      title: 'ちりつも節約'
+      how-to-use: '利用方法'
   users:
     new:
       title: 'ユーザー登録'
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
+    index:
+      title: 'ユーザー一覧'
+      total_savings: '節約合計金額：'
+      save_target: '節約目標：'
+      target_money: '目標金額：'
+      save_note: '節約帳'
   user_sessions:
     new:
       title: 'ログイン'
