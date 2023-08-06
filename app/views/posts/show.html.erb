@@ -8,8 +8,10 @@
             <div class='row'>
               <div class='col-md-9'>
                 <h3 class="d-inline"><%= @post.title %></h3>
-                <%= render 'crud_menus', post: @post if current_user.own?(@post) %>
-                <p><strong><%= t('.like_count') %></strong> <%= @post.likes.count %></p>
+                <p>
+                  <%= render 'crud_menus', post: @post if current_user.own?(@post) %>
+                  <%= render 'likes/like', post: @post %>
+                </p>
                 <ul class="list-inline">
                   <li class="list-inline-item"><%= t('.author') %><%= @post.user.decorate.name %></li>
                   <li class="list-inline-item"><%= l @post.created_at, format: :long  %></li>
@@ -21,9 +23,7 @@
         </article>
       </div>
     </div>
-
     <%= render 'comments/form', { post: @post, comment: @comment } %>
-
     <%= render 'comments/comments', { comments: @comments } %>
   </div>
 </div>
