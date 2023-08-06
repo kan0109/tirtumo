@@ -105,6 +105,10 @@ GEM
       reline (>= 0.3.1)
     dockerfile-rails (1.4.2)
       rails
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     draper (4.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -113,14 +117,31 @@ GEM
       request_store (>= 1.0)
       ruby2_keywords
     erubi (1.12.0)
+    excon (0.100.0)
     execjs (2.8.1)
     faraday (2.7.7)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
     ffi (1.15.5)
+    fog-aws (3.19.0)
+      fog-core (~> 2.1)
+      fog-json (~> 1.1)
+      fog-xml (~> 0.1)
+    fog-core (2.3.0)
+      builder
+      excon (~> 0.71)
+      formatador (>= 0.2, < 2.0)
+      mime-types
+    fog-json (1.2.0)
+      fog-core
+      multi_json (~> 1.10)
+    fog-xml (0.1.4)
+      fog-core
+      nokogiri (>= 1.5.11, < 2.0.0)
     font-awesome-sass (5.12.0)
       sassc (>= 1.11)
+    formatador (1.1.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -166,6 +187,9 @@ GEM
       net-smtp
     marcel (1.0.2)
     method_source (1.0.0)
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2023.0218.1)
     mini_magick (4.12.0)
     mini_mime (1.1.2)
     minitest (5.18.1)
@@ -338,7 +362,9 @@ DEPENDENCIES
   carrierwave (~> 2.2.4)
   debug
   dockerfile-rails (>= 1.4)
+  dotenv-rails
   draper (= 4.0.2)
+  fog-aws
   font-awesome-sass (~> 5.12.0)
   importmap-rails
   jbuilder
