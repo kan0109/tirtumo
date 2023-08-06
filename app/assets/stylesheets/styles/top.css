@@ -3,14 +3,20 @@ section {
   margin-bottom: 50px;
 }
 
+.display {
+  color: green;
+  margin-top: 60px;
+  font-size: 30px;
+}
+
 .box2 {
   padding: 0.5em 1em;
   margin: 2em 0;
   font-weight: bold;
   color: green;
   background: #FFF;
-  border: solid 3px green;/*線*/
-  border-radius: 10px;/*角の丸み*/
+  border: solid 3px green;
+  border-radius: 10px;
 }
 .box2 p {
   margin: 0; 
