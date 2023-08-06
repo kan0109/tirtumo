@@ -41,3 +41,6 @@ config/environments/*.local.yml
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+/.env
+/kanta112239-cert.pub
+/kanta112239
