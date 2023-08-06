@@ -1,0 +1,24 @@
+section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.display {
+  color: green;
+  margin-top: 60px;
+  font-size: 30px;
+}
+
+.box2 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: green;
+  background: #FFF;
+  border: solid 3px green;
+  border-radius: 10px;
+}
+.box2 p {
+  margin: 0; 
+  padding: 0;
+}

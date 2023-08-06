@@ -3,7 +3,7 @@
   <div class="main-menu">
     <div class="logo">
       <%= link_to root_path,class: "edit-link" do %>
-        <p>ちりつも節約</p>
+        <p><%= (t 'defaults.app_name') %></p>
       <% end %>
     </div>
     <div class="pc-menu">
@@ -21,7 +21,7 @@
           <%= link_to (t 'defaults.my_page'), my_page_path %>
         </li>
         <li>
-          <%= link_to (t 'defaults.user_list'), users_index_path %>
+          <%= link_to (t 'defaults.user_list'), users_path %>
         </li>
         <li>
           <%= link_to (t 'defaults.record'), records_path %>
@@ -65,7 +65,7 @@
             <%= link_to (t 'defaults.my_page'), my_page_path, class: "sp-menu__link" %>
           </li>
           <li class="sp-menu__item">
-            <%= link_to (t 'defaults.user_list'), users_index_path, class: "sp-menu__link" %>
+            <%= link_to (t 'defaults.user_list'), users_path, class: "sp-menu__link" %>
           </li>
           <li class="sp-menu__item">
             <%= link_to (t 'defaults.record'), records_path, class: "sp-menu__link" %>

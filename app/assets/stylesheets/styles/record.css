@@ -12,17 +12,29 @@
 
 .checkbox-wrapper input[type="checkbox"] {
   transform: scale(2.3);
-  margin-right: 5px;
+  margin-right: -40px;
 }
 
-.font_test {
-  font-size: 25px;
+
+.past-records table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #000;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+.past-records th,
+.past-records td {
+  padding: 8px;
+  text-align: center;
+  border: 2px solid #000;
+}
+
+
+
+.content-page th,
+.content-page td {
+  padding: 8px;
+  text-align: left;
 }
 
 /*花火のアニメーション*/

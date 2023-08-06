@@ -1,17 +1,16 @@
-<div class="bg"></div>
-<div class="bg"></div>
-<div class="bg"></div>
-<div class="content-notification">
-  <h1><%= t('.title') %></h1>
-  <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-  <% if notifications.exists? %>
-    <%= render partial: 'notification', collection: notifications %>
-    <%= paginate notifications, theme: 'bootstrap-5' %>
-  <% else %>
-    <div class="item">
-      <p class="no-result-text">
-        <%= t('.no_result') %>
-      </p>
-    </div>
-  <% end %>
+<div class="background-image">
+  <div class="content-notification">
+    <h1><%= t('.title') %></h1>
+    <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+    <% if notifications.exists? %>
+      <%= render partial: 'notification', collection: notifications %>
+      <%= paginate notifications, theme: 'bootstrap-5' %>
+    <% else %>
+      <div class="item">
+        <p class="no-result-text">
+          <%= t('.no_result') %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 </div>

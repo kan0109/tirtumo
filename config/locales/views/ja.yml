@@ -11,7 +11,6 @@ ja:
     record: '記録'
     target: '目標設定'
     my_page: 'マイページ'
-    service: 'サービスについて'
     user_new: '新規登録'
     app_name: 'ちりつも節約'
     user_list: 'ユーザー一覧'
@@ -37,7 +36,6 @@ ja:
   users:
     new:
       title: 'ユーザー登録'
-      to_login_page: 'ログインページへ'
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
@@ -85,6 +83,9 @@ ja:
     index:
       title: '節約リスト'
       total_savings: '節約合計金額：'
+      past_record: '過去の記録'
+      year_month: '年月'
+      save_money: '節約金額'
   notifications:
     index:
       title: '通知一覧'

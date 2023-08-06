@@ -15,16 +15,13 @@
           <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;", class: "edit-link" %>
         <% else %>
           <span>
-            <%= link_to post_path(notification.post) do %>
+            <%= link_to post_path(notification.post), class: "edit-link" do %>
               <%= image_tag visitor.avatar_url.to_s, class: "icon_mini", size: "30x30" %>
               <strong><%= notification.post.user.name %></strong>さんの投稿
             <% end %>
           </span>
         <% end %>
         にコメントしました
-        <p class="text-muted mb-0">
-          <%= Comment.find_by(id: notification.comment_id)&.content %>
-        </p>
       <% end %>
     </span>
     <div class="small text-muted text-right">

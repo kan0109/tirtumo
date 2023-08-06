@@ -1,8 +1,8 @@
 .footer {
-  background-image: url('texture-background.jpg');
+  background-image: url('light-gray-concrete-wall.jpg');
   bottom:0;
   height: 133px;
 }
-.pt-3 {
-  margin-top: -40px;
-}
+.text-center {
+  margin-top: 30px;
+} 

@@ -38,10 +38,12 @@ header {
 }
 .pc-menu {
   width: 100%;
+  text-align: right;
 }
 .pc-menu > ul {
   display: flex;
   list-style: none;
+  justify-content: flex-end;
 }
 .pc-menu > ul > li {
   text-align: center;
@@ -172,18 +174,30 @@ header {
   color: #000000 ;
 }
 
+/*背景*/
 
+.background-image{
+  background-color: #b0ce90;
+  background-size: cover;
+  background-position: center;
+}
+
+.background-post-image{
+  background-image: url('paper.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.background-user-image{
+  background-image: url('sunflower.jpg');
+  background-size: cover;
+  background-position: center;
+}
 
 /*マイページとユーザー一覧*/
 
-/*マイページの色付け*/
-.my-wrap {
-  background-image: url('texture-background.jpg');
-}
-
-
 .my-heading-lv1 {
-  font-size: 40px;
+  font-size: 20px;
   font-family:  'arial unicode ms';
   color: #364e96;
   padding: 0.5em 0;
@@ -191,13 +205,8 @@ header {
   border-bottom: solid 3px #364e96;
 }
 
-/*ユーザー一覧の色付け*/
-.user-wrap {
-  background-image: url('texture-background.jpg');
-}
-
 .user-heading-lv1 {
-  font-size: 40px;
+  font-size: 20px;
   font-family:  'arial unicode ms';
   color: #22a800;
   padding: 0.5em 0;
@@ -207,59 +216,35 @@ header {
 
 /*ここから共有*/
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .content {
+  background-image: url('paper.jpeg');
+  box-sizing:border-box;
+  padding:10vmin;
+  text-align:center;
   width: 100%;
-  max-width: 600px;
+  max-width: 550px;
   margin: 0 auto;
-  padding: 16px;
-  background-color: rgba(255, 255, 255, 0.606);
+  font-family: 'arial unicode ms';
 }
 
 
 .heading-lv2 {
-  font-size: 34px;
-  font-family:  'arial unicode ms';
+  font-size: 18px;
+  font-family: 'arial unicode ms';
 }
 
 .heading-lv3 {
-  font-size: 30px;
-  margin: 40px;
-  font-family:  'arial unicode ms';
+  font-size: 18px;
+  margin: 30px;
+  font-family: 'arial unicode ms';
 }
-
-
 
 .text {
-  margin: 16px 0 0;
-  font-size: 22px;
-  line-height: 1.5;
-  font-family:  'arial unicode ms';
-}
-
-.text-center {
+  font-size: 18px;
+  font-family: 'arial unicode ms';
   text-align: center;
 }
 
-.profile-image {
-  margin: 16px 0 0;
-  text-align: center;
-}
-
-.profile-image img {
-  width: 150px;
-  height: auto;
-  border-radius: 50%;
-}
-
-.heading-margin {
-  margin-top: 32px;
-}
 
 /*レベルに応じた色付け*/
 p.見習い {
@@ -278,37 +263,23 @@ p.達人 {
   color: purple;
 }
 
+/*トップページ*/
 
-.post-container {
-  background-image: url('texture-background.jpg');
-  background-size: cover;
-  background-position: center;
+section {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-/*記録、目標設定*/
-
-.content-page {
-  background-image: url('texture-background.jpg');
-  box-sizing:border-box;
-  padding:10vmin;
-  text-align:center;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+.box2 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: green;
+  background: #FFF;
+  border: solid 3px green;/*線*/
+  border-radius: 10px;/*角の丸み*/
 }
-
-h1 {
-  font-family:monospace;
-  font-size: 16px;
-}
-
-.bg {
-  background-image: url('texture-background.jpg');
-  bottom:0;
-  left:-50%;
-  opacity:.5;
-  position:fixed;
-  right:-50%;
-  top:0;
-  z-index:-1;
+.box2 p {
+  margin: 0; 
+  padding: 0;
 }

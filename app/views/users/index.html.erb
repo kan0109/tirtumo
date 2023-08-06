@@ -1,27 +1,29 @@
-<body class="user-wrap">
+<div class="background-image">
   <div class="content">
-    <h1 class="user-heading-lv1 text-center">ユーザー一覧</h1>
+    <h1 class="user-heading-lv1"><%= t '.title' %></h1>
     <% @users.each do |user| %>
-      <div class="profile-image">
         <%= image_tag user.avatar.url, class: 'rounded-circle', id: 'preview', size: '130x130' %>
-      </div>
-      <h2 class="heading-lv2 heading-margin text-center"><%= user.decorate.name %></h2>
-      <h3 class="heading-lv3 heading-margin text-center" onclick="toggleContent('savingsContent<%= user.id %>')">節約帳</h3>
+      <h2 class="heading-lv2"><%= user.decorate.name %></h2>
+      <h3 class="heading-lv3" onclick="toggleContent('savingsContent<%= user.id %>')"><%= t '.save_note' %></h3>
       <div id="savingsContent<%= user.id %>" style="display: none;">
-        <p class="text text-center">節約合計金額: <%= @savings %>円</p>
-        <p class="text text-center <%= determine_level(current_user.level || 1) %>">
-          レベル: <%= current_user.level || 1 %> (<%= determine_level(current_user.level || 1) %>)
-        </p>
-        <% if user.target %>
-          <p class="text text-center">節約目標: <%= user.target.target %></p>
-          <p class="text text-center">目標金額: <%= user.target.target_amount %>円</p>
+        <% if user.records.any? %>
+          <p class="text"><%= t '.total_savings' %><%= calculate_savings(user.records) %>円</p>
+          <p class="text <%= determine_level(user.level || 1) %>">
+            レベル: <%= user.level || 1 %> (<%= determine_level(user.level || 1) %>)
+          </p>
+          <% if user.target %>
+            <p class="text"><%= t '.save_target' %><%= user.target.target %></p>
+            <p class="text"><%= t '.target_money' %><%= user.target.target_amount %>円</p>
+          <% end %>
+        <% else %>
+          <p class="text">節約記録がありません。</p>
         <% end %>
       </div>
       <hr>
     <% end %>
     <%= paginate @users, theme: 'bootstrap-5' %>
   </div>
-</body>
+</div>
 
 
 <script>
@@ -29,4 +31,4 @@
       var content = document.getElementById(elementId);
       content.style.display = (content.style.display === "none") ? "block" : "none";
     }
-  </script>
+</script>
