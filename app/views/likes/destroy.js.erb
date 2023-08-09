@@ -1,1 +1,1 @@
-$('#likes_buttons_<%= @post.id %>').html("<%= j(render partial: 'likes/like', locals: {post: @post}) %>");
+$("#js-like-button-for-post-<%= @post.id %>").replaceWith("<%= j(render('posts/like', post: @post)) %>");

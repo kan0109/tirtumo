@@ -4,8 +4,8 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :liked_posts, through: :likes, source: :post
+  has_many :likes
+  has_many :like_posts, through: :likes, source: :post
   has_many :records
   has_many :targets, dependent: :destroy
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
@@ -28,8 +28,16 @@ class User < ApplicationRecord
     id == object.user_id
   end
 
-  def liked_by?(post_id)
-    likes.where(post_id:).exists?
+  def like(post)
+    like_posts << post
+  end
+
+  def unlike(post)
+    like_posts.destroy(post)
+  end
+
+  def like?(post)
+    like_posts.include?(post)
   end
 
   def determine_level(level)

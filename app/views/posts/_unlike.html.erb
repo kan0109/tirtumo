@@ -1,0 +1,8 @@
+<%= link_to like_path(current_user.likes.find_by(post_id: post.id)),
+            id: "js-like-button-for-post-#{post.id}",
+            class: "like-link",
+            data: { "turbo-method": :delete },
+            remote: true do %>
+  <i class="fa fa-heart unlike-btn"></i>
+<% end %>
+<%= post.likes.count %>
