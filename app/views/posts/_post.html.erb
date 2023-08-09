@@ -8,9 +8,8 @@
         </h4>
         <% if current_user.own?(post) %>
           <%= render 'crud_menus', post: post %>
-          <%= render 'likes/like', post: post  %>
         <% else %>
-          <%= render 'likes/like', post: post  %>
+          <%= render 'like_button', post: post  %>
         <% end %>
         <ul class="list-inline">
           <li class="list-inline-item">
