@@ -10,7 +10,7 @@
                 <h3 class="d-inline"><%= @post.title %></h3>
                 <p>
                   <%= render 'crud_menus', post: @post if current_user.own?(@post) %>
-                  <%= render 'likes/like', post: @post %>
+                  <%= render 'like_button', post: @post  %>
                 </p>
                 <ul class="list-inline">
                   <li class="list-inline-item"><%= t('.author') %><%= @post.user.decorate.name %></li>
