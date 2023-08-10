@@ -11,6 +11,9 @@
         <% else %>
           <%= render 'like_button', post: post  %>
         <% end %>
+        <% post.tags.each do |tag| %>
+            <%= tag.name %>
+        <% end %>
         <ul class="list-inline">
           <li class="list-inline-item">
             <%= icon 'far', 'user' %>

@@ -19,6 +19,9 @@
               </div>
             </div>
             <p><%= simple_format(@post.content) %></p>
+            <% @post.tags.each do |tag| %>
+              <%= tag.name %>
+          <% end %>
           </div>
         </article>
       </div>

@@ -15,6 +15,15 @@
     <%= f.file_field :post_image, class: 'form-control mb-3', accept: 'image/*' %>
     <%= f.hidden_field :post_image_cache %>
   </div>
-
+  <div class="check_box">
+  <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+    <div class='form-check'>
+      <%= tag.label do %>
+        <%= tag.check_box %>
+        <%= tag.text %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
   <%= f.submit '投稿する', class: 'btn btn-primary' %>
 <% end %>
