@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
   has_many :notifications, dependent: :destroy
+  has_many :post_tags, dependent: :destroy
+  has_many :tags, through: :post_tags, dependent: :destroy
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :content, presence: true, length: { maximum: 65_535 }
@@ -54,5 +56,13 @@ class Post < ApplicationRecord
     # 自分の投稿に対するコメントの場合は、通知済みとする
     notification.checked = true if notification.visitor_id == notification.visited_id
     notification.save if notification.valid?
+  end
+
+  # def self.ransackable_associations(auth_object = nil)
+  #   ["tag"]
+  # end
+
+  # def self.ransackable_attributes(auth_object = nil)
+  #   ["title", "content"]
   end
 end
