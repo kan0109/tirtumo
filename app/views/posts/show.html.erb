@@ -1,32 +1,48 @@
-<div class="background-post-image">
-  <div class="container pt-5">
+<div class="background-image">
+  <div class="container pt-5 mb-5 mt-3">
     <div class="row mb-3">
-      <div class="col-lg-8 offset-lg-2">
-        <h1><%= t('.title') %></h1>
+      <div class="col-lg-8 offset-lg-2 mb-3 border p-4 bg-light">
         <article class="card">
           <div class="card-body">
             <div class='row'>
-              <div class='col-md-9'>
-                <h3 class="d-inline"><%= @post.title %></h3>
-                <p>
-                  <%= render 'crud_menus', post: @post if current_user.own?(@post) %>
-                  <%= render 'like_button', post: @post  %>
-                </p>
+              <div class='col-12'>
+                <%= image_tag @post.post_image_url, class: 'card-img-top img-fluid', size: '300x200' %>
+              </div>
+              <div class='col-12'>
+                <br>
+                <h3 style='display: inline;'><%= @post.title %></h3>
+                <% if current_user && current_user.own?(@post) %>
+                  <%= render 'crud_menus', post: @post %>
+                  <%= render 'like_button', post: @post %>
+                <% end %>
+                <br>
+                <br>
+                <% @post.tags.each do |tag| %>
+                      <span class="badge bg-primary"><%= tag.tag_type %></span>
+                <% end %>
                 <ul class="list-inline">
-                  <li class="list-inline-item"><%= t('.author') %><%= @post.user.decorate.name %></li>
-                  <li class="list-inline-item"><%= l @post.created_at, format: :long  %></li>
+                <br>
+                  <li class="list-inline-item">
+                    <%= image_tag @post.user.avatar.url, class: 'rounded-circle', size: '40x40' %>
+                    <%= @post.user.decorate.name %>
+                  </li>
+                  <li class="list-inline-item"><%= l @post.created_at, format: :long %></li>
                 </ul>
               </div>
             </div>
+            <div class="card">
             <p><%= simple_format(@post.content) %></p>
-            <% @post.tags.each do |tag| %>
-              <%= tag.name %>
-          <% end %>
+            </div>
+            <br>
           </div>
         </article>
       </div>
     </div>
-    <%= render 'comments/form', { post: @post, comment: @comment } %>
-    <%= render 'comments/comments', { comments: @comments } %>
+  </div>
+  <div class="container">
+    <% if current_user %>
+      <%= render 'comments/form', { post: @post, comment: @comment } %>
+    <% end %>
+      <%= render 'comments/comments', { comments: @comments } %>
   </div>
 </div>
