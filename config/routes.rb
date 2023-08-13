@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
+  get "search" => "posts#search"
+
   resources :users, only: %i[index new create]
   resources :password_resets, only: %i[new create edit update]
   resource :my_page, only: %i[show]

@@ -65,7 +65,7 @@ ja:
       old_order: '古い順'
       like_order: 'いいね順'
     new:
-      title: '投稿'
+      title: '新規投稿'
     show:
       title: '投稿詳細'
       like_count: 'いいね数'

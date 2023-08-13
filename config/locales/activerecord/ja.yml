@@ -18,6 +18,7 @@ ja:
         title: '節約タイトル'
         content: '節約内容'
         post_image: '写真'
+        tag: 'タグ一覧'
       comment:
         content: 'コメント'
       target:

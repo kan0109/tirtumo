@@ -177,15 +177,10 @@ header {
 /*背景*/
 
 .background-image{
-  background-color: #b0ce90;
+  background-color: rgb(232, 239, 204);
   background-size: cover;
   background-position: center;
-}
-
-.background-post-image{
-  background-image: url('paper.jpg');
-  background-size: cover;
-  background-position: center;
+  font-family: 'arial unicode ms';
 }
 
 .background-user-image{
@@ -261,25 +256,4 @@ p.名人 {
 
 p.達人 {
   color: purple;
-}
-
-/*トップページ*/
-
-section {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.box2 {
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  font-weight: bold;
-  color: green;
-  background: #FFF;
-  border: solid 3px green;/*線*/
-  border-radius: 10px;/*角の丸み*/
-}
-.box2 p {
-  margin: 0; 
-  padding: 0;
 }
