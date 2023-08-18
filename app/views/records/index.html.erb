@@ -1,4 +1,3 @@
-<div class="c-firework"></div>
 <div class="background-image">
   <div class="content">
     <h1><%= t('.title') %></h1>
@@ -70,9 +69,6 @@
       <%= form.submit '更新' %>
       <div class="item">
         <p><%= t('.total_savings') %><%= @savings %>円</p>
-        <p class="<%= determine_level(current_user.level || 1) %>">
-          レベル: <%= current_user.level || 1 %> (<%= determine_level(current_user.level || 1) %>)
-        </p>
       </div>
     <% end %>
     <div class="past-records">
@@ -97,7 +93,9 @@
   </div>
 </div>
 
-<script>
+<%
+=begin%>
+ <script>
   function launchFireworks() {
     const fireworkElement = document.createElement("div");
     fireworkElement.className = "c-firework launch";
@@ -136,4 +134,6 @@
     });
   });
 </script>
-
+ 
+<%
+=end%>

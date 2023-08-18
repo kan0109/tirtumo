@@ -7,10 +7,7 @@
       <h3 class="heading-lv3" onclick="toggleContent('savingsContent<%= user.id %>')"><%= t '.save_note' %></h3>
       <div id="savingsContent<%= user.id %>" style="display: none;">
         <% if user.records.any? %>
-          <p class="text"><%= t '.total_savings' %><%= calculate_savings(user.records) %>円</p>
-          <p class="text <%= determine_level(user.level || 1) %>">
-            レベル: <%= user.level || 1 %> (<%= determine_level(user.level || 1) %>)
-          </p>
+          <p class="text"><%= t '.total_savings' %><%= user.result[:total_savings] %>円</p>
           <% if user.target %>
             <p class="text"><%= t '.save_target' %><%= user.target.target %></p>
             <p class="text"><%= t '.target_money' %><%= user.target.target_amount %>円</p>
