@@ -10,12 +10,6 @@
       <ul>
         <li>
           <%= link_to (t 'defaults.posts'), posts_path %>
-          <ul>
-            <li><%= link_to (t 'defaults.post'), new_post_path %></li>
-            <li><%= link_to (t 'defaults.new_order'), posts_path(latest: "true") %></li>
-            <li><%= link_to (t 'defaults.old_order'), posts_path(old: "true") %></li>
-            <li><%= link_to (t 'defaults.like_order'), posts_path(most_liked: "true") %></li>
-          </ul>
         </li>
         <li>
           <%= link_to (t 'defaults.my_page'), my_page_path %>

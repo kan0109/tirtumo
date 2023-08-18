@@ -1,0 +1,39 @@
+<div class="search-background">
+  <div class="d-flex justify-content-end my-2">
+    <div class="input-group">
+      <%= link_to (t 'defaults.post'), new_post_path, class: "form-control new-control ml-auto small" %>
+      <%= form_with url: posts_path, method: :get, local: true, class: 'boards__searchForm flex-fill' do |f|%>
+        <div class="input-group">
+          <%= f.text_field :keyword, value: @keyword, class: "form-control search-control", placeholder: "キーワードを入力" %>
+          <%= select_tag :tag_id,
+            options_from_collection_for_select(Tag.all, :id, :tag_type, params[:tag_id]),
+              {
+                prompt: "タグで絞り込み検索",
+                onchange: "submit(this.form);",
+                class: "form-control search-control small"
+              }
+          %>
+          <%= select_tag :sort_order,
+            options_for_select({
+              "新着順": "latest",
+              "古い順": "old",
+              "いいね順": "most_liked"
+            }, params[:sort_order]),
+            {
+              prompt: "ソート順を選択",
+              onchange: "submit(this.form);",
+              class: "form-control search-control small"
+            }
+          %>
+          <span class="input-group-append">
+            <%= button_tag type: "submit", class: "btn btn-secondary search-btn" do %>
+              <i class="fas fa-search"></i> 検索
+            <% end %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

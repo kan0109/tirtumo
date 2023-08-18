@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_31_023926) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_12_065416) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "association_post_and_tags", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_association_post_and_tags_on_post_id"
+    t.index ["tag_id"], name: "index_association_post_and_tags_on_tag_id"
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "content", null: false
@@ -67,6 +76,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_023926) do
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "targets", force: :cascade do |t|
     t.bigint "user_id"
     t.string "target"
@@ -88,13 +103,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_023926) do
     t.datetime "reset_password_email_sent_at"
     t.integer "access_count_to_reset_password_page", default: 0
     t.string "avatar"
-    t.integer "level"
-    t.integer "total_savings"
     t.integer "target_amount"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
 
+  add_foreign_key "association_post_and_tags", "posts"
+  add_foreign_key "association_post_and_tags", "tags"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"

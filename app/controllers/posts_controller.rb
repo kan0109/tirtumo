@@ -1,19 +1,25 @@
 class PostsController < ApplicationController
   def index
-    if params[:latest]
-      @posts = Post.latest.includes(:user).order(created_at: :desc).page(params[:page]).per(12)
-      flash.now['info '] = t('defaults.message.latest')
-    elsif params[:old]
-      @posts = Post.old.includes(:user).order(created_at: :desc).page(params[:page]).per(12)
-      flash.now['info '] = t('defaults.message.old')
-    elsif params[:most_liked]
-      @posts = Kaminari.paginate_array(Post.most_liked.to_a.sort_by do |x|
-                                         -x.liked_users.size
-                                       end.map { |post| post.decorate }).page(params[:page]).per(12)
-      flash.now['info '] = t('defaults.message.most_liked')
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all.page(params[:page]).per(10)
+    if params[:keyword]
+      @posts = @posts.search(params[:keyword]).page(params[:page]).per(10)
     else
-      @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page]).per(12)
+      @posts = @posts.page(params[:page]).per(10)
     end
+    @keyword = params[:keyword]
+
+    @posts = Post.sort_and_paginate(params)
+    flash_message = case params[:sort_order]
+    when "latest"
+      t('defaults.message.latest')
+    when "old"
+      t('defaults.message.old')
+    when "most_liked"
+      t('defaults.message.most_liked')
+    else
+      ""
+    end
+    flash.now['info '] = flash_message
   end
 
   def new
@@ -63,6 +69,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :post_image, :post_image_cache)
+    params.require(:post).permit(:title, :content, :post_image, :post_image_cache, tag_ids: [])
   end
 end

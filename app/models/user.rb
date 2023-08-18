@@ -40,16 +40,38 @@ class User < ApplicationRecord
     like_posts.include?(post)
   end
 
-  def determine_level(level)
-    case level
-    when 1..5
-      '見習い'
-    when 6..15
-      '一人前'
-    when 16..25
-      '名人'
-    else
-      '達人'
+  def result
+    total_savings = calculate_savings(records)
+
+    {
+      total_savings: total_savings,
+    }
+  end
+
+  def total_savings
+    calculate_savings(records)
+  end
+
+  private
+
+  def calculate_monthly_records_for_user(records_in_month)
+    calculate_savings(records_in_month)
+  end
+
+  def calculate_savings(records)
+    total_savings = 0
+
+    records.each do |record|
+      total_savings += item_prices[:bottle_bring] if record.bottle_bring
+      total_savings += item_prices[:packed_lunch] if record.packed_lunch
+      total_savings += item_prices[:alternative_transportation] if record.alternative_transportation
+      total_savings += item_prices[:no_eating_out] if record.no_eating_out
     end
+
+    total_savings
+  end
+
+  def item_prices
+    SharedConstants::ITEM_PRICES
   end
 end

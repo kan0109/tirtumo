@@ -1,9 +1,13 @@
-<div class="background-post-image"> 
-  <div class="container">
+<div class="background-image">
+  <div class="container pt-4">
     <div class="row">
-      <div class="col-lg-8 offset-lg-2">
-        <h1><%= t('.title') %></h1>
-        <%= render 'form', { post: @post } %>
+      <div class="col-md-11 col-lg-7 mx-auto">
+        <div class="card shadow">
+          <div class="card-body p-4 p-sm-5">
+            <p class='text-center mb-4 fw-light fs-2'><%= t('.title') %></p>
+            <%= render 'form', { post: @post } %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

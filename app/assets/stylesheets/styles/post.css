@@ -1,0 +1,40 @@
+.post-info-bottom-right {
+  position: absolute;
+  bottom: 0;
+}
+.small-text {
+  font-size: 16px;
+}
+
+.post-title {
+  text-decoration: none;
+  font-size: 20px;
+  color:rgb(0, 0, 0)
+}
+
+@media (max-width: 767px) {
+  .card-deck {
+    display: block;
+  }
+  .card {
+    margin-bottom: 1rem;
+  }
+}
+
+.form-control.search-control,
+select {
+  margin: 0 5px; 
+}
+
+.form-control.new-control,
+select {
+  margin: 0 5px; 
+  text-decoration: none; 
+  max-width: 160px; 
+  display: inline-block;
+}
+
+.card-text {
+  height: 140px; 
+  overflow: auto;
+}

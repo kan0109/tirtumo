@@ -1,21 +1,17 @@
-<div class="background-post-image pt-5">
+<div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <div class="row">
+      <%= render "search", post: @post %>
+      <div class="row row-cols-1 row-cols-md-2 g-2">
         <% if @posts.present? %>
-          <% if params[:latest] %>
-            <h2><%= t('.new_order') %></h2>
-          <% elsif params[:old] %>
-            <h2><%= t('.old_order') %></h2>
-          <% elsif params[:most_liked] %>
-            <h2><%= t('.like_order') %></h2>
-          <% end %>
           <%= render @posts %>
         <% else %>
           <p><%= t('.no_result') %></p>
         <% end %>
       </div>
-      <%= paginate @posts, theme: 'bootstrap-5' %>
+      <div class="mt-3">
+        <%= paginate @posts, theme: 'bootstrap-5' %>
+      </div>
     </div>
   </div>
 </div>
