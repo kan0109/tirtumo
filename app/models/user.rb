@@ -52,8 +52,6 @@ class User < ApplicationRecord
     calculate_savings(records)
   end
 
-  private
-
   def calculate_monthly_records_for_user(records_in_month)
     calculate_savings(records_in_month)
   end

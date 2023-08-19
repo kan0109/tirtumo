@@ -6,14 +6,16 @@ class TargetsController < ApplicationController
   end
 
   def create
-    @target = current_user.targets.build(target_params)
-    if @target.save
-      current_user.update(target_amount: @target.target_amount)
-      flash[:success] = t('defaults.message.created', item: Target.model_name.human)
-      redirect_to my_page_path
-    else
-      flash[:danger] = t('defaults.message.not_created', item: Target.model_name.human)
-      render :new
+    ActiveRecord::Base.transaction do
+      @target = current_user.targets.build(target_params)
+      if @target.save
+        flash[:success] = t('defaults.message.created', item: Target.model_name.human)
+        redirect_to my_page_path
+      else
+        flash[:danger] = t('defaults.message.not_created', item: Target.model_name.human)
+        render :new
+        raise ActiveRecord::Rollback
+      end
     end
   end
 
