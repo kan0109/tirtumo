@@ -11,21 +11,23 @@ class RecordsController < ApplicationController
   def update
     today_records = current_user.records.where('created_at >= ?', Time.zone.now.beginning_of_day)
     if today_records.empty?
-      @record = current_user.records.new(record_params)
-      @savings = current_user.calculate_savings([@record])  # レコードを配列にして渡す
-      if @record.save
-        @user_records = current_user.records
-        @result = current_user.result  # ここで @result を再度取得
+      ActiveRecord::Base.transaction do
+        @record = current_user.records.new(record_params)
+        @savings = current_user.calculate_savings([@record])
 
-        flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
+        if @record.save
+          @user_records = current_user.records
+          @result = current_user.result
 
-        flash[:success] = t('defaults.message.target_money_achievement') if reached_target_amount?
+          flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
 
-        redirect_to records_path
-      else
-        flash[:danger] = t('defaults.message.not_updated', item: Record.model_name.human)
-        redirect_to records_path
+          flash[:success] = t('defaults.message.target_money_achievement') if reached_target_amount?
+        else
+          raise ActiveRecord::Rollback
+        end
       end
+
+      redirect_to records_path
     else
       flash[:danger] = t('defaults.message.only_record_once_a_day', item: Record.model_name.human)
       redirect_to records_path
