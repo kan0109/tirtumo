@@ -13,7 +13,7 @@ ja:
     my_page: 'マイページ'
     user_new: '新規登録'
     app_name: 'ちりつも節約'
-    user_list: 'ユーザー一覧'
+    user_list: 'ランキング'
     new_order: '新着順'
     old_order: '古い順'
     like_order: 'いいね順'
@@ -44,7 +44,12 @@ ja:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
     index:
-      title: 'ユーザー一覧'
+      title: 'ランキング'
+      total_savings: '節約合計金額：'
+      save_target: '節約目標：'
+      target_money: '目標金額：'
+      save_note: '節約帳'
+    show:
       total_savings: '節約合計金額：'
       save_target: '節約目標：'
       target_money: '目標金額：'
