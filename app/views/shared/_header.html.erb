@@ -48,12 +48,6 @@
         <ul class="sp-menu__list">
           <li class="sp-menu__item">
             <%= link_to (t 'defaults.posts'), posts_path, class: "sp-menu__link" %>
-            <ul>
-              <li><%= link_to (t 'defaults.post'), new_post_path, class: "sp-menu__link" %></li>
-              <li><%= link_to (t 'defaults.new_order'), posts_path(latest: "true"), class: "sp-menu__link" %></li>
-              <li><%= link_to (t 'defaults.old_order'), posts_path(old: "true"), class: "sp-menu__link" %></li>
-              <li><%= link_to (t 'defaults.like_order'), posts_path(most_liked: "true"), class: "sp-menu__link" %></li>
-            </ul>
           </li>
           <li class="sp-menu__item">
             <%= link_to (t 'defaults.my_page'), my_page_path, class: "sp-menu__link" %>
