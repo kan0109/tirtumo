@@ -1,14 +1,8 @@
 class PostsController < ApplicationController
-  def index
-    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all.page(params[:page]).per(10)
-    if params[:keyword]
-      @posts = @posts.search(params[:keyword]).page(params[:page]).per(10)
-    else
-      @posts = @posts.page(params[:page]).per(10)
-    end
-    @keyword = params[:keyword]
 
-    @posts = Post.sort_and_paginate(params)
+  def index
+    set_posts
+
     flash_message = case params[:sort_order]
     when "latest"
       t('defaults.message.latest')
@@ -70,5 +64,21 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content, :post_image, :post_image_cache, tag_ids: [])
+  end
+
+  def set_posts
+    if params[:tag_id].present?
+      @posts = Tag.find(params[:tag_id]).posts
+    else
+      @posts = Post.all.page(params[:page]).per(10)
+    end
+
+    if params[:keyword]
+      @posts = @posts.search(params[:keyword]).page(params[:page]).per(10)
+    else
+      @posts = @posts.page(params[:page]).per(10)
+    end
+
+    @posts = Post.sort_and_paginate(params)
   end
 end
