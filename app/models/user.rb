@@ -24,6 +24,8 @@ class User < ApplicationRecord
 
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
+  attr_accessor :rank, :rank_value, :monthly_rank, :monthly_rank_value
+
   def own?(object)
     id == object.user_id
   end
@@ -71,5 +73,10 @@ class User < ApplicationRecord
 
   def item_prices
     SharedConstants::ITEM_PRICES
+  end
+
+  def target_amount
+    target = self.target
+    target&.target_amount
   end
 end

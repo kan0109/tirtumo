@@ -1,0 +1,46 @@
+<div class="background-image">
+  <div class="content">  
+    <%= image_tag @user.avatar.url, class: 'rounded-circle', id: 'preview', size: '130x130' %>
+    <h2 class="heading-lv2"><%= @user.decorate.name %></h2>
+    <h3 class="heading-lv3"><%= t('.save_note') %></h3>
+    <p class="text"><%= t('.total_savings') %><%= @user.result[:total_savings] %>円</p>
+    <% if @latest_target %>
+      <p class="text"><%= t('.save_target') %><%= @latest_target.target %></p>
+      <p class="text"><%= t('.target_money') %><%= @latest_target.target_amount %>円</p>
+    <% end %>
+    <h3 class="heading-lv3"><%= "#{@user.decorate.name}さんの投稿" %></h3>
+    <% @user.posts.each do |post| %>
+    <div class="card-deck">
+      <div class="card mb-2 h-100 post-content">
+        <div class="background-image">
+          <div class="row g-0">
+            <div class="col-md-4 p-md-2">
+              <%= image_tag post.post_image_url, class: 'card-img-top', size: '200x200' %>
+            </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <div class="d-flex flex-column h-100">
+                    <%= link_to post.title, post_path(post), class: "post-title card-title" %>
+                    <h2 class="card-text small-text d-none d-md-block">
+                      <%= truncate(post.content, length: 80) %>
+                    </h2>
+                    <h2 class="card-text small-text d-block d-md-none">
+                      <%= truncate(post.content, length: 50) %>
+                    </h2>
+                    <div class="post-info post-info-bottom-right">
+                      <div class="d-md-block">
+                        <% post.tags.each do |tag| %>
+                          <span class="badge bg-primary"><%= tag.tag_type %></span>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

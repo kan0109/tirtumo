@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get "search" => "posts#search"
 
-  resources :users, only: %i[index new create]
+  resources :users, only: %i[index new create show]
   resources :password_resets, only: %i[new create edit update]
   resource :my_page, only: %i[show]
   resources :posts do
