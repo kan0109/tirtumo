@@ -101,6 +101,9 @@ ja:
       past_record: '過去の記録'
       year_month: '年月'
       save_money: '節約金額'
+      record_already_made: '今日の記録は更新しました'
+      record_tomorrow: '引き続き明日も記録しよう！'
+
   notifications:
     index:
       title: '通知一覧'

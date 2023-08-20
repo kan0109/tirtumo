@@ -1,74 +1,82 @@
 <div class="background-image">
   <div class="content">
+    <% if @show_record_form %>
     <h1><%= t('.title') %></h1>
-    <%= form_with(model: @records, url: record_path(@records), method: :patch) do |form| %>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <div class="item">
-                １、外出時、マイボトルを持参した
-              </div>
-            </td>
-            <td>
-              <span style="white-space: nowrap;">100円</span>
-            </td>
-            <td>
-              <div class="checkbox-wrapper">
-                <%= check_box_tag 'record[bottle_bring]' %>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="item">
-                ２、お昼ご飯を弁当持参、または自炊した
-              </div>
-            </td>
-            <td>
-              <span style="white-space: nowrap;">300円</span>
-            </td>
-            <td>
-              <div class="checkbox-wrapper">
-                <%= check_box_tag 'record[packed_lunch]' %>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="item">
-                ３、交通手段を徒歩、または自転車を利用した
-              </div>
-            </td>
-            <td>
-              <span style="white-space: nowrap;">200円</span>
-            </td>
-            <td>
-              <div class="checkbox-wrapper">
-                <%= check_box_tag 'record[alternative_transportation]' %>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="item">
-                ４、コンビニに行かなかった
-              </div>
-            </td>
-            <td>
-              <span style="white-space: nowrap;">300円</span>
-            </td>
-            <td>
-              <div class="checkbox-wrapper">
-                <%= check_box_tag 'record[no_eating_out]' %>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <%= form.submit '更新' %>
+      <%= form_with(model: @records, url: record_path(@records), method: :patch) do |form| %>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <div class="item">
+                  １、外出時、マイボトルを持参した
+                </div>
+              </td>
+              <td>
+                <span style="white-space: nowrap;">100円</span>
+              </td>
+              <td>
+                <div class="checkbox-wrapper">
+                  <%= check_box_tag 'record[bottle_bring]' %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item">
+                  ２、お昼ご飯を弁当持参、または自炊した
+                </div>
+              </td>
+              <td>
+                <span style="white-space: nowrap;">300円</span>
+              </td>
+              <td>
+                <div class="checkbox-wrapper">
+                  <%= check_box_tag 'record[packed_lunch]' %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item">
+                  ３、交通手段を徒歩、または自転車を利用した
+                </div>
+              </td>
+              <td>
+                <span style="white-space: nowrap;">200円</span>
+              </td>
+              <td>
+                <div class="checkbox-wrapper">
+                  <%= check_box_tag 'record[alternative_transportation]' %>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item">
+                  ４、コンビニに行かなかった
+                </div>
+              </td>
+              <td>
+                <span style="white-space: nowrap;">300円</span>
+              </td>
+              <td>
+                <div class="checkbox-wrapper">
+                  <%= check_box_tag 'record[no_eating_out]' %>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <%= form.submit '更新' %>
+        <div class="item">
+          <p><%= t('.total_savings') %><%= @savings %>円</p>
+        </div>
+      <% end %>
+    <% else %>
+      <p><%= t('.record_already_made') %></p>
+      <p><%= t('.record_tomorrow') %></p>
       <div class="item">
-        <p><%= t('.total_savings') %><%= @savings %>円</p>
+          <p><%= t('.total_savings') %><%= @savings %>円</p>
       </div>
     <% end %>
     <div class="past-records">

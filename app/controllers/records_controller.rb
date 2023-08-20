@@ -6,6 +6,8 @@ class RecordsController < ApplicationController
     @savings = current_user.total_savings
     @result = current_user.result
     @monthly_records = Record.calculate_monthly_records(current_user)
+    @today_records = current_user.records.where('created_at >= ?', Time.zone.now.beginning_of_day)
+    @show_record_form = @today_records.empty?
   end  
 
   def update
@@ -27,9 +29,6 @@ class RecordsController < ApplicationController
         end
       end
 
-      redirect_to records_path
-    else
-      flash[:danger] = t('defaults.message.only_record_once_a_day', item: Record.model_name.human)
       redirect_to records_path
     end
   end  
