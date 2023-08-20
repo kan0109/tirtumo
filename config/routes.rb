@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   get 'reset_records', to: 'records#reset_records', as: :reset_records
   resources :targets, only: %i[new create]
   resources :notifications, only: %i[index]
+  resources :savings_items, only: %i[new create]
 end
