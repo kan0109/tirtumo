@@ -65,6 +65,23 @@
                 </div>
               </td>
             </tr>
+            <% @savings_items.each do |savings_item| %>
+              <tr>
+                <td>
+                  <div class="item">
+                    <%= savings_item.name %>
+                  </div>
+                </td>
+                <td>
+                  <span style="white-space: nowrap;"><%= savings_item.amount %>円</span>
+                </td>
+                <td>
+                  <div class="checkbox-wrapper">
+                    <%= check_box_tag "record[savings_item_ids][]", savings_item.id %>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
         <%= form.submit '更新' %>
@@ -79,6 +96,9 @@
           <p><%= t('.total_savings') %><%= @savings %>円</p>
       </div>
     <% end %>
+        <div class="item">
+          <%= link_to t('.record_make'), new_savings_item_path, class: "edit-link" %>
+        </div>
     <div class="past-records">
       <h2><%= t('.past_record') %></h2>
       <table>
@@ -101,47 +121,3 @@
   </div>
 </div>
 
-<%
-=begin%>
- <script>
-  function launchFireworks() {
-    const fireworkElement = document.createElement("div");
-    fireworkElement.className = "c-firework launch";
-    document.body.appendChild(fireworkElement);
-
-    const fireworkElement2 = document.createElement("div");
-    fireworkElement2.className = "c-firework launch c-firework2";
-    document.body.appendChild(fireworkElement2);
-
-    const fireworkElement3 = document.createElement("div");
-    fireworkElement3.className = "c-firework launch c-firework3";
-    document.body.appendChild(fireworkElement3);
-
-    setTimeout(() => {
-      fireworkElement.remove();
-      fireworkElement2.remove();
-      fireworkElement3.remove();
-    }, 5000); 
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const level = parseInt("<%= current_user.level || 1 %>");
-    const intermediate = level >= 6 && level % 10 === 6; 
-    if (intermediate) {
-      launchFireworks();
-    }
-
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach((checkbox) => {
-      checkbox.addEventListener("click", () => {
-        const checked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
-        if (checked && intermediate) {
-          launchFireworks();
-        }
-      });
-    });
-  });
-</script>
- 
-<%
-=end%>

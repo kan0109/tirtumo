@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :targets, dependent: :destroy
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  has_many :savings_items, dependent: :destroy
 
   has_one :target
 
@@ -62,6 +63,7 @@ class User < ApplicationRecord
     total_savings = 0
 
     records.each do |record|
+      total_savings += record.savings_item.amount if record.savings_item.present?
       total_savings += item_prices[:bottle_bring] if record.bottle_bring
       total_savings += item_prices[:packed_lunch] if record.packed_lunch
       total_savings += item_prices[:alternative_transportation] if record.alternative_transportation

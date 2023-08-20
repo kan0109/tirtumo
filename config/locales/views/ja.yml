@@ -103,10 +103,14 @@ ja:
       save_money: '節約金額'
       record_already_made: '今日の記録は更新しました'
       record_tomorrow: '引き続き明日も記録しよう！'
+      record_make: '節約項目の作成'
 
   notifications:
     index:
       title: '通知一覧'
       no_result: '通知はありません'
       your_post: 'あなたの投稿'
+  savings_items:
+    new:
+      title: '節約項目作成'
 

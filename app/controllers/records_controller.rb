@@ -8,30 +8,36 @@ class RecordsController < ApplicationController
     @monthly_records = Record.calculate_monthly_records(current_user)
     @today_records = current_user.records.where('created_at >= ?', Time.zone.now.beginning_of_day)
     @show_record_form = @today_records.empty?
+    @savings_items = current_user.savings_items
   end  
 
   def update
     today_records = current_user.records.where('created_at >= ?', Time.zone.now.beginning_of_day)
+    
     if today_records.empty?
       ActiveRecord::Base.transaction do
         @record = current_user.records.new(record_params)
+        
+        selected_savings_items = current_user.savings_items.where(id: params.dig(:record, :savings_item_ids))
+        @record.savings_item = selected_savings_items.first if selected_savings_items.present?
+        
         @savings = current_user.calculate_savings([@record])
-
+  
         if @record.save
           @user_records = current_user.records
           @result = current_user.result
-
+  
           flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
-
+  
           flash[:success] = t('defaults.message.target_money_achievement') if reached_target_amount?
         else
           raise ActiveRecord::Rollback
         end
       end
-
+  
       redirect_to records_path
     end
-  end  
+  end
 
   private
 

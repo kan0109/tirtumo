@@ -24,3 +24,6 @@ ja:
       target:
         target: 'あなたの節約目標'
         target_amount: '目標金額'
+      savings_item:
+        name: '節約内容'
+        amount: '節約金額'
