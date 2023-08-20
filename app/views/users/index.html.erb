@@ -2,30 +2,22 @@
   <div class="content">
     <h1 class="user-heading-lv1"><%= t '.title' %></h1>
     <% @users.each do |user| %>
-        <%= image_tag user.avatar.url, class: 'rounded-circle', id: 'preview', size: '130x130' %>
-      <h2 class="heading-lv2"><%= user.decorate.name %></h2>
-      <h3 class="heading-lv3" onclick="toggleContent('savingsContent<%= user.id %>')"><%= t '.save_note' %></h3>
-      <div id="savingsContent<%= user.id %>" style="display: none;">
-        <% if user.records.any? %>
-          <p class="text"><%= t '.total_savings' %><%= user.result[:total_savings] %>円</p>
-          <% if user.target %>
-            <p class="text"><%= t '.save_target' %><%= user.target.target %></p>
-            <p class="text"><%= t '.target_money' %><%= user.target.target_amount %>円</p>
-          <% end %>
-        <% else %>
-          <p class="text">節約記録がありません。</p>
+      <div class="user-ranking">
+        <span class="ranking"><%= user.rank %></span>
+      </div>
+      <div class="user-info">
+        <%= link_to user_path(user), class: "edit-link" do %>
+          <%= image_tag user.avatar.url, class: 'rounded-circle', id: 'preview', size: '130x130' %>
+          <h2 class="heading-lv2"><%= user.decorate.name %></h2>
         <% end %>
+          <% if user.total_savings.present? %>
+            <p class="text"><%= t '.total_savings' %><%= user.total_savings %>円</p>
+          <% else %>
+            <p class="text"><%= t '.no_savings' %></p>
+          <% end %>
       </div>
       <hr>
     <% end %>
     <%= paginate @users, theme: 'bootstrap-5' %>
   </div>
 </div>
-
-
-<script>
-    function toggleContent(elementId) {
-      var content = document.getElementById(elementId);
-      content.style.display = (content.style.display === "none") ? "block" : "none";
-    }
-</script>
