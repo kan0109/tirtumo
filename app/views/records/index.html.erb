@@ -65,23 +65,28 @@
                 </div>
               </td>
             </tr>
+            <% latest_savings_item_created_at = current_user.savings_items.order(created_at: :desc).limit(1).pluck(:created_at).first %>
             <% @savings_items.each do |savings_item| %>
-              <tr>
-                <td>
-                  <div class="item">
-                    <%= savings_item.name %>
-                  </div>
-                </td>
-                <td>
-                  <span style="white-space: nowrap;"><%= savings_item.amount %>円</span>
-                </td>
-                <td>
-                  <div class="checkbox-wrapper">
-                    <%= check_box_tag "record[savings_item_ids][]", savings_item.id %>
-                  </div>
-                </td>
-              </tr>
+              <% if savings_item.created_at == latest_savings_item_created_at %>
+                <tr>
+                  <td>
+                    <div class="item">
+                      <span class="star">&#9733;</span>
+                        <%= savings_item.name %>
+                    </div>
+                  </td>
+                  <td>
+                    <span style="white-space: nowrap;"><%= savings_item.amount %>円</span>
+                  </td>
+                  <td>
+                    <div class="checkbox-wrapper">
+                      <%= check_box_tag "record[savings_item_ids][]", savings_item.id %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
             <% end %>
+
           </tbody>
         </table>
         <%= form.submit '更新' %>
@@ -97,7 +102,13 @@
       </div>
     <% end %>
         <div class="item">
-          <%= link_to t('.record_make'), new_savings_item_path, class: "edit-link" %>
+          <% if @show_record_form && @savings_items.empty? %>
+            <!-- 節約項目作成のリンクを表示 -->
+            <%= link_to t('.create_savings_item'), new_savings_item_path, class: "edit-link" %>
+          <% elsif !@savings_items.empty? %>
+            <!-- 節約項目編集のリンクを表示 -->
+            <%= link_to t('.edit_savings_item'), edit_savings_item_path(@savings_items.first), class: "edit-link" %>
+          <% end %>
         </div>
     <div class="past-records">
       <h2><%= t('.past_record') %></h2>
