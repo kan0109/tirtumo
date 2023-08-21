@@ -7,6 +7,7 @@ ja:
       record: '記録'
       target: '節約目標'
       like: 'いいね'
+      savings_item: '節約項目'
     attributes:
       user:
         email: 'メールアドレス'
@@ -24,3 +25,6 @@ ja:
       target:
         target: 'あなたの節約目標'
         target_amount: '目標金額'
+      savings_item:
+        name: '節約内容'
+        amount: '節約金額'

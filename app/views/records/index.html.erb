@@ -65,6 +65,28 @@
                 </div>
               </td>
             </tr>
+            <% latest_savings_item_created_at = current_user.savings_items.order(created_at: :desc).limit(1).pluck(:created_at).first %>
+            <% @savings_items.each do |savings_item| %>
+              <% if savings_item.created_at == latest_savings_item_created_at %>
+                <tr>
+                  <td>
+                    <div class="item">
+                      <span class="star">&#9733;</span>
+                        <%= savings_item.name %>
+                    </div>
+                  </td>
+                  <td>
+                    <span style="white-space: nowrap;"><%= savings_item.amount %>円</span>
+                  </td>
+                  <td>
+                    <div class="checkbox-wrapper">
+                      <%= check_box_tag "record[savings_item_ids][]", savings_item.id %>
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+
           </tbody>
         </table>
         <%= form.submit '更新' %>
@@ -79,6 +101,15 @@
           <p><%= t('.total_savings') %><%= @savings %>円</p>
       </div>
     <% end %>
+        <div class="item">
+          <% if @show_record_form && @savings_items.empty? %>
+            <!-- 節約項目作成のリンクを表示 -->
+            <%= link_to t('.create_savings_item'), new_savings_item_path, class: "edit-link" %>
+          <% elsif !@savings_items.empty? %>
+            <!-- 節約項目編集のリンクを表示 -->
+            <%= link_to t('.edit_savings_item'), edit_savings_item_path(@savings_items.first), class: "edit-link" %>
+          <% end %>
+        </div>
     <div class="past-records">
       <h2><%= t('.past_record') %></h2>
       <table>
@@ -101,47 +132,3 @@
   </div>
 </div>
 
-<%
-=begin%>
- <script>
-  function launchFireworks() {
-    const fireworkElement = document.createElement("div");
-    fireworkElement.className = "c-firework launch";
-    document.body.appendChild(fireworkElement);
-
-    const fireworkElement2 = document.createElement("div");
-    fireworkElement2.className = "c-firework launch c-firework2";
-    document.body.appendChild(fireworkElement2);
-
-    const fireworkElement3 = document.createElement("div");
-    fireworkElement3.className = "c-firework launch c-firework3";
-    document.body.appendChild(fireworkElement3);
-
-    setTimeout(() => {
-      fireworkElement.remove();
-      fireworkElement2.remove();
-      fireworkElement3.remove();
-    }, 5000); 
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const level = parseInt("<%= current_user.level || 1 %>");
-    const intermediate = level >= 6 && level % 10 === 6; 
-    if (intermediate) {
-      launchFireworks();
-    }
-
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach((checkbox) => {
-      checkbox.addEventListener("click", () => {
-        const checked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
-        if (checked && intermediate) {
-          launchFireworks();
-        }
-      });
-    });
-  });
-</script>
- 
-<%
-=end%>

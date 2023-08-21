@@ -32,6 +32,7 @@ ja:
       old: "古い順に並び替えました"
       most_liked: "いいね順に並び替えました"
       target_money_achievement: 'おめでとうございます！目標金額達成しました。'
+      created_savings_items: '節約項目を作成しました'
 
   top:
     index:
@@ -103,10 +104,17 @@ ja:
       save_money: '節約金額'
       record_already_made: '今日の記録は更新しました'
       record_tomorrow: '引き続き明日も記録しよう！'
+      create_savings_item: '節約項目の作成'
+      edit_savings_item: '節約項目の編集'
 
   notifications:
     index:
       title: '通知一覧'
       no_result: '通知はありません'
       your_post: 'あなたの投稿'
+  savings_items:
+    new:
+      title: '節約項目作成'
+    edit:
+      title: '節約項目編集'
 

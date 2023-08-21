@@ -15,7 +15,6 @@
   margin-right: -40px;
 }
 
-
 .past-records table {
   width: 100%;
   border-collapse: collapse;
@@ -28,8 +27,6 @@
   text-align: center;
   border: 2px solid #000;
 }
-
-
 
 .content-page th,
 .content-page td {
@@ -89,4 +86,8 @@
   top: 30%;
   left: 80%;
   animation: fireworks-animation 4.4s infinite;
+}
+
+.star {
+  color: red; 
 }
