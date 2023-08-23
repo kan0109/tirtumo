@@ -1,6 +1,5 @@
 .footer {
-  background-image: url('light-gray-concrete-wall.jpg');
-  bottom:0;
+  background-color: rgb(224, 229, 205);;
   height: 133px;
 }
 .text-center {

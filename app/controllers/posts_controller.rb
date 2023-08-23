@@ -2,18 +2,6 @@ class PostsController < ApplicationController
 
   def index
     set_posts
-
-    flash_message = case params[:sort_order]
-    when "latest"
-      t('defaults.message.latest')
-    when "old"
-      t('defaults.message.old')
-    when "most_liked"
-      t('defaults.message.most_liked')
-    else
-      ""
-    end
-    flash.now['info '] = flash_message
   end
 
   def new

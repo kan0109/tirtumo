@@ -8,34 +8,40 @@
     </div>
     <div class="pc-menu">
       <ul>
-        <li>
-          <%= link_to (t 'defaults.posts'), posts_path %>
-        </li>
-        <li>
-          <%= link_to (t 'defaults.my_page'), my_page_path %>
-        </li>
-        <li>
-          <%= link_to (t 'defaults.user_list'), users_path %>
-        </li>
-        <li>
-          <%= link_to (t 'defaults.record'), records_path %>
-        </li>
-        <li>
-          <%= link_to (t 'defaults.target'), new_target_path %>
-        </li>
-        <li>
-          <%= link_to notifications_path do %>
-            <% if unchecked_notifications.any? %>
-              <span class="fa-stack">
-                <i class="far fa-bell fa-lg text-primary" style="font-size: 1.5em;"></i>
-              </span>
-            <% else %>
-              <i class="far fa-bell fa-lg text-secondary" style="font-size: 1.5em;"></i>
-            <% end %>
+        <li class="left-aligned-link">
+          <%= link_to posts_path do %>
+            <i class="far fa-folder-open"></i>
+            <%= (t 'defaults.posts') %>
           <% end %>
         </li>
-        <li>
-          <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, onclick: "return confirm('ログアウトしますか？');" %>
+        <li class="left-aligned-link">
+          <%= link_to users_path do %>
+            <i class="fas fa-chess-queen"></i>
+            <%= (t 'defaults.user_list') %>
+          <% end %>
+        </li>
+        <li class="left-aligned-link">
+          <%= link_to records_path do %>
+            <i class="fas fa-pen"></i>
+            <%= (t 'defaults.record') %>
+          <% end %>
+        </li>
+        <li class="user-menu">
+          <div class="user-image">
+            <%= link_to '#', class: 'dropdown-trigger' do %>
+              <%= image_tag current_user.avatar.url, class: 'rounded-circle', size: '50x50', alt: "User Avatar" %>
+            <% end %>
+          </div>
+            <div class="user-dropdown">
+              <div class="user-name">
+                <%= link_to profile_path do %>
+                  <%= current_user.decorate.name %>
+                <% end %>
+              </div>
+              <%= link_to (t 'defaults.my_page'), my_page_path %>
+              <%= link_to (t 'defaults.target'), new_target_path %>
+              <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, onclick: "return confirm('ログアウトしますか？');" %>
+            </div>
         </li>
       </ul>
     </div>
@@ -60,19 +66,6 @@
           </li>
           <li class="sp-menu__item">
             <%= link_to (t 'defaults.target'), new_target_path, class: "sp-menu__link" %>
-          </li>
-          <li class="sp-menu__item">
-            <%= link_to notifications_path, class: "sp-menu__link" do %>
-            通知一覧
-              <% if unchecked_notifications.any? %>
-                <span class="fa-stack">
-                  <i class="far fa-bell fa-lg text-primary" style="font-size: 1.5em;"></i>
-                  <i class="fas fa-circle n-circle fa-stack-1x text-primary"></i>
-                </span>
-              <% else %>
-                <i class="far fa-bell fa-lg text-primary" style="font-size: 1.5em;"></i>
-              <% end %>
-            <% end %>
           </li>
           <li class="sp-menu__item">
             <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, class: "sp-menu__link" %>
