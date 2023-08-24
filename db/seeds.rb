@@ -19,7 +19,6 @@ Tag.create([
   { tag_type: '医療'},
   { tag_type: '税金'},
   { tag_type: '自動車'},
-  { tag_type: '日用品'},
   { tag_type: '育児'},
   { tag_type: '子供'},
   { tag_type: 'レジャー'},

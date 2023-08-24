@@ -29,12 +29,7 @@ header {
   display: flex;
   width: 1280px;
 }
-.logo {
-  
-  font-size: 21px;
-  width: 200px;
-  line-height: 80px;
-}
+
 .pc-menu {
   width: 100%;
   text-align: right;
@@ -106,12 +101,12 @@ header {
   top: 0;
   right: 0;
   display: flex;
-  height: 50px;
+  height: 80px;
   width: 60px;
   justify-content: center;
   align-items: center;
   z-index: 90;
-  background: #3584bb;
+  background: #966e28;
 }
 .sp-menu__box span,
 .sp-menu__box span:before,
@@ -154,7 +149,7 @@ header {
   top: 0;
   left: 100%;
   z-index: 80;
-  background-color: #3584bb;
+  background-color: #966e28;
   transition: all 0.5s;
 }
 .sp-menu__list {
@@ -202,7 +197,7 @@ header {
 
 /*マイページとユーザー一覧*/
 
-.my-heading-lv1 {
+.my-heading {
   font-size: 20px;
   font-family:  'arial unicode ms';
   color: #364e96;
@@ -211,7 +206,7 @@ header {
   border-bottom: solid 3px #364e96;
 }
 
-.user-heading-lv1 {
+.user-heading {
   font-size: 20px;
   font-family:  'arial unicode ms';
   color: #22a800;
@@ -233,25 +228,6 @@ header {
   font-family: 'arial unicode ms';
 }
 
-
-.heading-lv2 {
-  font-size: 18px;
-  font-family: 'arial unicode ms';
-}
-
-.heading-lv3 {
-  font-size: 18px;
-  margin: 30px;
-  font-family: 'arial unicode ms';
-}
-
-.text {
-  font-size: 18px;
-  font-family: 'arial unicode ms';
-  text-align: center;
-}
-
-
 /*レベルに応じた色付け*/
 p.見習い {
   color: green;
@@ -267,4 +243,21 @@ p.名人 {
 
 p.達人 {
   color: purple;
+}
+
+.ranking-icon {
+  font-size: 24px; /* フォントサイズは適宜調整してください */
+  margin-right: 10px; /* アイコンとテキストの間隔 */
+}
+
+.gold {
+  color: gold;
+}
+
+.silver {
+  color: silver;
+}
+
+.bronze {
+  color: #cd7f32; /* 銅色のカラーコード */
 }

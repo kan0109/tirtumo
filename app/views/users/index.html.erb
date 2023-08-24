@@ -1,22 +1,42 @@
 <div class="background-image">
   <div class="content">
-    <h1 class="user-heading-lv1"><%= t '.title' %></h1>
-    <% @users.each do |user| %>
+    <h1 class="user-heading"><%= t '.title' %></h1>
+    <% current_rank = 0 %>
+    <% prev_user = nil %>
+    <% @users.each_with_index do |user, index| %>
+      <% if prev_user && user.rank != prev_user.rank %>
+        <% current_rank = index %>
+      <% end %>
       <div class="user-ranking">
-        <span class="ranking"><%= user.rank %></span>
+        <% if current_rank == 0 %>
+          <span class="ranking-icon gold">
+            <i class="fas fa-crown"></i> 1位
+          </span>
+        <% elsif current_rank == 1 %>
+          <span class="ranking-icon silver">
+            <i class="fas fa-crown"></i> 2位
+          </span>
+        <% elsif current_rank == 2 %>
+          <span class="ranking-icon bronze">
+            <i class="fas fa-crown"></i> 3位
+          </span>
+        <% else %>
+          <span class="ranking"><%= user.rank %>位</span>
+        <% end %>
       </div>
       <div class="user-info">
         <%= link_to user_path(user), class: "edit-link" do %>
           <%= image_tag user.avatar.url, class: 'rounded-circle', id: 'preview', size: '130x130' %>
-          <h2 class="heading-lv2"><%= user.decorate.name %></h2>
+          <h2><%= user.decorate.name %></h2>
         <% end %>
-          <% if user.total_savings.present? %>
-            <p class="text"><%= t '.total_savings' %><%= user.total_savings %>円</p>
-          <% else %>
-            <p class="text"><%= t '.no_savings' %></p>
-          <% end %>
+        <% if user.total_savings.present? %>
+          <p class="text"><%= t '.total_savings' %><%= user.total_savings %>円</p>
+        <% else %>
+          <p class="text"><%= t '.no_savings' %></p>
+        <% end %>
       </div>
       <hr>
+      <% prev_user = user %>
     <% end %>
     <%= paginate @users, theme: 'bootstrap-5' %>
   </div>
