@@ -1,19 +1,21 @@
 <div class="background-image">
   <div class="content">  
-    <h1 class="my-heading-lv1"><%= t('.title') %></h1>
+    <h1 class="my-heading"><%= t('.title') %></h1>
         <%= image_tag @user.avatar.url, class: 'rounded-circle', id: 'preview', size: '130x130' %>
-      <h2 class="heading-lv2"><%= @user.decorate.name %></h2>
+      <h2><%= @user.decorate.name %></h2>
       <p class="text"><%= link_to (t 'profiles.edit.title'), profile_path, class: 'btn btn-success'%></p>
 
-      <h3 class="heading-lv3"><%= t('.save_note') %></h3>
+      <h3><%= t('.save_note') %></h3>
       <p class="text"><%= t('.total_savings') %><%= @user.result[:total_savings] %>円</p>
       <% latest_target = @user.targets.last %>
       <% if latest_target %>
         <p class="text"><%= t('.save_target') %><%= latest_target.target %></p>
         <p class="text"><%= t('.target_money') %><%= latest_target.target_amount %>円</p>
       <% end %>
-      <h3 class="heading-lv3"><%= link_to (t 'defaults.post'), new_post_path,class: 'dropdown-item' %></h3>
-      <h3 class="heading-lv3"><%= t('.your_post') %></h3>
+      <br>
+      <h3><%= link_to (t 'defaults.post'), new_post_path, class: 'edit-link'%><i class="fas fa-pen"></i></h3>
+      <br>
+      <h3><%= t('.your_post') %></h3>
       <% @user.posts.each do |post| %>
         <div class="card mb-3">
           <div class="card-body">
@@ -24,7 +26,7 @@
           </div>
         </div>
       <% end %>
-      <h3 class="heading-lv3"><%= t('.like_post') %></h3>
+      <h3><%= t('.like_post') %></h3>
       <% @user.like_posts.each do |post| %>
         <div class="card mb-3">
           <div class="card-body">
