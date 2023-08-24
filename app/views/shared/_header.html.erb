@@ -1,11 +1,8 @@
-
 <header>
   <div class="main-menu">
-    <div class="logo">
-      <%= link_to root_path,class: "edit-link" do %>
-        <p><%= (t 'defaults.app_name') %></p>
-      <% end %>
-    </div>
+    <%= link_to root_path,class: "edit-link" do %>
+      <%= image_tag 'logo.png', class: 'img-fluid mx-auto d-block' %>
+    <% end %>
     <div class="pc-menu">
       <ul>
         <li class="left-aligned-link">
