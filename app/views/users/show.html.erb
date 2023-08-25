@@ -3,11 +3,32 @@
     <%= image_tag @user.avatar.url, class: 'rounded-circle', id: 'preview', size: '130x130' %>
     <h2><%= @user.decorate.name %></h2>
     <h3><%= t('.save_note') %></h3>
-    <p class="text"><%= t('.total_savings') %><%= @user.result[:total_savings] %>円</p>
-    <% if @latest_target %>
-      <p class="text"><%= t('.save_target') %><%= @latest_target.target %></p>
-      <p class="text"><%= t('.target_money') %><%= @latest_target.target_amount %>円</p>
-    <% end %>
+    <div class="box1">
+      <p class="text"><%= t('.total_savings') %><%= @user.result[:total_savings] %>円</p>
+    </div>
+    <div class="box1">
+      <% if @latest_target %>
+        <p class="text"><%= t('.save_target') %><%= @latest_target.target %></p>
+        <p class="text"><%= t('.target_money') %><%= @latest_target.target_amount %>円</p>
+      <% else %>
+        <p><%= t('.no_target') %></p>
+      <% end %>
+    </div>
+    <div class="box1">
+      <% @latest_savings_item_created_at = @user.savings_items.order(created_at: :desc).limit(1).pluck(:created_at).first %>
+      <% if @user.savings_items.any? %>
+        <% has_latest_savings_item = false %>
+        <% @user.savings_items.each do |savings_item| %>
+          <% if savings_item.created_at == @latest_savings_item_created_at %>
+            <p><%= t('.savings_item') %><%= savings_item.name %></p>
+            <p><%= t('.savings_item_amount') %><%= savings_item.amount %>円</p>
+            <% has_latest_savings_item = true %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p><%= t('.no_savings_item') %></p>
+      <% end %>
+    </div>
     <h3><%= "#{@user.decorate.name}さんの投稿" %></h3>
     <% @user.posts.each do |post| %>
     <div class="card-deck">
