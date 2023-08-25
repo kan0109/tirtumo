@@ -29,16 +29,22 @@
               <%= image_tag current_user.avatar.url, class: 'rounded-circle', size: '50x50', alt: "User Avatar" %>
             <% end %>
           </div>
-            <div class="user-dropdown">
-              <div class="user-name">
-                <%= link_to profile_path do %>
-                  <%= current_user.decorate.name %>
-                <% end %>
-              </div>
-              <%= link_to (t 'defaults.my_page'), my_page_path %>
-              <%= link_to (t 'defaults.target'), new_target_path %>
-              <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, onclick: "return confirm('ログアウトしますか？');" %>
+          <div class="user-dropdown">
+            <div class="user-name">
+              <%= link_to profile_path do %>
+                <%= current_user.decorate.name %>
+              <% end %>
             </div>
+            <%= link_to (t 'defaults.my_page'), my_page_path %>
+            
+            <% if current_user.target %> <!-- 仮にユーザーが目標を設定しているかどうかを判定するメソッドが current_user.has_target? だと仮定します -->
+              <%= link_to (t 'defaults.target_edit'), edit_target_path(current_user.target) %>
+            <% else %>
+              <%= link_to (t 'defaults.target'), new_target_path %>
+            <% end %>
+            
+            <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, onclick: "return confirm('ログアウトしますか？');" %>
+          </div>
         </li>
       </ul>
     </div>

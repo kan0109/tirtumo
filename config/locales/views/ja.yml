@@ -10,6 +10,7 @@ ja:
     edit: '編集'
     record: '記録'
     target: '目標設定'
+    target_edit: '目標設定の編集'
     my_page: 'マイページ'
     user_new: '新規登録'
     app_name: 'ちりつも節約'
@@ -86,6 +87,8 @@ ja:
   targets:
     new:
       title: '目標設定'
+    edit:
+      title: '目標設定の編集'
   my_pages:
     show:
       title: 'マイページ'

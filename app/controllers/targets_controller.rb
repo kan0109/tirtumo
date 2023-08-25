@@ -19,6 +19,20 @@ class TargetsController < ApplicationController
     end
   end
 
+  def edit
+    @target = current_user.targets.find(params[:id])
+  end
+
+  def update
+    @target = current_user.targets.find(params[:id])
+    if @target.update(target_params)
+      redirect_to @target, success: t('defaults.message.updated', item: Target.model_name.human)
+    else
+      flash.now['danger'] = t('defaults.message.not_updated', item: Target.model_name.human)
+      render :edit
+    end
+  end
+
   private
 
   def target_params
