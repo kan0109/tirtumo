@@ -1,6 +1,6 @@
 class Record < ApplicationRecord
   belongs_to :user
-  belongs_to :savings_item
+  belongs_to :savings_item, optional: true #nil のままでも保存が可能
   include SharedConstants 
 
   scope :for_month, ->(month) { where(created_at: month.beginning_of_month..month.end_of_month) }

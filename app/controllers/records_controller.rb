@@ -20,24 +20,28 @@ class RecordsController < ApplicationController
         
         selected_savings_items = current_user.savings_items.where(id: params.dig(:record, :savings_item_ids))
         @record.savings_item = selected_savings_items.first if selected_savings_items.present?
+        @record.savings_item = nil if selected_savings_items.empty?  # Add this line
         
-        @savings = current_user.calculate_savings([@record])
+        @savings = current_user.calculate_record_savings(@record)
   
-        if @record.save
-          @user_records = current_user.records
-          @result = current_user.result
-  
-          flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
-  
-          flash[:success] = t('defaults.message.target_money_achievement') if reached_target_amount?
-        else
+        unless @record.save
+          logger.debug @record.errors.full_messages
           raise ActiveRecord::Rollback
         end
+        
+        @user_records = current_user.records
+        @result = current_user.result
+  
+        flash[:success] = t('defaults.message.updated', item: Record.model_name.human)
+  
+        flash[:success] = t('defaults.message.target_money_achievement') if reached_target_amount?
       end
   
       redirect_to records_path
     end
   end
+  
+  
 
   private
 
