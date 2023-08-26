@@ -37,7 +37,7 @@
             </div>
             <%= link_to (t 'defaults.my_page'), my_page_path %>
             
-            <% if current_user.target %> <!-- 仮にユーザーが目標を設定しているかどうかを判定するメソッドが current_user.has_target? だと仮定します -->
+            <% if current_user.target %>
               <%= link_to (t 'defaults.target_edit'), edit_target_path(current_user.target) %>
             <% else %>
               <%= link_to (t 'defaults.target'), new_target_path %>

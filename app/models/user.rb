@@ -63,15 +63,24 @@ class User < ApplicationRecord
     total_savings = 0
 
     records.each do |record|
-      total_savings += record.savings_item.amount if record.savings_item.present?
-      total_savings += item_prices[:bottle_bring] if record.bottle_bring
-      total_savings += item_prices[:packed_lunch] if record.packed_lunch
-      total_savings += item_prices[:alternative_transportation] if record.alternative_transportation
-      total_savings += item_prices[:no_eating_out] if record.no_eating_out
+      total_savings += calculate_record_savings(record)
     end
-
+  
     total_savings
   end
+  
+  def calculate_record_savings(record)
+    total_savings = 0
+  
+    total_savings += record.savings_item.amount if record.savings_item.present?
+    total_savings += item_prices[:bottle_bring] if record.bottle_bring
+    total_savings += item_prices[:packed_lunch] if record.packed_lunch
+    total_savings += item_prices[:alternative_transportation] if record.alternative_transportation
+    total_savings += item_prices[:no_eating_out] if record.no_eating_out
+  
+    total_savings
+  end
+  
 
   def item_prices
     SharedConstants::ITEM_PRICES

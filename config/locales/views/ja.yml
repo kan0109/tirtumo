@@ -48,14 +48,15 @@ ja:
     index:
       title: 'ランキング'
       total_savings: '節約合計金額：'
-      save_target: '節約目標：'
-      target_money: '目標金額：'
-      save_note: '節約帳'
     show:
       total_savings: '節約合計金額：'
       save_target: '節約目標：'
       target_money: '目標金額：'
       save_note: '節約帳'
+      savings_item: '節約項目：'
+      savings_item_amount: '　金額：'
+      no_target: '目標が設定されていません'
+      no_savings_item: '節約項目が設定されていません'
   user_sessions:
     new:
       title: 'ログイン'
@@ -98,6 +99,11 @@ ja:
       target_money: '　　目標金額：'
       your_post: 'あなたの投稿'
       like_post: 'いいねした投稿'
+      savings_item: '節約項目：'
+      savings_item_amount: '　金額：'
+      no_target: '目標が設定されていません'
+      no_savings_item: '節約項目が設定されていません'
+      create_savings_item: '節約項目の作成'
   records:
     index:
       title: '節約リスト'
