@@ -246,8 +246,8 @@ p.達人 {
 }
 
 .ranking-icon {
-  font-size: 24px; /* フォントサイズは適宜調整してください */
-  margin-right: 10px; /* アイコンとテキストの間隔 */
+  font-size: 24px; 
+  margin-right: 10px;
 }
 
 .gold {
@@ -259,5 +259,18 @@ p.達人 {
 }
 
 .bronze {
-  color: #cd7f32; /* 銅色のカラーコード */
+  color: #cd7f32;
+}
+
+/*ユーザー詳細*/
+
+.box1 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  border: double 5px #654b36;
+}
+.box1 p {
+  margin: 0; 
+  padding: 0;
+  font-size: 20px;
 }
