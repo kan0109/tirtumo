@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+
 
   def index
     @users = User.includes(:records).all.sort_by { |user| user.result[:total_savings] }.reverse
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :name)
+    params.require(:user).permit(:name)
   end
 
   def assign_ranks

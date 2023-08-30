@@ -59,6 +59,7 @@ gem 'rails-i18n'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'sorcery', '<= 0.16.2'
+gem 'config'
 
 gem "redis", "~> 5.0"
 gem 'dotenv-rails'
@@ -85,3 +86,8 @@ end
 group :production do
   gem "pg"
 end
+
+gem 'omniauth-line'
+gem 'omniauth-rails_csrf_protection'
+gem 'dotenv-rails'
+gem 'oauth2'

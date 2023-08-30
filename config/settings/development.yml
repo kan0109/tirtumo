@@ -1,0 +1,2 @@
+sorcery:
+  line_callback_url: 'https://f548-2405-1202-6204-6c00-65a1-b54c-51f1-f4e.ngrok-free.app/oauth/callback?provider=line'

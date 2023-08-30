@@ -6,24 +6,19 @@
           <div class="mt-8"> 
             <h1 class="mt-8"><%= t '.title' %></h1>
           </div>
-          <%= form_with scope: :user, url: login_path, local: true do |f| %>
-            <div class="form-group-user mb-4 mt-5">
-              <%= f.label :email, User.human_attribute_name(:email) %>
-              <%= f.email_field :email, class: 'form-control' %>
-            </div>
-            <div class="form-group-user mb-4 mt-5">
-              <%= f.label :password, User.human_attribute_name(:password) %>
-              <%= f.password_field :password, class: 'form-control' %>
-            </div>
-            <%= f.submit t('defaults.login'), class: 'btn btn-dark' %>
-          <% end %>
+      <div class='text-center mb-3'>
+        <%= link_to 'Login with Line', auth_at_provider_path(provider: :line) %>
+      </div>
+      <div class='text-center mb-3'>
+        <div class="box3">
+          <P>LINEアカウントを利用してログインを行います。</p>
+          <br>
+          <P>本Webサービスでは、ログイン時の認証画面にて許可をいただいた場合のみ、あなたのLINEアカウントに登録されているメールアドレスを取得します。</p>
+          <P>取得したメールアドレスは、以下の目的以外では使用いたしません。また、法令に定められた場合を除き、第三者への提供をいたしません。</p>
+          <br>
+          <P>・ユーザーIDとしてアカウント管理に利用</p>
+          <P>・パスワード再発行時の本人確認に利用</p>
         </div>
-      </div>
-      <div class='text-center mb-3'>
-        <%= link_to t('user_sessions.new.new_registration'), new_user_path, class: "edit-link" %><br>
-      </div>
-      <div class='text-center mb-3'>
-        <%= link_to t('user_sessions.new.password_forget'), new_password_reset_path, class: "edit-link" %> 
       </div>
     </div>
   </div>

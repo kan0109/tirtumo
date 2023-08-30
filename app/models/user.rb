@@ -2,6 +2,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
   mount_uploader :avatar, AvatarUploader
 
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes
@@ -11,19 +13,18 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   has_many :savings_items, dependent: :destroy
-
   has_one :target
 
-  validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
-  validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
+  # validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
+  # validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
+  # validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
+  # validates :reset_password_token, presence: true, uniqueness: true, allow_nil: true
 
-  validates :email, uniqueness: true, presence: true
+  # validates :email, uniqueness: true, presence: true
 
   validates :name, presence: true, length: { maximum: 20 }
 
-  validates :reset_password_token, uniqueness: true, allow_nil: true
+  # validates :reset_password_token, uniqueness: true, allow_nil: true
 
   attr_accessor :rank, :rank_value, :monthly_rank, :monthly_rank_value
 
