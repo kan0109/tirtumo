@@ -1,5 +1,5 @@
 class TargetsController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
 
   def new
     @target = Target.new

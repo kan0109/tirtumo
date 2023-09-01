@@ -43,7 +43,7 @@
               <%= link_to (t 'defaults.target'), new_target_path %>
             <% end %>
             
-            <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, onclick: "return confirm('ログアウトしますか？');" %>
+            <%= link_to t('defaults.logout'), destroy_user_session_path, method: :delete, onclick: "return confirm('ログアウトしますか？');" %>
           </div>
         </li>
       </ul>
@@ -68,10 +68,14 @@
             <%= link_to (t 'defaults.record'), records_path, class: "sp-menu__link" %>
           </li>
           <li class="sp-menu__item">
-            <%= link_to (t 'defaults.target'), new_target_path, class: "sp-menu__link" %>
+            <% if current_user.target %>
+              <%= link_to (t 'defaults.target_edit'), edit_target_path(current_user.target), class: "sp-menu__link" %>
+            <% else %>
+              <%= link_to (t 'defaults.target'), new_target_path, class: "sp-menu__link" %>
+            <% end %>
           </li>
           <li class="sp-menu__item">
-            <%= link_to (t 'defaults.logout'), logout_path, data: { turbo_method: :delete }, class: "sp-menu__link" %>
+              <%= link_to t('defaults.logout'), destroy_user_session_path, method: :delete, onclick: "return confirm('ログアウトしますか？');", class: "sp-menu__link" %>
           </li>
         </ul>
       </div>

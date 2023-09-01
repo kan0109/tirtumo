@@ -1,13 +1,19 @@
-<body class="background-user-image">    
+<body class="background-session-image">    
   <div class="session_test_box">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-3">
-          <div class="mt-8"> 
-            <h1 class="mt-8"><%= t '.title' %></h1>
+          <div class="text-center mt-4">
+            <h1><%= t '.title' %></h1>
           </div>
-      <div class='text-center mb-3'>
-        <%= link_to 'Login with Line', auth_at_provider_path(provider: :line) %>
+          <br>
+          <div class="text-center">
+            <%- resource_class.omniauth_providers.each do |provider| %>
+              <%= button_to omniauth_authorize_path(resource_name, provider), method: :post, data: { turbo: false }, class: "custom-button" do %>
+                LINEでログイン
+              <% end %>
+            <% end %>
+          </div>
       </div>
       <div class='text-center mb-3'>
         <div class="box3">
@@ -23,3 +29,5 @@
     </div>
   </div>
 </body>
+
+

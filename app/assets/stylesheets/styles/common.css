@@ -93,7 +93,7 @@ header {
 
 .left-aligned-link {
   float: left;
-  margin-right: 180px; /* 適宜調整 */
+  margin-right: 180px;
 }
 
 .sp-menu__box {
@@ -273,4 +273,10 @@ p.達人 {
   margin: 0; 
   padding: 0;
   font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .box1 p {
+    text-align: left;
+  }
 }

@@ -1,0 +1,41 @@
+.background-session-image{
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+}
+.session_test_box {
+  margin-top: 70px;
+}
+
+.form-group-user {
+  max-width: 350px; 
+}
+
+.box3 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #000000;
+  background: #FFF;
+  border: solid 3px #60de33;
+  border-radius: 10px;
+}
+.box3 p {
+  margin: 0; 
+  padding: 0;
+}
+
+/* スマートフォンや小さい端末のスタイル */
+@media (max-width: 768px) {
+  .box3 p {
+    text-align: left;
+  }
+}
+.custom-button {
+  background-color: rgb(77, 248, 103);
+  color: white;
+  border: none; 
+  border-radius: 10px;
+  padding: 12px 20px; 
+  font-size: 1.2rem; 
+}
