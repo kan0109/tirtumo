@@ -1,17 +1,15 @@
 class PostsController < ApplicationController
-
   def index
     set_posts
     case params[:sort_order]
-    when "latest"
+    when 'latest'
       flash.now[:success] = t('defaults.message.latest')
-    when "old"
+    when 'old'
       flash.now[:success] = t('defaults.message.old')
-    when "most_liked"
+    when 'most_liked'
       flash.now[:success] = t('defaults.message.most_liked')
     end
   end
-
 
   def new
     @post = Post.new
@@ -64,17 +62,17 @@ class PostsController < ApplicationController
   end
 
   def set_posts
-    if params[:tag_id].present?
-      @posts = Tag.find(params[:tag_id]).posts
-    else
-      @posts = Post.all.page(params[:page]).per(10)
-    end
+    @posts = if params[:tag_id].present?
+               Tag.find(params[:tag_id]).posts
+             else
+               Post.all.page(params[:page]).per(10)
+             end
 
-    if params[:keyword]
-      @posts = @posts.search(params[:keyword]).page(params[:page]).per(10)
-    else
-      @posts = @posts.page(params[:page]).per(10)
-    end
+    @posts = if params[:keyword]
+               @posts.search(params[:keyword]).page(params[:page]).per(10)
+             else
+               @posts.page(params[:page]).per(10)
+             end
 
     @posts = Post.sort_and_paginate(params)
   end

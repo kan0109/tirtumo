@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[line] 
+         :omniauthable, omniauth_providers: %i[line]
 
   mount_uploader :avatar, AvatarUploader
 
@@ -27,19 +27,20 @@ class User < ApplicationRecord
   end
 
   def set_values(omniauth)
-    return if provider.to_s != omniauth["provider"].to_s || uid != omniauth["uid"]
-    credentials = omniauth["credentials"]
-    info = omniauth["info"]
+    return if provider.to_s != omniauth['provider'].to_s || uid != omniauth['uid']
 
-    access_token = credentials["refresh_token"]
-    access_secret = credentials["secret"]
+    credentials = omniauth['credentials']
+    info = omniauth['info']
+
+    access_token = credentials['refresh_token']
+    access_secret = credentials['secret']
     credentials = credentials.to_json
-    name = info["name"]
+    name = info['name']
   end
 
   def set_values_by_raw_info(raw_info)
     self.raw_info = raw_info.to_json
-    self.save!
+    save!
   end
 
   def own?(object)
@@ -62,7 +63,7 @@ class User < ApplicationRecord
     total_savings = calculate_savings(records)
 
     {
-      total_savings: total_savings,
+      total_savings:
     }
   end
 
@@ -80,22 +81,21 @@ class User < ApplicationRecord
     records.each do |record|
       total_savings += calculate_record_savings(record)
     end
-  
+
     total_savings
   end
-  
+
   def calculate_record_savings(record)
     total_savings = 0
-  
+
     total_savings += record.savings_item.amount if record.savings_item.present?
     total_savings += item_prices[:bottle_bring] if record.bottle_bring
     total_savings += item_prices[:packed_lunch] if record.packed_lunch
     total_savings += item_prices[:alternative_transportation] if record.alternative_transportation
     total_savings += item_prices[:no_eating_out] if record.no_eating_out
-  
+
     total_savings
   end
-  
 
   def item_prices
     SharedConstants::ITEM_PRICES

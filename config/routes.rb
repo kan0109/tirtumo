@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-  omniauth_callbacks: "omniauth_callbacks"
-}
+    omniauth_callbacks: 'omniauth_callbacks'
+  }
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'privacy', to: 'top#privacy'
   get 'contact', to: 'top#contact'
 
-  get "search" => "posts#search"
+  get 'search' => 'posts#search'
 
   resources :users, only: %i[index new create show]
   resources :password_resets, only: %i[new create edit update]

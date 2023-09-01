@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def index
     @users = User.includes(:records).all.sort_by { |user| user.result[:total_savings] }.reverse
     assign_ranks

@@ -52,19 +52,19 @@ gem 'webpacker', '~> 5.0'
 
 gem 'bootstrap5-kaminari-views', '~> 0.0.1'
 gem 'carrierwave', '~> 2.2.4'
+gem 'config'
+gem 'devise'
 gem 'dockerfile-rails', '>= 1.4', group: :development
 gem 'draper', '4.0.2'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'mini_racer'
 gem 'rails-i18n'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
-gem 'devise'
-gem 'config'
-gem 'mini_racer'
 
-gem "redis", "~> 5.0"
 gem 'dotenv-rails'
 gem 'fog-aws'
+gem 'redis', '~> 5.0'
 
 gem 'omniauth-line'
 gem 'omniauth-rails_csrf_protection'
@@ -78,8 +78,8 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'sqlite3'
   gem 'web-console'
-  gem "sqlite3"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -88,5 +88,5 @@ group :development do
 end
 
 group :production do
-  gem "pg"
+  gem 'pg'
 end

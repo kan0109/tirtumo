@@ -7,14 +7,14 @@ class SavingsItemsController < ApplicationController
 
   def create
     existing_items = current_user.savings_items
-    if existing_items.empty?
-      @savings_item = current_user.savings_items.build(savings_item_params)
-      if @savings_item.save
-        flash[:success] = t('defaults.message.created_savings_items')
-        redirect_to records_path
-      else
-        render :new
-      end
+    return unless existing_items.empty?
+
+    @savings_item = current_user.savings_items.build(savings_item_params)
+    if @savings_item.save
+      flash[:success] = t('defaults.message.created_savings_items')
+      redirect_to records_path
+    else
+      render :new
     end
   end
 
