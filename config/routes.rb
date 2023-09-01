@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+  omniauth_callbacks: "omniauth_callbacks"
+}
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -6,14 +13,6 @@ Rails.application.routes.draw do
   get 'terms', to: 'top#terms'
   get 'privacy', to: 'top#privacy'
   get 'contact', to: 'top#contact'
-
-  get 'login', to: 'user_sessions#new'
-  post 'login', to: 'user_sessions#create'
-  delete 'logout', to: 'user_sessions#destroy'
-
-  post "oauth/callback", to: "oauths#callback"
-  get "oauth/callback", to: "oauths#callback"
-  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
   get "search" => "posts#search"
 
