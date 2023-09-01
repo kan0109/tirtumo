@@ -1,3 +1,9 @@
+/* .post-content {
+
+  background-color: rgb(224, 229, 205);
+  font-family: 'arial unicode ms';
+} */
+
 .post-info-bottom-right {
   position: absolute;
   bottom: 0;
@@ -37,4 +43,14 @@ select {
 .card-text {
   height: 140px; 
   overflow: auto;
+}
+
+/* スマートフォン用のメディアクエリ */
+@media (max-width: 768px) {
+  /* 画面幅が768px以下の場合のスタイル設定 */
+  .input-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
 }
