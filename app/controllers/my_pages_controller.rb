@@ -1,5 +1,5 @@
 class MyPagesController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
 
   def show
     @user = current_user

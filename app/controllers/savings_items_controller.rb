@@ -1,5 +1,5 @@
 class SavingsItemsController < ApplicationController
-  before_action :require_login
+  before_action :authenticate_user!
 
   def new
     @savings_item = current_user.savings_items.build

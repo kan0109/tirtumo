@@ -2,7 +2,16 @@ class PostsController < ApplicationController
 
   def index
     set_posts
+    case params[:sort_order]
+    when "latest"
+      flash.now[:success] = t('defaults.message.latest')
+    when "old"
+      flash.now[:success] = t('defaults.message.old')
+    when "most_liked"
+      flash.now[:success] = t('defaults.message.most_liked')
+    end
   end
+
 
   def new
     @post = Post.new
