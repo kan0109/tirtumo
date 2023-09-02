@@ -280,3 +280,8 @@ p.達人 {
     text-align: left;
   }
 }
+
+.btn-large {
+  font-size: 22px; 
+  padding: 10px 20px; 
+}

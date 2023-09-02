@@ -1,7 +1,7 @@
 <div class="search-background">
   <div class="d-flex justify-content-end my-2">
     <div class="input-group">
-      <%= link_to (t 'defaults.post'), new_post_path, class: "form-control new-control ml-auto small" %>
+      <%= button_to (t 'defaults.post'), new_post_path, method: :get, class: "form-control ml-auto small" %>
       <%= form_with url: posts_path, method: :get, local: true, class: 'boards__searchForm flex-fill' do |f|%>
         <div class="input-group">
           <%= f.text_field :keyword, value: @keyword, class: "form-control search-control", placeholder: "キーワードを入力" %>
