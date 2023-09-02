@@ -16,7 +16,7 @@
           <p><%= t('.target_money') %><%= latest_target.target_amount %>円</p>
         <% else %>
           <p><%= t('.no_target') %></p>
-          <%= link_to (t 'defaults.target'), new_target_path, class: "edit-link" %>
+          <%= button_to t('defaults.target'), new_target_path, method: :get, class: 'edit-link' %>
         <% end %>
       </div>
       <div class="box1">
@@ -32,11 +32,11 @@
           <% end %>
         <% else %>
           <p><%= t('.no_savings_item') %></p>
-          <%= link_to t('.create_savings_item'), new_savings_item_path, class: "edit-link" %>
+          <%= button_to t('.create_savings_item'), new_savings_item_path, method: :get %>
         <% end %>
       </div>
       <br>
-      <h3><%= link_to (t 'defaults.post'), new_post_path, class: 'edit-link'%><i class="fas fa-pen"></i></h3>
+      <%= button_to (t 'defaults.post'), new_post_path, method: :get, class: 'btn-large' %>
       <br>
       <h3><%= t('.your_post') %></h3>
       <% @user.posts.each do |post| %>
