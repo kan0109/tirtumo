@@ -62,18 +62,6 @@ class PostsController < ApplicationController
   end
 
   def set_posts
-    @posts = if params[:tag_id].present?
-               Tag.find(params[:tag_id]).posts
-             else
-               Post.all.page(params[:page]).per(10)
-             end
-
-    @posts = if params[:keyword]
-               @posts.search(params[:keyword]).page(params[:page]).per(10)
-             else
-               @posts.page(params[:page]).per(10)
-             end
-
     @posts = Post.sort_and_paginate(params)
   end
 end
