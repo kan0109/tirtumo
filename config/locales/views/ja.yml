@@ -37,8 +37,7 @@ ja:
 
   top:
     index:
-      title: 'ちりつも節約'
-      how-to-use: '利用方法'
+      how-to-use: 'サービスの使い方'
   devise:
     sessions:
       new:
@@ -58,6 +57,7 @@ ja:
       no_savings_item: '節約項目が設定されていません'
   posts:
     index:
+      title: 'みんなの節約術'
       new_order: '新着順'
       old_order: '古い順'
       like_order: 'いいね順'
