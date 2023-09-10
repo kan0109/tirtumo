@@ -1,68 +1,99 @@
-<section class="mx-10 mt-3 mb-3 body-font">
-  <div class="container mx-auto">
-    <div class="row">
-      <div class="col-md-6 col-12 order-2 order-md-1 mt-4">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <h1 class="display mb-4 font-weight-bold"><%= t('.title')%></h1>
-          <h2 class="mb-8" style="margin-top: 28px; margin-bottom: 28px; font-size: 16px;">ちりつも節約は、節約を楽しみながらできるサービス</h2>
-          <h2 class="mb-8" style="margin-top: 28px; margin-bottom: 28px; font-size: 16px;">ことわざの「塵も積もれば山となる」にちなんで、ちりつも節約</h2>
-          <h2 class="mb-8" style="margin-top: 28px; margin-bottom: 28px; font-size: 16px;">毎日節約の記録をつけて、コツコツ節約に取り組もう！</h2>
-        </div>
-      </div>
-      <div class="col-md-6 col-12 order-1 order-md-2 d-flex align-items-center mt-4">
-        <%= image_tag 'man.png', class: 'img-fluid mx-auto d-block', style: 'max-width: 100%;' %>
-      </div>
+<%= image_tag 'top.jpg', class: 'img-fluid mx-auto d-block', style: 'max-width: 100%;' %>
+<div class="container px-5 py-24" style="font-family: 'arial unicode ms';">
+  <h1 class="display font-weight-bold text-center text-gray-1000 mb-5"><%= t('.how-to-use')%></h1>
+  <div class="row">
+    <div class="text-center">
+      <p class="word">
+        <span>毎</span>
+        <span>日</span>
+        <span>記</span>
+        <span>録</span>
+        <span>を</span>
+        <span>し</span>
+        <span>よ</span>
+        <span>う</span>
+      </p>
+      <br>
+      <br>
+      <p>記録はデフォルトで4項目設定されています。</p>
+      <p>今日節約できた項目にチェックをすると節約合計金額に加算されます。</p>
+      <p>また、星マークの節約項目はユーザー独自に作成できるよ！</p>
+      <br>
+      <br>
+      <br>
+      <%= image_tag 'record_sample.jpeg', class: 'img-fluid mx-auto d-block', style: 'max-width: 100%;' %>
+    </div>
+    <div class="text-center mt-5">
+      <p class="word">
+        <span>節</span>
+        <span>約</span>
+        <span>術</span>
+        <span>を</span>
+        <span>共</span>
+        <span>有</span>
+        <span>し</span>
+        <span>よ</span>
+        <span>う</span>
+      </p>
+      <br>
+      <br>
+      <p>ちりつも節約には投稿機能があります。</p>
+      <p>あなたの日々やってる節約など、節約に関するものを投稿しよう！</p>
+      <p>投稿には、節約に関するタグ付けができます。</p>
+      <p>検索もできるので気になる節約を見つけてみましょう。</p>
+      <br>
+      <br>
+      <br>
+      <%= image_tag 'post_sample.png', class: 'img-fluid mx-auto d-block', style: 'max-width: 100%;' %>
+    </div>
+    <div class="text-center mt-5">
+      <p class="word">
+        <span>目</span>
+        <span>標</span>
+        <span>を</span>
+        <span>決</span>
+        <span>め</span>
+        <span>よ</span>
+        <span>う</span>
+      </p>
+      <br>
+      <br>
+      <p>節約の目標とその金額を設定できます。</p>
+      <p>目標を持つことで、モチベーション維持を保つことができます！</p>
+      <p>目標に向かって節約を頑張りましょう。</p>
+      <br>
+      <br>
+      <br>
+      <%= image_tag 'target_sample.png', class: 'img-fluid mx-auto d-block', style: 'max-width: 100%;' %>
     </div>
   </div>
-  <div class="container px-5 py-24">
-    <h1 class="display font-weight-bold text-center text-gray-900 mb-5"><%= t('.how-to-use')%></h1>
-    <div class="row">
-      <div class="col-md-4 col-12 mb-4 d-flex">
-        <div class="w-12 h-12 d-inline-flex align-items-center justify-content-center rounded-circle bg-warning text-warning mb-4 flex-shrink-0">
-          <i class="bi bi-share h-6 w-6"></i>
-        </div>
-        <div class="flex-grow-1 pl-3">
-          <h2 class="h4 font-weight-bold mb-2">目標を立てよう</h2>
-            <div class="box2">
-              <p class="lead">どのくらい節約したいか具体的な目標を持つことでモチベーション維持につながるよ！</p>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-12 mb-4 d-flex">
-        <div class="w-12 h-12 d-inline-flex align-items-center justify-content-center rounded-circle bg-warning text-warning mb-4 flex-shrink-0">
-          <i class="bi bi-tv h-6 w-6"></i>
-        </div>
-        <div class="flex-grow-1 pl-3">
-          <h2 class="h4 font-weight-bold mb-2">毎日記録しよう</h2>
-            <div class="box2">
-              <p class="lead">毎日記録することで、どのくらい節約できたかわかるよ</p>
-              <p class="lead">記録は、1日に一回チェックするだけ！</p>
-            </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-12 mb-4 d-flex">
-        <div class="w-12 h-12 d-inline-flex align-items-center justify-content-center rounded-circle bg-warning text-warning mb-4 flex-shrink-0">
-          <i class="bi bi-geo-alt h-6 w-6"></i>
-        </div>
-        <div class="flex-grow-1 pl-3">
-          <h2 class="h4 font-weight-bold mb-2">あなたの節約術を共有しよう</h2>
-            <div class="box2">
-              <p class="lead">節約術を発見しよう</p>
-              <p class="lead">他のユーザーの節約術を実践してみよう！</p>
-            </div>
-        </div>
-      </div>
-    </div>
+    <div class="text-center mt-5">
+      <p class="word">
+        <span>節</span>
+        <span>約</span>
+        <span>ラ</span>
+        <span>イ</span>
+        <span>フ</span>
+        <span>を</span>
+        <span>楽</span>
+        <span>し</span>
+        <span>も</span>
+        <span>う</span>
+      </p>
   </div>
-  <div class="top-bootom center-block bg-light">
-    <div class="mt-3 py-5">
-      <div class="col-lg-6 offset-lg-3">
-        <h3 class="text-center mb-4 border-bottom pb-3">友達追加</h3>
-        <br>
-        <p class="text-center mb-4">友達追加をすると毎日決まった時間に節約のお手伝いをする通知を発信します！</p>
-        <div class="text-center mb-3">
-        <a href="https://lin.ee/YGnyorU"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
-      </div>
+    <div class="text-center mt-5">
+      <%= button_to (t 'defaults.login'), user_session_path, method: :get, class: 'btn-large' %>
+  </div>
+</div>
+<br>
+<section class="top-bootom center-block bg-light">
+  <div class="mt-3 py-5">
+    <div class="col-lg-6 offset-lg-3">
+      <h3 class="text-center mb-4 border-bottom pb-3">友達追加</h3>
+      <br>
+      <p class="text-center mb-4">友達追加をすると毎日決まった時間に節約のお手伝いをする通知を発信します！</p>
+      <div class="text-center mb-3">
+      <a href="https://lin.ee/YGnyorU"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
     </div>
   </div>
 </section> 
