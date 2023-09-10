@@ -3,7 +3,16 @@
   <h1 class="display font-weight-bold text-center text-gray-1000 mb-5"><%= t('.how-to-use')%></h1>
   <div class="row">
     <div class="text-center">
-      <h2 class="font-weight-bold mb-2">毎日記録をつけよう</h2>
+      <p class="word">
+        <span>毎</span>
+        <span>日</span>
+        <span>記</span>
+        <span>録</span>
+        <span>を</span>
+        <span>し</span>
+        <span>よ</span>
+        <span>う</span>
+      </p>
       <br>
       <br>
       <p>記録はデフォルトで4項目設定されています。</p>
@@ -15,7 +24,17 @@
       <%= image_tag 'record_sample.jpeg', class: 'img-fluid mx-auto d-block', style: 'max-width: 100%;' %>
     </div>
     <div class="text-center mt-5">
-      <h2 class="font-weight-bold mt-5">節約術を共有しよう</h2>
+      <p class="word">
+        <span>節</span>
+        <span>約</span>
+        <span>術</span>
+        <span>を</span>
+        <span>共</span>
+        <span>有</span>
+        <span>し</span>
+        <span>よ</span>
+        <span>う</span>
+      </p>
       <br>
       <br>
       <p>ちりつも節約には投稿機能があります。</p>
@@ -28,7 +47,15 @@
       <%= image_tag 'post_sample.png', class: 'img-fluid mx-auto d-block', style: 'max-width: 100%;' %>
     </div>
     <div class="text-center mt-5">
-      <h2 class="font-weight-bold mt-5">目標を決めよう</h2>
+      <p class="word">
+        <span>目</span>
+        <span>標</span>
+        <span>を</span>
+        <span>決</span>
+        <span>め</span>
+        <span>よ</span>
+        <span>う</span>
+      </p>
       <br>
       <br>
       <p>節約の目標とその金額を設定できます。</p>
@@ -41,7 +68,21 @@
     </div>
   </div>
     <div class="text-center mt-5">
-      <h2 class="font-weight-bold mt-5">節約ライフを楽しもう！</h2>
+      <p class="word">
+        <span>節</span>
+        <span>約</span>
+        <span>ラ</span>
+        <span>イ</span>
+        <span>フ</span>
+        <span>を</span>
+        <span>楽</span>
+        <span>し</span>
+        <span>も</span>
+        <span>う</span>
+      </p>
+  </div>
+    <div class="text-center mt-5">
+      <%= button_to (t 'defaults.login'), user_session_path, method: :get, class: 'btn-large' %>
   </div>
 </div>
 <br>
