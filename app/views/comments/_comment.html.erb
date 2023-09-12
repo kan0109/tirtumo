@@ -3,7 +3,10 @@
     <%= image_tag comment.user.avatar_url, class: 'rounded-circle', size: '50x50' %>
   </td>
   <td>
-    <h3 class="small"><%= comment.user.decorate.name %></h3>
+    <% user = comment.user %>
+      <%= link_to user_path(user), class: "edit-link" do %>
+        <h3 class="small"><%= user.decorate.name %></h3>
+      <% end %>
     <div id="js-comment-<%= comment.id %>">
       <%= simple_format(comment.content) %>
     </div>
