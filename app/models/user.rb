@@ -95,6 +95,29 @@ class User < ApplicationRecord
     total_savings
   end
 
+  def savings_category_and_image
+    total_savings = calculate_savings(records)
+
+    if total_savings.between?(0, 3000)
+      category = '節約駆け出し'
+      image = 'avatar1.png'
+    elsif total_savings.between?(3001, 7000)
+      category = '節約ハンター'
+      image = 'avatar2.png'
+    elsif total_savings.between?(7001, 10000)
+      category = '節約探検家'
+      image = 'avatar3.png'
+    elsif total_savings.between?(10001, 15000)
+      category = '節約キング'
+      image = 'avatar4.png'
+    else
+      category = '節約マスター'
+      image = 'avatar5.png'
+    end
+
+    { category: category, image: image }
+  end
+
   def item_prices
     SharedConstants::ITEM_PRICES
   end
