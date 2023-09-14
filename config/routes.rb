@@ -6,6 +6,18 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+  namespace :admin do
+    devise_scope :user do
+      get 'login', to: 'sessions#new'
+      post 'login', to: 'sessions#create'
+      delete 'logout', to: 'sessions#destroy'
+    end
+    root to: 'dashboards#index'
+    resources :users, only: %i[index show edit update destroy]
+    resources :posts, only: %i[index show edit update destroy]
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
