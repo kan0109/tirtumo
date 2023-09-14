@@ -1,0 +1,30 @@
+<tr>
+  <td>
+    <% if user.avatar.url.present? %>
+      <%= image_tag user.avatar.url, class: 'rounded-circle', size: '60x60' %>
+    <% else %>
+      <%= image_tag 'sample.jpg', class: 'rounded-circle', size: '60x60'%>
+    <% end %>
+  </td>
+  <td>
+    <%= user.decorate.name %>
+  </td>
+  <td>
+    <%= user.email %>
+  </td>
+  <td>
+    <%= user.role %>
+  </td>
+  <td>
+    <%= link_to t('defaults.show'), admin_user_path(user), class: 'btn btn-info' %>
+    <%= link_to t('defaults.edit'), edit_admin_user_path(user), class: 'btn btn-success' %>
+    <%= link_to 'Delete', admin_user_path(user),class: 'btn btn-danger', 
+        data: {
+                turbo_method: :delete,
+                turbo_confirm: t('defaults.message.delete_confirm', item: User.model_name.human)
+                
+              },
+        remote: true
+        %>
+  </td>
+</tr>
