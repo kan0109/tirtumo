@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 20 }
 
+  enum role: { general: 0, admin: 1 }
+
   attr_accessor :rank, :rank_value, :monthly_rank, :monthly_rank_value
 
   def social_profile(provider)
