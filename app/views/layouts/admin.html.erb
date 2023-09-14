@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsProject</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= turbo_include_tags %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+  <body>
+    <%= render 'admin/layouts/header' %>
+    <main class="py-10">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <%= yield %>
+      </div>
+    </main>
+    <%= render 'admin/layouts/footer' %>
+    <%= turbo_frame_tag 'modal' %>
+  </body>
+  <script></script>
+</html>
