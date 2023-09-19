@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.includes(:records).all.sort_by { |user| user.result[:total_savings] }.reverse
+    @users = User.includes(:records).where.not(name: 'admin').all.sort_by { |user| user.result[:total_savings] }.reverse
     assign_ranks
     @users = Kaminari.paginate_array(@users).page(params[:page]).per(10)
   end
