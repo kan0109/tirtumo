@@ -1,0 +1,20 @@
+<tr>
+  <td>
+    <%= post.user.decorate.name %>
+  </td>
+  <td>
+    <%= post.title %>
+  </td>
+  <td>
+    <%= link_to t('defaults.show'), admin_post_path(post), class: 'btn btn-info' %>
+    <%= link_to t('defaults.edit'), edit_admin_post_path(post), class: 'btn btn-success' %>
+    <%= link_to t('defaults.delete'), admin_post_path(post),class: 'btn btn-danger', 
+        data: {
+                turbo_method: :delete,
+                turbo_confirm: t('defaults.message.delete_confirm', item:Post.model_name.human)
+                
+              },
+        remote: true
+        %>
+  </td>
+</tr>

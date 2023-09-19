@@ -1,0 +1,32 @@
+<div class="login-box">
+  <div class="login-logo">
+    <h1><%= t('.title') %></h1>
+  </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.label :email, User.human_attribute_name(:email) %>
+      <div class="input-group mb-3">
+        <%= f. email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: :email %>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-envelope"></span>
+          </div>
+        </div>
+      </div>
+
+      <%= f.label :password, User.human_attribute_name(:password) %>
+      <div class="input-group mb-3">
+        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: :password %>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <%= f.submit (t 'defaults.login'), class: 'btn btn-block btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+</div>

@@ -101,6 +101,13 @@
           <p><%= t('.total_savings') %><%= @savings %>円</p>
       </div>
     <% end %>
+      <div class="savings-category">
+        <% category_and_image = current_user.savings_category_and_image %>
+        <img src="<%= asset_path(category_and_image[:image]) %>" alt="<%= category_and_image[:category] %>">
+        <br>
+        <br>
+        <p><%= category_and_image[:category] %></p>
+      </div>
       <div class="item">
         <% if @show_record_form && @savings_items.empty? %>
           <!-- 節約項目作成のリンクを表示 -->
