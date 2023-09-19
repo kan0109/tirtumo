@@ -15,6 +15,7 @@ ja:
         password_confirmation: 'パスワード確認'
         name: '名前'
         avatar: 'アバター'
+        role: '役割'
       post:
         title: '節約タイトル'
         content: '節約内容'

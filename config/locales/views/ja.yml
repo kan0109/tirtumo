@@ -5,7 +5,7 @@ ja:
     logout: 'ログアウト'
     post: '新規投稿'
     posts: '投稿一覧'
-    detail: '詳細'
+    show: '詳細'
     delete: '削除'
     edit: '編集'
     record: '記録'
@@ -34,6 +34,7 @@ ja:
       most_liked: "いいね順に並び替えました"
       target_money_achievement: 'おめでとうございます！目標金額達成しました。'
       created_savings_items: '節約項目を作成しました'
+      delete_confirm: "%{item}を削除しますか？"
 
   top:
     index:
@@ -114,4 +115,15 @@ ja:
       title: '節約項目作成'
     edit:
       title: '節約項目編集'
+  admin:
+    users:
+      index:
+        title: 'ユーザー一覧'
+    posts:
+      index:
+        title: '投稿一覧'
+      edit:
+        title: '投稿編集'
+
+
 
