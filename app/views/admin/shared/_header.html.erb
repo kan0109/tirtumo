@@ -12,6 +12,13 @@
         <li class="nav-item">
           <%= link_to "投稿一覧", admin_posts_path, class: "nav-link active", aria: { current: "page" } %>
         </li>
+        <% if current_user %>
+          <li class="nav-item">
+            <%= link_to 'ログアウト', admin_logout_path, 
+                  class: "nav-link active",
+                  data: {turbo_method: :delete } %>
+          </li>
+        <% end %>
     </div>
   </div>
 </nav>
