@@ -116,6 +116,9 @@ ja:
     edit:
       title: '節約項目編集'
   admin:
+    sessions:
+      new:
+        title: 'ログイン'
     users:
       index:
         title: 'ユーザー一覧'
