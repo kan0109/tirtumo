@@ -103,13 +103,13 @@ class User < ApplicationRecord
     if total_savings.between?(0, 3000)
       category = '節約駆け出し'
       image = 'avatar1.png'
-    elsif total_savings.between?(3001, 7000)
+    elsif total_savings.between?(3001, 8000)
       category = '節約ハンター'
       image = 'avatar2.png'
-    elsif total_savings.between?(7001, 10000)
+    elsif total_savings.between?(8001, 13000)
       category = '節約探検家'
       image = 'avatar3.png'
-    elsif total_savings.between?(10001, 15000)
+    elsif total_savings.between?(13001, 17000)
       category = '節約キング'
       image = 'avatar4.png'
     else
